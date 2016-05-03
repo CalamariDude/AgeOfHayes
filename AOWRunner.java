@@ -9,9 +9,10 @@ public class AOWRunner {
 
     public AOWRunner(){
 
-    }
+//hi im matt
 
-    //commented code
+
+    }
     void Create(String name)
     {
         AOWInfantry clubMan = new AOWInfantry(25, 5, 1, 0, 75, 60, 50, 80 );
@@ -33,6 +34,9 @@ public class AOWRunner {
         AOWInfantry blaster = new AOWInfantry(130, 4, 200, 3, 300, 200, 120, 220);
         AOWInfantry HayesWrath = new AOWInfantry(300, 3, 100, 3, 1500, 300, 275, 330);
         AOWTurrets plasmaCannon = new AOWTurrets(75, 4, 300, 3, 1000);
+
+
+
 
     }
 }
