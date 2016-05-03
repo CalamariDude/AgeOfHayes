@@ -1,7 +1,9 @@
+import java.io.File;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class AOWTurrets extends AOWUnit {
-    int range, attackSpeed, attackDamage, tier, cost;
+    int range, attackSpeed, attackDamage, tier, cost, speed;
 
     public AOWTurrets(int attackDamage, int attackSpeed, int range, int tier, int cost, ArrayList<File> animations) {
         this.tier = tier;

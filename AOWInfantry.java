@@ -56,7 +56,12 @@ public class AOWInfantry extends AOWUnit
 		return tier;
 	}
 
-	@Override
+    @Override
+    public void Buy(int cashgiven) {
+
+    }
+
+
 	public void Buy(int cost, AOWBase base) {
 	//	if(base.getMoney() >  cost)
 
