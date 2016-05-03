@@ -14,6 +14,8 @@ public class AOWRunner {
 
 
     }
+
+    //commented code
     void Create(String name)
     {
         AOWInfantry clubMan = new AOWInfantry(25, 5, 1, 0, 75, 60, 50, 80 );
