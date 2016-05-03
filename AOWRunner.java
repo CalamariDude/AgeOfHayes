@@ -9,10 +9,6 @@ public class AOWRunner {
 
     public AOWRunner(){
 
-
-
-
-
     }
 
     //commented code
@@ -37,9 +33,6 @@ public class AOWRunner {
         AOWInfantry blaster = new AOWInfantry(130, 4, 200, 3, 300, 200, 120, 220);
         AOWInfantry HayesWrath = new AOWInfantry(300, 3, 100, 3, 1500, 300, 275, 330);
         AOWTurrets plasmaCannon = new AOWTurrets(75, 4, 300, 3, 1000);
-
-
-
 
     }
 }
