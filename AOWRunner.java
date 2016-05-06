@@ -124,14 +124,14 @@ public class AOWRunner extends JPanel implements ActionListener{
         MouseListener d = new MouseListener() {
 
             public void mouseClicked(MouseEvent e) {
-                System.out.println("mouseClicked at (" + e.getX() + ", " + e.getY() + ")");
+
 
 
             }
 
 
             public void mousePressed(MouseEvent e) {
-
+                System.out.println("mouseClicked at (" + e.getX() + ", " + e.getY() + ")");
             }
 
 
