@@ -1,5 +1,6 @@
 import java.applet.Applet;
 import java.awt.*;
+import java.io.IOException;
 import java.util.Scanner;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -11,7 +12,12 @@ public class AgeOfWar
 
         JFrame frame = new JFrame("Age of Hayes");
 //	frame.update(Graphics g);
-        AOWRunner game = new AOWRunner();
+        AOWRunner game = null;
+        try {
+            game = new AOWRunner();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
 
 //	frame.setIconImage(Image b);
@@ -22,7 +28,11 @@ public class AgeOfWar
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 
-        AOWRunner runner = new AOWRunner();
+        try {
+            AOWRunner runner = new AOWRunner();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         AOWBase base1 = new AOWBase(500, 500);
         AOWBase base2 = new AOWBase(500, 500);
@@ -33,15 +43,11 @@ public class AgeOfWar
         while (base1.getHealth() >= 0 && base2.getHealth() >= 0)
         {
 
+
             game.move();
             game.repaint();
 
-            Thread.sleep(10);
-
-
-
-
-
+            Thread.sleep(1000);
 
         }
 

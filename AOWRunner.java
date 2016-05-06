@@ -18,8 +18,10 @@ public class AOWRunner extends JPanel implements ActionListener{
     ArrayList<AOWTurrets> turretsOF;
     JLabel label;
     BufferedImage image;
+
     int x;
     int y;
+    Image im;
     //Units
     AOWInfantry clubMan;
     AOWInfantry slinger;
@@ -45,9 +47,13 @@ public class AOWRunner extends JPanel implements ActionListener{
     Timer timer = new Timer(5, this);
 
 
-    public AOWRunner() {
+    public AOWRunner() throws IOException{
         x=50;
         y=50;
+
+
+        im = ImageIO.read(new File("C:\\Users\\Jad\\Pictures\\For sandisk\\Front.png"));
+
 
 
 
@@ -165,6 +171,13 @@ public class AOWRunner extends JPanel implements ActionListener{
         //			RenderingHints.VALUE_ANTIALIAS_ON);
 
         g2d.fillOval(x, y, 50, 50);
+        g2d.drawImage(im,100,100,this);
+
+    }
+
+    public void setter(Image im){
+
+
 
     }
 
@@ -240,8 +253,8 @@ public class AOWRunner extends JPanel implements ActionListener{
 
     public void move()
     {
-        this.x = this.x + 1;
-        this.y = this.y + 1;
+        this.x = this.x + 5;
+        this.y = this.y + 0;
     }
 
 //    public void Create(AOWTurret name)
