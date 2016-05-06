@@ -52,17 +52,17 @@ public class AOWRunner extends JPanel implements ActionListener{
         y=50;
 
 
-        im = ImageIO.read(new File("C:\\Users\\Jad\\Pictures\\For sandisk\\Front.png"));
+        im = ImageIO.read(new File("C:\\Users\\matthew\\Pictures\\milky way.jpg"));
 
 
 
 
 
 
-        ArrayList<AOWInfantry> infantries = new ArrayList<>();
-        ArrayList<AOWTurrets> turrets= new ArrayList<>();
-        ArrayList<AOWInfantry> infantriesOF = new ArrayList<>();
-        ArrayList<AOWTurrets> turretsOF = new ArrayList<>();
+        infantries = new ArrayList<>();
+        turrets= new ArrayList<>();
+        infantriesOF = new ArrayList<>();
+        turretsOF = new ArrayList<>();
 
 
 

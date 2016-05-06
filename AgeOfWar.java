@@ -23,7 +23,7 @@ public class AgeOfWar
 //	frame.setIconImage(Image b);
         //AOWRunner game = new AOWRunner();
         frame.add(game);
-        frame.setSize(1300, 700);
+        frame.setSize(1920, 1080);
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
