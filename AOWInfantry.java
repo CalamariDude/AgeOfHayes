@@ -3,7 +3,7 @@ import java.util.ArrayList;
 
 public class AOWInfantry extends AOWUnit
 {
-	protected int attackDamage,attackSpeed,range,tier, health, cost, xpGiver, goldGiver;
+	protected int attackDamage,attackSpeed,range,tier, health, cost, xpGiver, goldGiver,x, frame;
     ArrayList<File> walkAnimations;
     ArrayList<File> hitAnimations;
 	//attack damage - takes out set number of health
@@ -26,6 +26,8 @@ public class AOWInfantry extends AOWUnit
 		this.goldGiver = goldGiver;
         this.walkAnimations = walkAnimations;
         this.hitAnimations = hitAnimations;
+		x=100;
+		frame = -1;
 
 	}
         //copy constructor
@@ -40,8 +42,14 @@ public class AOWInfantry extends AOWUnit
         this.goldGiver = infant.goldGiver;
         this.walkAnimations = infant.walkAnimations;
         this.hitAnimations = infant.hitAnimations;
+		x=100;
+		frame = -1;
 
     }
+
+	public int getX() {
+		return x;
+	}
 
 
 
@@ -64,6 +72,9 @@ public class AOWInfantry extends AOWUnit
 	@Override
 	public int getRange() {
 		return range;
+	}
+	public int getRangeE(){
+		return (-1*range);
 	}
 
 	@Override
@@ -129,4 +140,25 @@ public class AOWInfantry extends AOWUnit
 	public void setGoldGiver(int goldGiver) {
 		this.goldGiver = goldGiver;
 	}
+
+	public void move()
+	{
+		x +=3;
+		frame++;
+		if(frame>2)
+			frame=0;
+
+
+	}
+
+	public int getFrame() {
+		return frame;
+	}
+
+
+
+	public void moveE(){
+		x-=3;
+	}
+
 }

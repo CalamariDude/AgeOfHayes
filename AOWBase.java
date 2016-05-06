@@ -1,14 +1,15 @@
 
 public class AOWBase {
 
-    public int health, tier, money, xp;
+    public int health, tier, money, xp, x;
 
 
-    public AOWBase(int health, int money){
+    public AOWBase(int health, int money, int x){
         this.health = health;
         tier = 0;
         this.money = money;
         xp = 0;
+        this.x = x;
     }
 
     public int getMoney()
@@ -49,6 +50,11 @@ public class AOWBase {
     public void incTier()
     {
         tier = tier + 1;
+    }
+
+    public int getX()
+    {
+        return x;
     }
 
 }

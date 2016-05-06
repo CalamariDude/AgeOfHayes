@@ -14,8 +14,13 @@ import javax.swing.*;
 public class AOWRunner extends JPanel implements ActionListener{
     ArrayList<AOWInfantry> infantries;
     ArrayList<AOWTurrets> turrets;
-    ArrayList<AOWInfantry> infantriesOF;
-    ArrayList<AOWTurrets> turretsOF;
+    static ArrayList<AOWInfantry> infantriesOFFriendly;
+    static ArrayList<AOWTurrets> turretsOFFriendly;
+    static ArrayList<AOWInfantry> infantriesOFEnemy;
+    static ArrayList<AOWInfantry> turretsOFEnemy;
+    
+    
+    
     JLabel label;
     BufferedImage image;
 
@@ -52,7 +57,7 @@ public class AOWRunner extends JPanel implements ActionListener{
         y=50;
 
 
-        im = ImageIO.read(new File("C:\\Users\\matthew\\Pictures\\milky way.jpg"));
+        im = ImageIO.read(new File("C:\\Users\\matthew\\Pictures\\Prehistoric.jpg"));
 
 
 
@@ -61,8 +66,11 @@ public class AOWRunner extends JPanel implements ActionListener{
 
         infantries = new ArrayList<>();
         turrets= new ArrayList<>();
-        infantriesOF = new ArrayList<>();
-        turretsOF = new ArrayList<>();
+        infantriesOFFriendly = new ArrayList();
+        turretsOFFriendly = new ArrayList();
+        infantriesOFEnemy = new ArrayList();
+        turretsOFEnemy = new ArrayList();
+
 
 
 
@@ -131,6 +139,10 @@ public class AOWRunner extends JPanel implements ActionListener{
 
 
             public void mousePressed(MouseEvent e) {
+            /*if (e.getX() < 100 && e.getY() < 100)
+                {
+                    repaint();
+                }*/
                 System.out.println("mouseClicked at (" + e.getX() + ", " + e.getY() + ")");
             }
 
@@ -170,8 +182,9 @@ public class AOWRunner extends JPanel implements ActionListener{
 //		g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
         //			RenderingHints.VALUE_ANTIALIAS_ON);
 
-        g2d.fillOval(x, y, 50, 50);
-        g2d.drawImage(im,100,100,this);
+        //g2d.fillOval(x, y, 50, 50);
+        //make loop for infrantry
+        g2d.drawImage(im,0,0,this);
 
     }
 
@@ -192,15 +205,15 @@ public class AOWRunner extends JPanel implements ActionListener{
         {
             if (number == 1)
             {
-                infantriesOF.add(0,clubMan);
+                infantriesOFFriendly.add(0,clubMan);
             }
             else if (number == 2)
             {
-                infantriesOF.add(0, slinger);
+                infantriesOFFriendly.add(0, slinger);
             }
             else if (number == 3)
             {
-                infantriesOF.add(0, dinoRider);
+                infantriesOFFriendly.add(0, dinoRider);
             }
 
         }
@@ -208,14 +221,14 @@ public class AOWRunner extends JPanel implements ActionListener{
         else if (tier == 2)
         {
             if (number ==1)
-                infantriesOF.add(0, swordsMan);
+                infantriesOFFriendly.add(0, swordsMan);
 
 
             else if (number ==2)
-                infantriesOF.add(0, archer);
+                infantriesOFFriendly.add(0, archer);
 
             else if(number ==3)
-                infantriesOF.add(0, knight);
+                infantriesOFFriendly.add(0, knight);
 
         }
 
@@ -224,25 +237,25 @@ public class AOWRunner extends JPanel implements ActionListener{
         else if (tier == 3)
         {
             if(number ==1)
-                infantriesOF.add(0, soldier);
+                infantriesOFFriendly.add(0, soldier);
 
             else if(number ==2)
-                infantriesOF.add(0, sniper);
+                infantriesOFFriendly.add(0, sniper);
 
             else if(number ==3)
-                infantriesOF.add(0, tank);
+                infantriesOFFriendly.add(0, tank);
 
         }
         else if (tier ==4)
         {
             if(number ==1)
-                infantriesOF.add(0, blader);
+                infantriesOFFriendly.add(0, blader);
 
             else if(number ==2)
-                infantriesOF.add(0, blaster);
+                infantriesOFFriendly.add(0, blaster);
 
             else if(number ==3)
-                infantriesOF.add(0, HayesWrath);
+                infantriesOFFriendly.add(0, HayesWrath);
 
 
         }
@@ -274,4 +287,14 @@ public class AOWRunner extends JPanel implements ActionListener{
     public void actionPerformed(ActionEvent e) {
 
     }
+
+
+    public static int numberOfInfantries()
+    {
+        return infantriesOFFriendly.size();
+
+    }
+
+
+
 }
