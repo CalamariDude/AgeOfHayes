@@ -33,7 +33,7 @@ import java.applet.Applet; import java.awt.*; import java.awt.event.MouseEvent; 
                             }
 
                             //check if possible to (attack) base
-                            else if (tempF.getX() + tempF.getRange() > baseE.getX())
+                            else if (tempF.getX() + tempF.range() > baseE.getX())
                             {
                                 //tempF.attack();
                             }
