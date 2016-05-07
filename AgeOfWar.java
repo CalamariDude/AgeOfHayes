@@ -36,7 +36,7 @@ import java.applet.Applet; import java.awt.*; import java.awt.event.MouseEvent; 
                                 }
 
                                 //check if possible to (move)
-                                else if (tempF.getX() + 5 >= tempE.getX())
+                                else if (tempF.getX() + 5 <= tempE.getX())
                                 {
                                     tempF.move();
                                 }
@@ -65,7 +65,7 @@ import java.applet.Applet; import java.awt.*; import java.awt.event.MouseEvent; 
                     //---------------------------------------------------------------------------
 
                     //first friendly infantry w/o enemy on field
-                    if(i == 0)
+                    else if(i == 0)
                     {
                             //check if possible to (attack) base
                             if (tempF.getX() + tempF.getRange() > baseE.getX())
@@ -82,7 +82,7 @@ import java.applet.Applet; import java.awt.*; import java.awt.event.MouseEvent; 
                     } // end of actions for first infantry
 
                     //friendly infantries other than first w/o enemy on field
-                    if(i != 0)
+                    else if(i != 0)
                     {
                             //determines whether to (move) based on distance between
                             //currently friendly infantry and friendly infantry in front
@@ -105,7 +105,7 @@ import java.applet.Applet; import java.awt.*; import java.awt.event.MouseEvent; 
             } // end of loop through all infantries
 
             /*
-                //checks enemy infrantry on field
+                //checks enemy infantry on field
                 if(i < AOWRunner.infantriesOFEnemy.size() ){
 
                     tempE = AOWRunner.infantriesOFEnemy.get(i);
