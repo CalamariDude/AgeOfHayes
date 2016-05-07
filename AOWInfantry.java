@@ -1,11 +1,12 @@
+import java.awt.*;
 import java.io.File;
 import java.util.ArrayList;
 
 public class AOWInfantry extends AOWUnit
 {
 	protected int attackDamage,attackSpeed,range,tier, health, cost, xpGiver, goldGiver,x, frame;
-    ArrayList<File> walkAnimations;
-    ArrayList<File> hitAnimations;
+    ArrayList<Image> walkAnimations;
+
 
 	//attack damage - takes out set number of health
 	//attack speed - number of attacks every 10 seconds
@@ -15,7 +16,7 @@ public class AOWInfantry extends AOWUnit
 	//cost - amount of gold to buy infantry
 	//xpGiver - gives the other player a set amount of experience based upon type of unit killed
 	//goldGiver- gives the other player a set amount of gold based up type of unit killed
-	public AOWInfantry(int attackDamage, int attackSpeed, int range, int tier, int health, int cost, int xpGiver,int goldGiver, int spawn/*, ArrayList<File> walkAnimations, ArrayList<File> hitAnimations*/){
+	public AOWInfantry(int attackDamage, int attackSpeed, int range, int tier, int health, int cost, int xpGiver,int goldGiver, int spawn, ArrayList<Image> walkAnimations){
 		this.attackDamage = attackDamage;
 		this.attackSpeed = attackSpeed;
 		this.range = range;
@@ -25,7 +26,7 @@ public class AOWInfantry extends AOWUnit
 		this.xpGiver = xpGiver;
 		this.goldGiver = goldGiver;
         this.walkAnimations = walkAnimations;
-        this.hitAnimations = hitAnimations;
+
 		x = spawn;
 		frame = -1;
 
@@ -41,7 +42,7 @@ public class AOWInfantry extends AOWUnit
         this.xpGiver = infant.xpGiver;
         this.goldGiver = infant.goldGiver;
         this.walkAnimations = infant.walkAnimations;
-        this.hitAnimations = infant.hitAnimations;
+
 		x=100;
 		frame = -1;
 
@@ -113,6 +114,11 @@ public class AOWInfantry extends AOWUnit
 		this.attackSpeed = speed;
 	}
 
+	public ArrayList<Image> getWalkAnimations(){
+
+		return walkAnimations;
+	}
+
 	public int getHealth() {
 		return health;
 	}
@@ -156,9 +162,29 @@ public class AOWInfantry extends AOWUnit
 	}
 
 
+	public void attack(AOWInfantry matthew){
+		if(frame<3)
+			frame=3;
+		matthew.setHealth(matthew.getHealth()-this.getAttackDamage()/3);
+
+		if(frame >5)
+			frame = 3;
+		frame++;
+	}
+
+	public void attack(AOWBase matthew){
+		if(frame<3)
+			frame=3;
+		matthew.setHealth(matthew.getHealth()-this.getAttackDamage()/3);
+
+		frame++;
+	}
+
+
 
 	public void moveE()
 	{
+
 		x-=3;
 		frame++;
 		if(frame > 2)

@@ -70,6 +70,17 @@ public class AOWRunner extends JPanel implements ActionListener{
         clubManMove2 = ImageIO.read(new File("C:\\Users\\matthew\\IdeaProjects\\AgeOfHayes\\Pictures\\Tier 1\\clubManMove2.jpg"));
         clubManMove3 = ImageIO.read(new File("C:\\Users\\matthew\\IdeaProjects\\AgeOfHayes\\Pictures\\Tier 1\\clubManMove3.jpg"));
 
+        ArrayList<Image> clubarray  =new ArrayList();
+        clubarray.add(clubManMove1);
+        clubarray.add(clubManMove2);
+        clubarray.add(clubManMove3);
+        clubarray.add(clubManMove3);
+        clubarray.add(clubManMove2);
+        clubarray.add(clubManMove1);
+
+
+
+
 
 
         infantries = new ArrayList();
@@ -91,7 +102,8 @@ public class AOWRunner extends JPanel implements ActionListener{
         //xpGiver - gives the other player a set amount of experience based upon type of unit killed
         //goldGiver- gives the other player a set amount of gold based up type of unit killed
 
-        clubMan = new AOWInfantry(25, 5, 1, 0, 75, 60, 50, 80, 100 );
+        clubMan = new AOWInfantry(25, 5, 50, 0, 75, 60, 50, 80, 100, clubarray );
+        /*
         slinger = new AOWInfantry(20, 4, 200, 0, 40, 60, 50, 80, 100);
         dinoRider = new AOWInfantry(40, 3, 100, 0, 125, 90, 70, 110, 100);
         eggPault = new AOWTurrets(10, 4, 300, 0, 150);
@@ -110,8 +122,8 @@ public class AOWRunner extends JPanel implements ActionListener{
         blaster = new AOWInfantry(130, 4, 200, 3, 300, 200, 120, 220, 100);
         HayesWrath = new AOWInfantry(300, 3, 100, 3, 1500, 300, 275, 330, 100);
         plasmaCannon = new AOWTurrets(75, 4, 300, 3, 1000);
-
-        clubManE = new AOWInfantry(25, 5, 1, 0, 75, 60, 50, 80, 1000);
+*/
+        clubManE = new AOWInfantry(25, 5, 1, 0, 75, 60, 50, 80, 150, clubarray);
 
 
         infantries.add(clubMan);
@@ -206,9 +218,10 @@ public class AOWRunner extends JPanel implements ActionListener{
         for(int i = 0; i < 10; i++)
         {
 
-            g2d.drawImage(clubManMove1, infantriesOFFriendly.get(0).getX(), 800, this);
 
-            g2d.drawImage(clubManMove1, infantriesOFEnemy.get(0).getX(), 800, this);
+            g2d.drawImage(clubMan.getWalkAnimations().get(clubMan.getFrame()), infantriesOFFriendly.get(0).getX(), 800, this);
+
+            g2d.drawImage(clubManE.getWalkAnimations().get(clubMan.getFrame()), infantriesOFEnemy.get(0).getX(), 800, this);
         }
 
 

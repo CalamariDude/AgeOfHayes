@@ -74,11 +74,11 @@ public class AgeOfWar
                             //check if possible to (attack) enemy
                             if (tempF.getX() + tempF.getRange() > tempE.getX())
                             {
-                                //tempF.attack();
+                                tempF.attack(tempE);
                             }
 
                             //check if possible to (move)
-                            else if (tempF.getX() + 5 <= tempE.getX())
+                            else if (tempF.getX() + 48 <= tempE.getX())
                             {
                                 tempF.move();
                             }
@@ -98,7 +98,7 @@ public class AgeOfWar
                             //checks whether possible to (attack) enemy infantry
                             else if (tempF.getRange() + tempF.getX() > tempE.getX())
                             {
-                                //tempF.attack();
+                                tempF.attack(tempE);
                             }
                         }
 
@@ -112,7 +112,7 @@ public class AgeOfWar
                         //check if possible to (attack) base
                         if (tempF.getX() + tempF.getRange() > baseE.getX())
                         {
-                            //tempF.attack();
+                            tempF.attack(baseE);
                         }
 
                         //will (move) if cannot perform any other action
@@ -136,7 +136,7 @@ public class AgeOfWar
                         //check if possible to (attack) base
                         else if (tempF.getX() + tempF.getRange() > baseE.getX())
                         {
-                            //tempF.attack();
+                            tempF.attack(baseE);
                         }
 
                     } // end of actions for infantries other than first
@@ -168,11 +168,11 @@ public class AgeOfWar
                             //check if possible to (attack) friendly
                             if (tempF.getX() - tempF.getRange() < tempE.getX())
                             {
-                                //tempF.attack();
+                                tempF.attack(tempE);
                             }
 
                             //check if possible to (move)
-                            else if (tempF.getX() - 5 >= tempE.getX())
+                            else if (tempF.getX() - 48 >= tempE.getX())
                             {
                                 tempF.moveE();
                             }
@@ -192,7 +192,7 @@ public class AgeOfWar
                             //checks whether possible to (attack) friendly infantry
                             else if (tempF.getX() - tempF.getRange()  < tempE.getX())
                             {
-                                //tempF.attack();
+                                tempF.attack(tempE);
                             }
                         }
 
@@ -206,7 +206,7 @@ public class AgeOfWar
                         //check if possible to (attack) base
                         if (tempF.getX() - tempF.getRange() < baseE.getX())
                         {
-                            //tempF.attack();
+                            tempF.attack(baseE);
                         }
 
                         //will (move) if cannot perform any other action
@@ -230,7 +230,7 @@ public class AgeOfWar
                         //check if possible to (attack) base
                         else if (tempF.getX() - tempF.getRange() < baseE.getX())
                         {
-                            //tempF.attack();
+                            tempF.attack(baseE);
                         }
 
                     } // end of actions for infantries other than first
