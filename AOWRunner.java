@@ -123,7 +123,7 @@ public class AOWRunner extends JPanel implements ActionListener{
         HayesWrath = new AOWInfantry(300, 3, 100, 3, 1500, 300, 275, 330, 100);
         plasmaCannon = new AOWTurrets(75, 4, 300, 3, 1000);
 */
-        clubManE = new AOWInfantry(25, 5, 1, 0, 75, 60, 50, 80, 150, clubarray);
+        clubManE = new AOWInfantry(25, 5, 1, 0, 75, 60, 50, 80, 300, clubarray);
 
 
         infantries.add(clubMan);

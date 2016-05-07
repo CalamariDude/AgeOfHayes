@@ -247,7 +247,7 @@ public class AgeOfWar
 
             game.repaint();
 
-            Thread.sleep(100);
+            Thread.sleep(1000);
 
         }// end of game while loop
 

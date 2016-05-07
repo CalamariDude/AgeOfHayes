@@ -164,12 +164,14 @@ public class AOWInfantry extends AOWUnit
 
 	public void attack(AOWInfantry matthew){
 		if(frame<3)
-			frame=3;
-		matthew.setHealth(matthew.getHealth()-this.getAttackDamage()/3);
+			frame=2;
+
+		frame++;
 
 		if(frame >5)
 			frame = 3;
-		frame++;
+
+		matthew.setHealth(matthew.getHealth()-this.getAttackDamage()/3);
 	}
 
 	public void attack(AOWBase matthew){
