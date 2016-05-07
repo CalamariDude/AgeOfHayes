@@ -1,5 +1,47 @@
-import java.applet.Applet; import java.awt.*; import java.awt.event.MouseEvent; import java.io.IOException; import java.util.Scanner; import javax.swing.JFrame; import javax.swing.JPanel; import javax.swing.*; public class AgeOfWar { public static void main(String[] args) throws InterruptedException { JFrame frame = new JFrame("Age of Hayes"); /*	frame.update(Graphics g);*/ AOWRunner game = null; try { game = new AOWRunner(); } catch (IOException e) { e.printStackTrace(); } /*	frame.setIconImage(Image b); AOWRunner game = new AOWRunner();*/ frame.add(game); frame.setSize(1920, 1080); frame.setVisible(true); frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); JButton Play = new JButton("Play"); JLabel Title = new JLabel("Age of War"); JPanel titlePanel = new JPanel(); titlePanel.add(Title); titlePanel.add(Play); Play.setOpaque(false); Play.setContentAreaFilled(false); frame.add(titlePanel); /* try { AOWRunner runner = new AOWRunner(); } catch (IOException e) { e.printStackTrace();
+import java.applet.Applet;
+import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.io.IOException;
+import java.util.Scanner;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.*;
+public class AgeOfWar
+{
+    public static void main(String[] args) throws InterruptedException
+    {
+        JFrame frame = new JFrame("Age of Hayes");
+        /*	frame.update(Graphics g);*/
+
+        AOWRunner game = null;
+
+        try { game = new AOWRunner(); }
+        catch (IOException e) { e.printStackTrace(); }
+
+        /*	frame.setIconImage(Image b);
+        AOWRunner game = new AOWRunner();*/
+
+        frame.add(game);
+        frame.setSize(1920, 1080);
+        frame.setVisible(true);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        /*
+        JButton Play = new JButton("Play");
+        JLabel Title = new JLabel("Age of War");
+        JPanel titlePanel = new JPanel();
+        titlePanel.add(Title);
+        titlePanel.add(Play);
+        Play.setOpaque(false);
+        Play.setContentAreaFilled(false);
+        frame.add(titlePanel);
+        */
+        /* try { AOWRunner runner = new AOWRunner(); }
+        catch (IOException e) { e.printStackTrace();
+
+
         }
+
 */
         AOWBase baseF = new AOWBase(500, 500, 25);
         AOWBase baseE = new AOWBase(500, 500, 1325);
@@ -44,7 +86,7 @@ import java.applet.Applet; import java.awt.*; import java.awt.event.MouseEvent; 
                         }// end of actions for first friendly infantry
 
                         //friendly infantries other than the first one
-                        if(i != 0)
+                        if(AOWRunner.infantriesOFEnemy.size() == 0 && i != 0)
                         {
                             //determines whether to (move) based on distance between
                             //currently friendly infantry and friendly infantry in front
@@ -101,7 +143,6 @@ import java.applet.Applet; import java.awt.*; import java.awt.event.MouseEvent; 
 
                 } // end of performing actions for all friendly infantry
 
-
             } // end of loop through all friendly infantry
 
             //TempF will now be the enemy's unit
@@ -133,7 +174,7 @@ import java.applet.Applet; import java.awt.*; import java.awt.event.MouseEvent; 
                             //check if possible to (move)
                             else if (tempF.getX() - 5 >= tempE.getX())
                             {
-                                tempF.move();
+                                tempF.moveE();
                             }
 
                         }// end of actions for first enemy infantry
@@ -145,7 +186,7 @@ import java.applet.Applet; import java.awt.*; import java.awt.event.MouseEvent; 
                             //currently friendly infantry and friendly infantry in front
                             if( AOWRunner.infantriesOFEnemy.get(j-1).getX() - tempF.getX() > -10)
                             {
-                                tempF.move();
+                                tempF.moveE();
                             }
 
                             //checks whether possible to (attack) friendly infantry
@@ -171,7 +212,7 @@ import java.applet.Applet; import java.awt.*; import java.awt.event.MouseEvent; 
                         //will (move) if cannot perform any other action
                         else
                         {
-                            tempF.move();
+                            tempF.moveE();
                         }
 
                     } // end of actions for first infantry
@@ -183,7 +224,7 @@ import java.applet.Applet; import java.awt.*; import java.awt.event.MouseEvent; 
                         //currently enemy infantry and enemy infantry in front
                         if( AOWRunner.infantriesOFEnemy.get(j-1).getX() - tempF.getX() > -10)
                         {
-                            tempF.move();
+                            tempF.moveE();
                         }
 
                         //check if possible to (attack) base
@@ -202,35 +243,11 @@ import java.applet.Applet; import java.awt.*; import java.awt.event.MouseEvent; 
 
 
 
+          //  AOWRunner.infantriesOFFriendly.get(0).move();
 
-
-            /*
-                //checks enemy infantry on field
-                if(i < AOWRunner.infantriesOFEnemy.size() ){
-
-                    tempE = AOWRunner.infantriesOFEnemy.get(i);
-                    if(i==0) {
-                        if (i < AOWRunner.infantriesOFFriendly.size()) {
-                            tempF = AOWRunner.infantriesOFFriendly.get(0);
-                            if (tempE.getX()-5 <= tempF.getX()) {
-                                AOWRunner.infantriesOFEnemy.get(i).moveE();
-
-
-                            }
-                        }
-                        //if attack
-                        else if()
-                    }
-
-                }
-*/
-
-
-
-            game.move();
             game.repaint();
 
-            Thread.sleep(1000);
+            Thread.sleep(100);
 
         }// end of game while loop
 

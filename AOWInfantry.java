@@ -6,6 +6,7 @@ public class AOWInfantry extends AOWUnit
 	protected int attackDamage,attackSpeed,range,tier, health, cost, xpGiver, goldGiver,x, frame;
     ArrayList<File> walkAnimations;
     ArrayList<File> hitAnimations;
+
 	//attack damage - takes out set number of health
 	//attack speed - number of attacks every 10 seconds
 	//range - number of pixels away that a unit is able to hit
@@ -14,8 +15,7 @@ public class AOWInfantry extends AOWUnit
 	//cost - amount of gold to buy infantry
 	//xpGiver - gives the other player a set amount of experience based upon type of unit killed
 	//goldGiver- gives the other player a set amount of gold based up type of unit killed
-
-	public AOWInfantry(int attackDamage, int attackSpeed, int range, int tier, int health, int cost, int xpGiver,int goldGiver/*, ArrayList<File> walkAnimations, ArrayList<File> hitAnimations*/){
+	public AOWInfantry(int attackDamage, int attackSpeed, int range, int tier, int health, int cost, int xpGiver,int goldGiver, int spawn/*, ArrayList<File> walkAnimations, ArrayList<File> hitAnimations*/){
 		this.attackDamage = attackDamage;
 		this.attackSpeed = attackSpeed;
 		this.range = range;
@@ -26,7 +26,7 @@ public class AOWInfantry extends AOWUnit
 		this.goldGiver = goldGiver;
         this.walkAnimations = walkAnimations;
         this.hitAnimations = hitAnimations;
-		x=100;
+		x = spawn;
 		frame = -1;
 
 	}
@@ -157,8 +157,15 @@ public class AOWInfantry extends AOWUnit
 
 
 
-	public void moveE(){
+	public void moveE()
+	{
 		x-=3;
+		frame++;
+		if(frame > 2)
+			frame = 0;
+
+
 	}
+
 
 }
