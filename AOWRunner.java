@@ -19,7 +19,7 @@ public class AOWRunner extends JPanel implements ActionListener{
     static ArrayList<AOWInfantry> infantriesOFEnemy;
     static ArrayList<AOWInfantry> turretsOFEnemy;
     
-    
+    //DONT HAVE THE RANGE BE NEGATIVE I CHANGED IT SO THAT THE RANGE CAN BE POSITIVE FOR ALL FRIENDLY AND ENEMY UNITS
     
     JLabel label;
     BufferedImage image;
