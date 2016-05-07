@@ -64,8 +64,8 @@ public class AOWRunner extends JPanel implements ActionListener{
 
 
 
-        infantries = new ArrayList<>();
-        turrets= new ArrayList<>();
+        infantries = new ArrayList();
+        turrets= new ArrayList();
         infantriesOFFriendly = new ArrayList();
         turretsOFFriendly = new ArrayList();
         infantriesOFEnemy = new ArrayList();
@@ -183,7 +183,7 @@ public class AOWRunner extends JPanel implements ActionListener{
         //			RenderingHints.VALUE_ANTIALIAS_ON);
 
         //g2d.fillOval(x, y, 50, 50);
-        //make loop for infrantry
+        //make loop for infantry
         g2d.drawImage(im,0,0,this);
 
     }
