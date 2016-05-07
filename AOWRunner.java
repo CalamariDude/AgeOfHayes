@@ -19,7 +19,7 @@ public class AOWRunner extends JPanel implements ActionListener{
     static ArrayList<AOWInfantry> infantriesOFEnemy;
     static ArrayList<AOWInfantry> turretsOFEnemy;
     
-    
+    //DONT HAVE THE RANGE BE NEGATIVE I CHANGED IT SO THAT THE RANGE CAN BE POSITIVE FOR ALL FRIENDLY AND ENEMY UNITS
     
     JLabel label;
     BufferedImage image;
@@ -27,6 +27,11 @@ public class AOWRunner extends JPanel implements ActionListener{
     int x;
     int y;
     Image im;
+
+    Image clubManMove1;
+    Image clubManMove2;
+    Image clubManMove3;
+
     //Units
     AOWInfantry clubMan;
     AOWInfantry slinger;
@@ -48,6 +53,8 @@ public class AOWRunner extends JPanel implements ActionListener{
     AOWInfantry HayesWrath;
     AOWTurrets plasmaCannon;
 
+    AOWInfantry clubManE;
+
 
     Timer timer = new Timer(5, this);
 
@@ -57,7 +64,19 @@ public class AOWRunner extends JPanel implements ActionListener{
         y=50;
 
 
-        im = ImageIO.read(new File("C:\\Users\\matthew\\Pictures\\Prehistoric.jpg"));
+        im = ImageIO.read(new File("C:\\Users\\matthew\\IdeaProjects\\AgeOfHayes\\Pictures\\Main Menu\\Prehistoric.jpg"));
+
+        clubManMove1 = ImageIO.read(new File("C:\\Users\\matthew\\IdeaProjects\\AgeOfHayes\\Pictures\\Tier 1\\clubManMove1.jpg"));
+        clubManMove2 = ImageIO.read(new File("C:\\Users\\matthew\\IdeaProjects\\AgeOfHayes\\Pictures\\Tier 1\\clubManMove2.jpg"));
+        clubManMove3 = ImageIO.read(new File("C:\\Users\\matthew\\IdeaProjects\\AgeOfHayes\\Pictures\\Tier 1\\clubManMove3.jpg"));
+
+        ArrayList<Image> clubarray  =new ArrayList();
+        clubarray.add(clubManMove1);
+        clubarray.add(clubManMove2);
+        clubarray.add(clubManMove3);
+        clubarray.add(clubManMove3);
+        clubarray.add(clubManMove2);
+        clubarray.add(clubManMove1);
 
 
 
@@ -82,27 +101,30 @@ public class AOWRunner extends JPanel implements ActionListener{
         //cost - amount of gold to buy infantry
         //xpGiver - gives the other player a set amount of experience based upon type of unit killed
         //goldGiver- gives the other player a set amount of gold based up type of unit killed
-/*
-        clubMan = new AOWInfantry(25, 5, 1, 0, 75, 60, 50, 80 );
-        slinger = new AOWInfantry(20, 4, 200, 0, 40, 60, 50, 80);
-        dinoRider = new AOWInfantry(40, 3, 100, 0, 125, 90, 70, 110);
+
+        clubMan = new AOWInfantry(25, 5, 50, 0, 75, 60, 50, 80, 100, clubarray );
+        /*
+        slinger = new AOWInfantry(20, 4, 200, 0, 40, 60, 50, 80, 100);
+        dinoRider = new AOWInfantry(40, 3, 100, 0, 125, 90, 70, 110, 100);
         eggPault = new AOWTurrets(10, 4, 300, 0, 150);
 
-        swordsMan = new AOWInfantry(50, 5, 1, 1, 150, 90, 50, 110);
-        archer = new AOWInfantry(40, 4, 200, 1, 90, 90, 50, 110);
-        knight = new AOWInfantry(80, 3, 100, 1, 250, 120, 70, 140);
+        swordsMan = new AOWInfantry(50, 5, 1, 1, 150, 90, 50, 110, 100);
+        archer = new AOWInfantry(40, 4, 200, 1, 90, 90, 50, 110, 100);
+        knight = new AOWInfantry(80, 3, 100, 1, 250, 120, 70, 140, 100);
         catapult = new AOWTurrets(20, 4, 300, 1, 200);
 
-        soldier = new AOWInfantry(80, 5, 1, 2, 300, 120, 70, 140);
-        sniper = new AOWInfantry(65, 4, 300, 2, 200, 120, 70, 140);
-        tank = new AOWInfantry(150, 3, 100, 2, 500, 190, 100, 220);
+        soldier = new AOWInfantry(80, 5, 1, 2, 300, 120, 70, 140, 100);
+        sniper = new AOWInfantry(65, 4, 300, 2, 200, 120, 70, 140, 100);
+        tank = new AOWInfantry(150, 3, 100, 2, 500, 190, 100, 220, 100);
         rocketLauncher = new AOWTurrets(70, 3, 400, 2, 250);
 
-        blader = new AOWInfantry(150, 5, 1, 3, 400, 200, 120, 220);
-        blaster = new AOWInfantry(130, 4, 200, 3, 300, 200, 120, 220);
-        HayesWrath = new AOWInfantry(300, 3, 100, 3, 1500, 300, 275, 330);
+        blader = new AOWInfantry(150, 5, 1, 3, 400, 200, 120, 220, 100);
+        blaster = new AOWInfantry(130, 4, 200, 3, 300, 200, 120, 220, 100);
+        HayesWrath = new AOWInfantry(300, 3, 100, 3, 1500, 300, 275, 330, 100);
         plasmaCannon = new AOWTurrets(75, 4, 300, 3, 1000);
 */
+        clubManE = new AOWInfantry(25, 5, 1, 0, 75, 60, 50, 80, 300, clubarray);
+
 
         infantries.add(clubMan);
         infantries.add(slinger);
@@ -123,7 +145,10 @@ public class AOWRunner extends JPanel implements ActionListener{
         turrets.add(plasmaCannon);
 
 
-
+        //------------------testing
+        infantriesOFFriendly.add(clubMan);
+        infantriesOFEnemy.add(clubManE);
+        //---------------------------------
 
 
 
@@ -182,9 +207,23 @@ public class AOWRunner extends JPanel implements ActionListener{
 //		g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
         //			RenderingHints.VALUE_ANTIALIAS_ON);
 
-        //g2d.fillOval(x, y, 50, 50);
+
         //make loop for infantry
+
         g2d.drawImage(im,0,0,this);
+        //g2d.fillOval(x, y, 50, 50);
+
+
+
+        for(int i = 0; i < 10; i++)
+        {
+
+
+            g2d.drawImage(clubMan.getWalkAnimations().get(clubMan.getFrame()), infantriesOFFriendly.get(0).getX(), 800, this);
+
+            g2d.drawImage(clubManE.getWalkAnimations().get(clubMan.getFrame()), infantriesOFEnemy.get(0).getX(), 800, this);
+        }
+
 
     }
 
