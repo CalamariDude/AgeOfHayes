@@ -1,3 +1,4 @@
+
 import java.applet.Applet;
 import java.awt.*;
 import java.awt.event.MouseEvent;
@@ -38,10 +39,7 @@ public class AgeOfWar
         */
         /* try { AOWRunner runner = new AOWRunner(); }
         catch (IOException e) { e.printStackTrace();
-
-
         }
-
 */
         AOWBase baseF = new AOWBase(500, 500, 25);
         AOWBase baseE = new AOWBase(500, 500, 1325);
@@ -243,7 +241,7 @@ public class AgeOfWar
 
 
 
-          //  AOWRunner.infantriesOFFriendly.get(0).move();
+            //  AOWRunner.infantriesOFFriendly.get(0).move();
 
             game.repaint();
 

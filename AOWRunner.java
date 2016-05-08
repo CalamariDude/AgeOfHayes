@@ -18,9 +18,9 @@ public class AOWRunner extends JPanel implements ActionListener{
     static ArrayList<AOWTurrets> turretsOFFriendly;
     static ArrayList<AOWInfantry> infantriesOFEnemy;
     static ArrayList<AOWInfantry> turretsOFEnemy;
-    
+
     //DONT HAVE THE RANGE BE NEGATIVE I CHANGED IT SO THAT THE RANGE CAN BE POSITIVE FOR ALL FRIENDLY AND ENEMY UNITS
-    
+
     JLabel label;
     BufferedImage image;
 
@@ -70,7 +70,6 @@ public class AOWRunner extends JPanel implements ActionListener{
         clubManMove1 = ImageIO.read(new File("C:\\Users\\matthew\\IdeaProjects\\AgeOfHayes\\Pictures\\Tier 1\\clubManMove1.jpg"));
         clubManMove2 = ImageIO.read(new File("C:\\Users\\matthew\\IdeaProjects\\AgeOfHayes\\Pictures\\Tier 1\\clubManMove2.jpg"));
         clubManMove3 = ImageIO.read(new File("C:\\Users\\matthew\\IdeaProjects\\AgeOfHayes\\Pictures\\Tier 1\\clubManMove3.jpg"));
-
         ArrayList<Image> clubarray  =new ArrayList();
         clubarray.add(clubManMove1);
         clubarray.add(clubManMove2);
@@ -127,17 +126,14 @@ public class AOWRunner extends JPanel implements ActionListener{
         slinger = new AOWInfantry(20, 4, 200, 0, 40, 60, 50, 80, 100);
         dinoRider = new AOWInfantry(40, 3, 100, 0, 125, 90, 70, 110, 100);
         eggPault = new AOWTurrets(10, 4, 300, 0, 150);
-
         swordsMan = new AOWInfantry(50, 5, 1, 1, 150, 90, 50, 110, 100);
         archer = new AOWInfantry(40, 4, 200, 1, 90, 90, 50, 110, 100);
         knight = new AOWInfantry(80, 3, 100, 1, 250, 120, 70, 140, 100);
         catapult = new AOWTurrets(20, 4, 300, 1, 200);
-
         soldier = new AOWInfantry(80, 5, 1, 2, 300, 120, 70, 140, 100);
         sniper = new AOWInfantry(65, 4, 300, 2, 200, 120, 70, 140, 100);
         tank = new AOWInfantry(150, 3, 100, 2, 500, 190, 100, 220, 100);
         rocketLauncher = new AOWTurrets(70, 3, 400, 2, 250);
-
         blader = new AOWInfantry(150, 5, 1, 3, 400, 200, 120, 220, 100);
         blaster = new AOWInfantry(130, 4, 200, 3, 300, 200, 120, 220, 100);
         HayesWrath = new AOWInfantry(300, 3, 100, 3, 1500, 300, 275, 330, 100);
