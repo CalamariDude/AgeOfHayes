@@ -64,8 +64,9 @@ public class AOWRunner extends JPanel implements ActionListener{
         y=50;
 
 
-        im = ImageIO.read(new File("C:\\Users\\matthew\\IdeaProjects\\AgeOfHayes\\Pictures\\Main Menu\\Prehistoric.jpg"));
 
+        //im = ImageIO.read(new File("C:\\Users\\matthew\\IdeaProjects\\AgeOfHayes\\Pictures\\Main Menu\\Prehistoric.jpg"));
+        /*
         clubManMove1 = ImageIO.read(new File("C:\\Users\\matthew\\IdeaProjects\\AgeOfHayes\\Pictures\\Tier 1\\clubManMove1.jpg"));
         clubManMove2 = ImageIO.read(new File("C:\\Users\\matthew\\IdeaProjects\\AgeOfHayes\\Pictures\\Tier 1\\clubManMove2.jpg"));
         clubManMove3 = ImageIO.read(new File("C:\\Users\\matthew\\IdeaProjects\\AgeOfHayes\\Pictures\\Tier 1\\clubManMove3.jpg"));
@@ -77,6 +78,25 @@ public class AOWRunner extends JPanel implements ActionListener{
         clubarray.add(clubManMove3);
         clubarray.add(clubManMove2);
         clubarray.add(clubManMove1);
+        */
+
+
+        Image Bob1 = ImageIO.read(new File("TestBob\\BobWalk0.png"));
+        Image Bob2 = ImageIO.read(new File("TestBob\\Bobwalk.png"));
+        Image Bob3 = ImageIO.read(new File("TestBob\\Bobwalk2.png"));
+        Image Bob4 = ImageIO.read(new File("TestBob\\BobAttack1.png"));
+        Image Bob5 = ImageIO.read(new File("TestBob\\BobAttack2.png"));
+        Image Bob6 = ImageIO.read(new File("TestBob\\BobAttack3.png"));
+
+        ArrayList<Image> BobArray  =new ArrayList();
+        BobArray.add(Bob1);
+        BobArray.add(Bob2);
+        BobArray.add(Bob3);
+        BobArray.add(Bob4);
+        BobArray.add(Bob5);
+        BobArray.add(Bob6);
+
+
 
 
 
@@ -102,7 +122,7 @@ public class AOWRunner extends JPanel implements ActionListener{
         //xpGiver - gives the other player a set amount of experience based upon type of unit killed
         //goldGiver- gives the other player a set amount of gold based up type of unit killed
 
-        clubMan = new AOWInfantry(25, 5, 50, 0, 75, 60, 50, 80, 100, clubarray );
+        clubMan = new AOWInfantry(25, 5, 50, 0, 75, 60, 50, 80, 100, BobArray );
         /*
         slinger = new AOWInfantry(20, 4, 200, 0, 40, 60, 50, 80, 100);
         dinoRider = new AOWInfantry(40, 3, 100, 0, 125, 90, 70, 110, 100);
@@ -123,7 +143,7 @@ public class AOWRunner extends JPanel implements ActionListener{
         HayesWrath = new AOWInfantry(300, 3, 100, 3, 1500, 300, 275, 330, 100);
         plasmaCannon = new AOWTurrets(75, 4, 300, 3, 1000);
 */
-        clubManE = new AOWInfantry(25, 5, 1, 0, 75, 60, 50, 80, 300, clubarray);
+        clubManE = new AOWInfantry(25, 5, 1, 0, 75, 60, 50, 80, 300, BobArray);
 
 
         infantries.add(clubMan);
@@ -210,7 +230,7 @@ public class AOWRunner extends JPanel implements ActionListener{
 
         //make loop for infantry
 
-        g2d.drawImage(im,0,0,this);
+        //g2d.drawImage(im,0,0,this);
         //g2d.fillOval(x, y, 50, 50);
 
 
