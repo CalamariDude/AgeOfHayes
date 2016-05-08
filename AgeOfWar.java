@@ -1,16 +1,19 @@
-
 import java.applet.Applet;
 import java.awt.*;
 import java.awt.event.MouseEvent;
+import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
+import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.*;
+import java.awt.event.*;
+
 public class AgeOfWar
+
 {
-    public static void main(String[] args) throws InterruptedException
-    {
+    public static void main(String[] args) throws InterruptedException, IOException {
         JFrame frame = new JFrame("Age of Hayes");
         /*	frame.update(Graphics g);*/
 
@@ -24,10 +27,86 @@ public class AgeOfWar
 
         frame.add(game);
         frame.setSize(1920, 1080);
-        frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setVisible(true);
+
+
+
+
+
+
+        // Create a "clickable" image icon.
+        ImageIcon AOWMelee = new ImageIcon("C:\\Users\\matthew\\IdeaProjects\\AgeOfHayes\\Pictures\\Main Menu\\AOWMelee.jpg");
+        ImageIcon AOWRanged = new ImageIcon("C:\\Users\\matthew\\IdeaProjects\\AgeOfHayes\\Pictures\\Main Menu\\AOWRanged.jpg");
+        ImageIcon AOWTank = new ImageIcon("C:\\Users\\matthew\\IdeaProjects\\AgeOfHayes\\Pictures\\Main Menu\\AOWTank.jpg");
 
         /*
+        JLabel labelforMelee = new JLabel(AOWMelee);
+        JLabel labelforRanged = new JLabel(AOWRanged);
+        JLabel labelforTank = new JLabel(AOWTank);
+        */
+/*
+        JButton meleeButton = new JButton(AOWMelee);
+        JButton rangedButton = new JButton(AOWRanged);
+        JButton tankButton = new JButton(AOWTank);
+*/
+/*
+        meleeButton.addMouseListener(new MouseAdapter()
+        {
+            public void mousePressed(MouseEvent me)
+            {
+                //game.create(1);
+            }
+        });
+
+        rangedButton.addMouseListener(new MouseAdapter()
+        {
+            public void mousePressed(MouseEvent me)
+            {
+                //game.create(2);
+            }
+        });
+
+        tankButton.addMouseListener(new MouseAdapter()
+        {
+            public void mousePressed(MouseEvent me)
+            {
+                //game.create(3);
+            }
+        });
+*/
+/*
+        meleeButton.setLocation(0,1000);
+        rangedButton.setLocation(50,1000);
+        tankButton.setLocation(100,1000);
+        */
+
+
+       // JPanel attackPanel = new JPanel();
+
+/*
+        attackPanel.add(meleeButton);
+        attackPanel.add(rangedButton);
+        attackPanel.add(tankButton);
+        attackPanel.setLocation(0,1000);
+*/
+
+        /*
+        // Add it to a frame
+        frame.getContentPane().add(labelforMelee);
+        frame.getContentPane().add(labelforRanged);
+        frame.getContentPane().add(labelforTank);
+        */
+
+
+
+
+
+
+
+
+
+/*
         JButton Play = new JButton("Play");
         JLabel Title = new JLabel("Age of War");
         JPanel titlePanel = new JPanel();
@@ -36,10 +115,13 @@ public class AgeOfWar
         Play.setOpaque(false);
         Play.setContentAreaFilled(false);
         frame.add(titlePanel);
-        */
+
         /* try { AOWRunner runner = new AOWRunner(); }
         catch (IOException e) { e.printStackTrace();
+
+
         }
+
 */
         AOWBase baseF = new AOWBase(500, 500, 25);
         AOWBase baseE = new AOWBase(500, 500, 1325);
@@ -76,7 +158,7 @@ public class AgeOfWar
                             }
 
                             //check if possible to (move)
-                            else if (tempF.getX() + 48 <= tempE.getX())
+                            else if (tempF.getX() + 40 < tempE.getX())
                             {
                                 tempF.move();
                             }
@@ -84,11 +166,11 @@ public class AgeOfWar
                         }// end of actions for first friendly infantry
 
                         //friendly infantries other than the first one
-                        if(AOWRunner.infantriesOFEnemy.size() == 0 && i != 0)
+                        else
                         {
                             //determines whether to (move) based on distance between
                             //currently friendly infantry and friendly infantry in front
-                            if( AOWRunner.infantriesOFFriendly.get(i-1).getX() - tempF.getX() > 10)
+                            if( AOWRunner.infantriesOFFriendly.get(i-1).getX() - tempF.getX() > 40)
                             {
                                 tempF.move();
                             }
@@ -126,7 +208,7 @@ public class AgeOfWar
                     {
                         //determines whether to (move) based on distance between
                         //currently friendly infantry and friendly infantry in front
-                        if( AOWRunner.infantriesOFFriendly.get(i-1).getX() - tempF.getX() > 10)
+                        if( AOWRunner.infantriesOFFriendly.get(i-1).getX() - tempF.getX() > 40)
                         {
                             tempF.move();
                         }
@@ -170,7 +252,7 @@ public class AgeOfWar
                             }
 
                             //check if possible to (move)
-                            else if (tempF.getX() - 48 >= tempE.getX())
+                            else if (tempF.getX() - 40 > tempE.getX())
                             {
                                 tempF.moveE();
                             }
@@ -182,7 +264,7 @@ public class AgeOfWar
                         {
                             //determines whether to (move) based on distance between
                             //currently friendly infantry and friendly infantry in front
-                            if( AOWRunner.infantriesOFEnemy.get(j-1).getX() - tempF.getX() > -10)
+                            if( tempF.getX() - AOWRunner.infantriesOFEnemy.get(j-1).getX() > 40)
                             {
                                 tempF.moveE();
                             }
@@ -202,9 +284,9 @@ public class AgeOfWar
                     else if(j == 0)
                     {
                         //check if possible to (attack) base
-                        if (tempF.getX() - tempF.getRange() < baseE.getX())
+                        if (tempF.getX() - tempF.getRange() < baseF.getX())
                         {
-                            tempF.attack(baseE);
+                            tempF.attack(baseF);
                         }
 
                         //will (move) if cannot perform any other action
@@ -220,15 +302,15 @@ public class AgeOfWar
                     {
                         //determines whether to (move) based on distance between
                         //currently enemy infantry and enemy infantry in front
-                        if( AOWRunner.infantriesOFEnemy.get(j-1).getX() - tempF.getX() > -10)
+                        if(tempF.getX() - AOWRunner.infantriesOFEnemy.get(j-1).getX()  > 40)
                         {
                             tempF.moveE();
                         }
 
                         //check if possible to (attack) base
-                        else if (tempF.getX() - tempF.getRange() < baseE.getX())
+                        else if (tempF.getX() - tempF.getRange() < baseF.getX())
                         {
-                            tempF.attack(baseE);
+                            tempF.attack(baseF);
                         }
 
                     } // end of actions for infantries other than first
@@ -241,11 +323,14 @@ public class AgeOfWar
 
 
 
-            //  AOWRunner.infantriesOFFriendly.get(0).move();
+          //  AOWRunner.infantriesOFFriendly.get(0).move();
+
+          //  game.Create(1);
+
 
             game.repaint();
 
-            Thread.sleep(200);
+            Thread.sleep(500);
 
         }// end of game while loop
 
