@@ -12,12 +12,12 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 
 public class AOWRunner extends JPanel implements ActionListener{
-    ArrayList<AOWInfantry> infantries;
-    ArrayList<AOWTurrets> turrets;
-    static ArrayList<AOWInfantry> infantriesOFFriendly;
-    static ArrayList<AOWTurrets> turretsOFFriendly;
-    static ArrayList<AOWInfantry> infantriesOFEnemy;
-    static ArrayList<AOWInfantry> turretsOFEnemy;
+    ArrayList<AOWInfantry> infantries = new ArrayList();
+    ArrayList<AOWTurrets> turrets = new ArrayList();
+    static ArrayList<AOWInfantry> infantriesOFFriendly = new ArrayList();
+    static ArrayList<AOWTurrets> turretsOFFriendly = new ArrayList();
+    static ArrayList<AOWInfantry> infantriesOFEnemy = new ArrayList();
+    static ArrayList<AOWInfantry> turretsOFEnemy = new ArrayList();
     
     //DONT HAVE THE RANGE BE NEGATIVE I CHANGED IT SO THAT THE RANGE CAN BE POSITIVE FOR ALL FRIENDLY AND ENEMY UNITS
     
@@ -63,19 +63,20 @@ public class AOWRunner extends JPanel implements ActionListener{
 
     AOWInfantry clubMan2;
 
+
     ArrayList<Image> clubArray;
 
 
     public AOWRunner() throws IOException{
 
         //Creates the Array Lists
-        infantries = new ArrayList();
+    /*    infantries = new ArrayList();
         turrets= new ArrayList();
         infantriesOFFriendly = new ArrayList();
         turretsOFFriendly = new ArrayList();
         infantriesOFEnemy = new ArrayList();
         turretsOFEnemy = new ArrayList();
-
+*/
 
         x=50;
         y=50;
@@ -134,9 +135,10 @@ public class AOWRunner extends JPanel implements ActionListener{
         HayesWrath = new AOWInfantry(300, 3, 100, 3, 1500, 300, 275, 330, 100);
         plasmaCannon = new AOWTurrets(75, 4, 300, 3, 1000);
 */
-        clubManE = new AOWInfantry(25, 5, 47, 0, 75, 60, 50, 80, 600, clubArray);
+        clubManE = new AOWInfantry(25, 5, 47, 0, 75, 60, 50, 80, 400, clubArray);
 
         clubMan2 = new AOWInfantry(25, 5, 50, 0, 75, 60, 50, 80, 300, clubArray );
+
 
         infantries.add(clubMan);
         infantries.add(slinger);
@@ -184,15 +186,16 @@ public class AOWRunner extends JPanel implements ActionListener{
 
                 if (e.getX() < 45 && e.getX() > 0 && e.getY() > 900 && e.getY() < 945)
                 {
-                    Create(1);
+                    AOWInfantry clubMan = new AOWInfantry(25, 5, 50, 0, 75, 60, 50, 80, 300, clubArray);
+                    infantriesOFFriendly.add(infantriesOFFriendly.size() , clubMan);
                 }
                 else if (e.getX() > 50 && e.getX() < 95 && e.getY() > 900 && e.getY() < 945)
                 {
-                    Create(2);
+                    //Create(2);
                 }
                 else if (e.getX() > 100 && e.getX() < 145 && e.getY() > 900 && e.getY() < 945)
                 {
-                    Create(3);
+                    //Create(3);
                 }
                 System.out.println("mouseClicked at (" + e.getX() + ", " + e.getY() + ")");
             }
@@ -280,7 +283,7 @@ public class AOWRunner extends JPanel implements ActionListener{
 
 
 
-
+/*
     public void Create(int number)
         {
 
@@ -288,7 +291,7 @@ public class AOWRunner extends JPanel implements ActionListener{
         {
             if (number == 1)
             {
-               AOWInfantry clubMan = new AOWInfantry(25, 5, 50, 0, 75, 60, 50, 80, 300,clubArray );
+                //AOWInfantry clubMan = new AOWInfantry(25, 5, 50, 0, 75, 60, 50, 80, 300, clubArray);
                 infantriesOFFriendly.add(infantriesOFFriendly.size() , clubMan);
             }
             else if (number == 2)
@@ -347,7 +350,7 @@ public class AOWRunner extends JPanel implements ActionListener{
 
 
     }
-
+*/
     public void move()
     {
         this.x = this.x + 5;

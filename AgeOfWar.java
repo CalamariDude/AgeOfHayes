@@ -13,7 +13,7 @@ import java.awt.event.*;
 public class AgeOfWar
 
 {
-    public static void main(String[] args) throws InterruptedException, IOException {
+    public static void main(String[] args) throws InterruptedException, IOException  {
         JFrame frame = new JFrame("Age of Hayes");
         /*	frame.update(Graphics g);*/
 
@@ -325,12 +325,17 @@ public class AgeOfWar
 
           //  AOWRunner.infantriesOFFriendly.get(0).move();
 
-          //  game.Create(1);
+           // game.Create(1);
+
+
+
 
 
             game.repaint();
 
-            Thread.sleep(500);
+            Thread.sleep(1000);
+
+            System.out.println(AOWRunner.infantriesOFFriendly.size());
 
         }// end of game while loop
 
