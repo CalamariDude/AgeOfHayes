@@ -113,7 +113,7 @@ public class AOWRunner extends JPanel implements ActionListener{
 
 
         AOWMelee = ImageIO.read(new File("Resources\\Main Menu\\AOWMelee.jpg"));
-        AOWRanged = ImageIO.read(new File("Resources\\Main Menu\\AOWRanged.jpg"));
+        AOWRanged = ImageIO.read(new File("Resources\\Main Menu\\AOWRanged.jpg.png"));
         AOWTank = ImageIO.read(new File("Resources\\Main Menu\\AOWTank.jpg"));
 
 /*
