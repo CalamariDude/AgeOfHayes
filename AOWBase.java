@@ -36,9 +36,9 @@ public class AOWBase {
         return health;
     }
 
-    public void setHealth(int damaged)
+    public void setHealth(int currentHealth)
     {
-        health = health - damaged;
+        health = currentHealth;
     }
 
     public int getTier()

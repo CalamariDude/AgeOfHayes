@@ -26,9 +26,10 @@ public class AgeOfWar
         AOWRunner game = new AOWRunner();*/
 
         frame.add(game);
-        frame.setSize(1920, 1080);
+        frame.setSize(1300, 700);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
+        frame.setResizable(false);
 
 
 
@@ -36,9 +37,9 @@ public class AgeOfWar
 
 
         // Create a "clickable" image icon.
-        ImageIcon AOWMelee = new ImageIcon("C:\\Users\\matthew\\IdeaProjects\\AgeOfHayes\\Pictures\\Main Menu\\AOWMelee.jpg");
-        ImageIcon AOWRanged = new ImageIcon("C:\\Users\\matthew\\IdeaProjects\\AgeOfHayes\\Pictures\\Main Menu\\AOWRanged.jpg");
-        ImageIcon AOWTank = new ImageIcon("C:\\Users\\matthew\\IdeaProjects\\AgeOfHayes\\Pictures\\Main Menu\\AOWTank.jpg");
+        ImageIcon AOWMelee = new ImageIcon("Resources\\Main Menu\\AOWMelee.jpg");
+        ImageIcon AOWRanged = new ImageIcon("Resources\\Main Menu\\AOWRanged.jpg");
+        ImageIcon AOWTank = new ImageIcon("Resources\\Main Menu\\AOWTank.jpg");
 
         /*
         JLabel labelforMelee = new JLabel(AOWMelee);
@@ -123,15 +124,13 @@ public class AgeOfWar
         }
 
 */
-        AOWBase baseF = new AOWBase(500, 500, 25);
-        AOWBase baseE = new AOWBase(500, 500, 1325);
 
         Scanner keyboard = new Scanner(System.in);
 
         AOWInfantry tempF ;
         AOWInfantry tempE ;
 
-        while (baseF.getHealth() >= 0 && baseE.getHealth() >= 0)
+        while (AOWRunner.baseF.getHealth() >= 0 && AOWRunner.baseE.getHealth() >= 0)
         {
             //goes through the Infantries on field array list
             //maximum of ten infantries per team
@@ -141,6 +140,12 @@ public class AgeOfWar
                 if(i < AOWRunner.infantriesOFFriendly.size() )
                 {
                     tempF = AOWRunner.infantriesOFFriendly.get(i);
+
+
+                    //Gets the percentage of health that the unit still has
+                    //int decimalHealth = tempF.getHealth() / tempF.getSpawnHealth();
+
+                    //drawRect(tempF.getX(), 200, 10, 30);
 
                     //checks if enemy unit is on field
                     if(AOWRunner.infantriesOFEnemy.size() > 0)
@@ -155,6 +160,15 @@ public class AgeOfWar
                             if (tempF.getX() + tempF.getRange() > tempE.getX())
                             {
                                 tempF.attack(tempE);
+
+
+                                if(tempE.getHealth() <= 0)
+                                {
+                                    AOWRunner.infantriesOFEnemy.remove(i);
+                                    i--;
+                                }
+
+
                             }
 
                             //check if possible to (move)
@@ -179,6 +193,12 @@ public class AgeOfWar
                             else if (tempF.getRange() + tempF.getX() > tempE.getX())
                             {
                                 tempF.attack(tempE);
+
+                                if(tempE.getHealth() <= 0)
+                                {
+                                    AOWRunner.infantriesOFEnemy.remove(i);
+                                    i--;
+                                }
                             }
                         }
 
@@ -190,9 +210,9 @@ public class AgeOfWar
                     else if(i == 0)
                     {
                         //check if possible to (attack) base
-                        if (tempF.getX() + tempF.getRange() > baseE.getX())
+                        if (tempF.getX() + tempF.getRange() > AOWRunner.baseE.getX())
                         {
-                            tempF.attack(baseE);
+                            tempF.attack(AOWRunner.baseE);
                         }
 
                         //will (move) if cannot perform any other action
@@ -214,9 +234,9 @@ public class AgeOfWar
                         }
 
                         //check if possible to (attack) base
-                        else if (tempF.getX() + tempF.getRange() > baseE.getX())
+                        else if (tempF.getX() + tempF.getRange() > AOWRunner.baseE.getX())
                         {
-                            tempF.attack(baseE);
+                            tempF.attack(AOWRunner.baseE);
                         }
 
                     } // end of actions for infantries other than first
@@ -249,6 +269,12 @@ public class AgeOfWar
                             if (tempF.getX() - tempF.getRange() < tempE.getX())
                             {
                                 tempF.attack(tempE);
+
+                                if(tempE.getHealth() <= 0)
+                                {
+                                    AOWRunner.infantriesOFFriendly.remove(j);
+                                    j--;
+                                }
                             }
 
                             //check if possible to (move)
@@ -260,7 +286,7 @@ public class AgeOfWar
                         }// end of actions for first enemy infantry
 
                         //enemy infantries other than the first one with friendly infantry on field
-                        if(j != 0)
+                        else if(j != 0)
                         {
                             //determines whether to (move) based on distance between
                             //currently friendly infantry and friendly infantry in front
@@ -273,6 +299,12 @@ public class AgeOfWar
                             else if (tempF.getX() - tempF.getRange()  < tempE.getX())
                             {
                                 tempF.attack(tempE);
+
+                                if(tempE.getHealth() <= 0)
+                                {
+                                    AOWRunner.infantriesOFFriendly.remove(j);
+                                    j--;
+                                }
                             }
                         }
 
@@ -284,9 +316,9 @@ public class AgeOfWar
                     else if(j == 0)
                     {
                         //check if possible to (attack) base
-                        if (tempF.getX() - tempF.getRange() < baseF.getX())
+                        if (tempF.getX() - tempF.getRange() < AOWRunner.baseF.getX())
                         {
-                            tempF.attack(baseF);
+                            tempF.attack(AOWRunner.baseF);
                         }
 
                         //will (move) if cannot perform any other action
@@ -308,9 +340,9 @@ public class AgeOfWar
                         }
 
                         //check if possible to (attack) base
-                        else if (tempF.getX() - tempF.getRange() < baseF.getX())
+                        else if (tempF.getX() - tempF.getRange() < AOWRunner.baseF.getX())
                         {
-                            tempF.attack(baseF);
+                            tempF.attack(AOWRunner.baseF);
                         }
 
                     } // end of actions for infantries other than first
@@ -333,11 +365,13 @@ public class AgeOfWar
 
             game.repaint();
 
-            Thread.sleep(1000);
+            Thread.sleep(100);
 
             System.out.println(AOWRunner.infantriesOFFriendly.size());
 
         }// end of game while loop
+
+        System.out.println("gameover");
 
 
     }

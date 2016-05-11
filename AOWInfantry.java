@@ -201,6 +201,9 @@ public class AOWInfantry extends AOWUnit
 
 		frame++;
 
+		if(frame >5)
+			frame = 3;
+
 	}
 
 
