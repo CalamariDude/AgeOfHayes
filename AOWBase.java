@@ -5,7 +5,7 @@ public class AOWBase {
 
     public AOWBase(int health, int money, int x){
         this.health = health;
-        tier = 0;
+        tier = 1;
         this.money = money;
         xp = 0;
         this.x = x;
@@ -16,9 +16,9 @@ public class AOWBase {
         return money;
     }
 
-    public void setMoney(int cost)
+    public void setMoney(int money)
     {
-        money = money - cost;
+        this.money = money;
     }
 
     public int getXP()

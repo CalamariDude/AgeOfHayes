@@ -17,6 +17,7 @@ public class AgeOfWar
         JFrame frame = new JFrame("Age of Hayes");
         /*	frame.update(Graphics g);*/
 
+
         AOWRunner game = null;
 
         try { game = new AOWRunner(); }
@@ -37,10 +38,11 @@ public class AgeOfWar
 
 
         // Create a "clickable" image icon.
+        /*
         ImageIcon AOWMelee = new ImageIcon("Resources\\Main Menu\\AOWMelee.jpg");
         ImageIcon AOWRanged = new ImageIcon("Resources\\Main Menu\\AOWRanged.jpg");
         ImageIcon AOWTank = new ImageIcon("Resources\\Main Menu\\AOWTank.jpg");
-
+        */
         /*
         JLabel labelforMelee = new JLabel(AOWMelee);
         JLabel labelforRanged = new JLabel(AOWRanged);
@@ -83,7 +85,7 @@ public class AgeOfWar
         */
 
 
-       // JPanel attackPanel = new JPanel();
+        // JPanel attackPanel = new JPanel();
 
 /*
         attackPanel.add(meleeButton);
@@ -164,8 +166,9 @@ public class AgeOfWar
 
                                 if(tempE.getHealth() <= 0)
                                 {
-                                    AOWRunner.infantriesOFEnemy.remove(i);
-                                    i--;
+                                    AOWRunner.baseF.setMoney(AOWRunner.baseF.getMoney() + tempE.getGoldGiver());
+
+                                    AOWRunner.infantriesOFEnemy.remove(0);
                                 }
 
 
@@ -196,8 +199,9 @@ public class AgeOfWar
 
                                 if(tempE.getHealth() <= 0)
                                 {
-                                    AOWRunner.infantriesOFEnemy.remove(i);
-                                    i--;
+                                    AOWRunner.baseF.setMoney(AOWRunner.baseF.getMoney() + tempE.getGoldGiver());
+
+                                    AOWRunner.infantriesOFEnemy.remove(0);
                                 }
                             }
                         }
@@ -272,8 +276,9 @@ public class AgeOfWar
 
                                 if(tempE.getHealth() <= 0)
                                 {
-                                    AOWRunner.infantriesOFFriendly.remove(j);
-                                    j--;
+                                    AOWRunner.baseE.setMoney(AOWRunner.baseE.getMoney() + tempF.getGoldGiver());
+
+                                    AOWRunner.infantriesOFFriendly.remove(0);
                                 }
                             }
 
@@ -302,8 +307,9 @@ public class AgeOfWar
 
                                 if(tempE.getHealth() <= 0)
                                 {
-                                    AOWRunner.infantriesOFFriendly.remove(j);
-                                    j--;
+                                    AOWRunner.baseE.setMoney(AOWRunner.baseE.getMoney() + tempF.getGoldGiver());
+
+                                    AOWRunner.infantriesOFFriendly.remove(0);
                                 }
                             }
                         }
@@ -355,9 +361,9 @@ public class AgeOfWar
 
 
 
-          //  AOWRunner.infantriesOFFriendly.get(0).move();
+            //  AOWRunner.infantriesOFFriendly.get(0).move();
 
-           // game.Create(1);
+            // game.Create(1);
 
 
 
@@ -365,7 +371,7 @@ public class AgeOfWar
 
             game.repaint();
 
-            Thread.sleep(100);
+            Thread.sleep(50);
 
             System.out.println(AOWRunner.infantriesOFFriendly.size());
 

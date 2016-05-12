@@ -74,7 +74,7 @@ public class AOWRunner extends JPanel implements ActionListener{
 
     AOWInfantry clubMan2;
 
-	AOWInfantry SlingerE;
+    AOWInfantry SlingerE;
 
     AOWInfantry Slinger2;
 
@@ -92,8 +92,8 @@ public class AOWRunner extends JPanel implements ActionListener{
         turretsOFEnemy = new ArrayList();
 */
 
-        baseF = new AOWBase(1000, 500, 25);
-        baseE = new AOWBase(1000, 500, 1200);
+        baseF = new AOWBase(1000, 100, 25);
+        baseE = new AOWBase(1000, 100, 1200);
 
 
 
@@ -108,12 +108,12 @@ public class AOWRunner extends JPanel implements ActionListener{
         clubManMove3 = ImageIO.read(new File("Resources\\Tier 1\\clubManMove3.jpg"));
 
         SlingerMove1 = ImageIO.read(new File("Resources\\Tier 1\\SlingerMove1.jpg"));
-		SlingerMove2 = ImageIO.read(new File("Resources\\Tier 1\\SlingerMove2.jpg"));
+        SlingerMove2 = ImageIO.read(new File("Resources\\Tier 1\\SlingerMove2.jpg"));
         SlingerMove3 = ImageIO.read(new File("Resources\\Tier 1\\SlingerMove3.jpg"));
 
 
         AOWMelee = ImageIO.read(new File("Resources\\Main Menu\\AOWMelee.jpg"));
-        AOWRanged = ImageIO.read(new File("Resources\\Main Menu\\AOWRanged.jpg.png"));
+        AOWRanged = ImageIO.read(new File("Resources\\Main Menu\\AOWRanged.jpg"));
         AOWTank = ImageIO.read(new File("Resources\\Main Menu\\AOWTank.jpg"));
 
 /*
@@ -140,7 +140,7 @@ public class AOWRunner extends JPanel implements ActionListener{
         clubArray.add(clubManMove2);
         clubArray.add(clubManMove1);
 
-		final ArrayList<Image> SlingerArray = new ArrayList();
+        final ArrayList<Image> SlingerArray = new ArrayList();
         SlingerArray.add(SlingerMove1);
         SlingerArray.add(SlingerMove2);
         SlingerArray.add(SlingerMove3);
@@ -182,8 +182,8 @@ public class AOWRunner extends JPanel implements ActionListener{
         plasmaCannon = new AOWTurrets(75, 4, 300, 3, 1000);
 */
 
-		SlingerE = new AOWInfantry(5, 4, 200, 0, 40, 60, 50, 80, 100, SlingerArray);
-		Slinger2 = new AOWInfantry(5, 4, 200, 0, 40, 60, 50, 80, 100, SlingerArray);
+        SlingerE = new AOWInfantry(5, 4, 200, 0, 40, 60, 50, 80, 100, SlingerArray);
+        Slinger2 = new AOWInfantry(5, 4, 200, 0, 40, 60, 50, 80, 100, SlingerArray);
 
         clubManE = new AOWInfantry(25, 5, 47, 0, 75, 60, 50, 80, 700, clubArray);
 
@@ -210,13 +210,13 @@ public class AOWRunner extends JPanel implements ActionListener{
 
 
         //------------------testing
-     //   infantriesOFFriendly.add(clubMan);
+        //   infantriesOFFriendly.add(clubMan);
         infantriesOFEnemy.add(clubManE);
         clubManE = new AOWInfantry(25, 5, 47, 0, 75, 60, 50, 80, 700, clubArray);
         infantriesOFEnemy.add(clubManE);
-    //    infantriesOFFriendly.add(clubMan2);
+        //    infantriesOFFriendly.add(clubMan2);
         //---------------------------------
-		//infantriesOFEnemy.add(SlingerE);
+        //infantriesOFEnemy.add(SlingerE);
 
 
 
@@ -239,19 +239,41 @@ public class AOWRunner extends JPanel implements ActionListener{
 
 //CHANGE THE VALUES OF THE 500 TO 900 WHEN WE GET HOME AND 545 TO 94===========================================
 
+                //Create melee minion
                 if (e.getX() < 45 && e.getX() > 0 && e.getY() > 500 && e.getY() < 545)
                 {
                     if(infantriesOFFriendly.size() < 10)
                     {
-                        AOWInfantry clubMan = new AOWInfantry(25, 5, 50, 0, 75, 60, 50, 80, 100, clubArray);
-                        infantriesOFFriendly.add(infantriesOFFriendly.size(), clubMan);
+                        if(baseF.getMoney() >= clubMan.getCost())
+                        {
+                            AOWInfantry clubMan = new AOWInfantry(25, 5, 50, 0, 75, 60, 50, 80, 100, clubArray);
+                            infantriesOFFriendly.add(infantriesOFFriendly.size(), clubMan);
+
+                            baseF.setMoney(baseF.getMoney() - clubMan.getCost());
+                        }
                     }
                 }
+
+                //Create ranged minion
                 else if (e.getX() > 50 && e.getX() < 95 && e.getY() > 500 && e.getY() < 545)
                 {
-                    AOWInfantry Slinger = new AOWInfantry(5, 4, 200, 0, 40, 60, 50, 80, 100, SlingerArray);
-                    infantriesOFFriendly.add(infantriesOFFriendly.size(), Slinger);
+
+                    if(infantriesOFFriendly.size() < 10)
+                    {
+                        if(baseF.getMoney() >= Slinger.getCost())
+                        {
+                            AOWInfantry Slinger = new AOWInfantry(5, 4, 200, 0, 40, 60, 50, 80, 100, SlingerArray);
+                            infantriesOFFriendly.add(infantriesOFFriendly.size(), Slinger);
+
+                            baseF.setMoney(baseF.getMoney() - Slinger.getCost());
+                        }
+                    }
+
                 }
+
+
+
+                //Create tank minion
                 else if (e.getX() > 100 && e.getX() < 145 && e.getY() > 500 && e.getY() < 545)
                 {
                     //Create(3);
@@ -349,74 +371,74 @@ public class AOWRunner extends JPanel implements ActionListener{
 
 
 
-/*
-    public void Create(int number)
-        {
-
-        if (tier == 1)
-        {
-            if (number == 1)
+    /*
+        public void Create(int number)
             {
-                //AOWInfantry clubMan = new AOWInfantry(25, 5, 50, 0, 75, 60, 50, 80, 300, clubArray);
-                infantriesOFFriendly.add(infantriesOFFriendly.size() , clubMan);
-            }
-            else if (number == 2)
+
+            if (tier == 1)
             {
-                infantriesOFFriendly.add(infantriesOFFriendly.size(), slinger);
+                if (number == 1)
+                {
+                    //AOWInfantry clubMan = new AOWInfantry(25, 5, 50, 0, 75, 60, 50, 80, 300, clubArray);
+                    infantriesOFFriendly.add(infantriesOFFriendly.size() , clubMan);
+                }
+                else if (number == 2)
+                {
+                    infantriesOFFriendly.add(infantriesOFFriendly.size(), slinger);
+                }
+                else if (number == 3)
+                {
+                    infantriesOFFriendly.add(infantriesOFFriendly.size(), dinoRider);
+                }
+
             }
-            else if (number == 3)
+
+            else if (tier == 2)
             {
-                infantriesOFFriendly.add(infantriesOFFriendly.size(), dinoRider);
+                if (number ==1)
+                    infantriesOFFriendly.add(infantriesOFFriendly.size(), swordsMan);
+
+
+                else if (number ==2)
+                    infantriesOFFriendly.add(infantriesOFFriendly.size(), archer);
+
+                else if(number ==3)
+                    infantriesOFFriendly.add(infantriesOFFriendly.size(), knight);
+
             }
 
-        }
-
-        else if (tier == 2)
-        {
-            if (number ==1)
-                infantriesOFFriendly.add(infantriesOFFriendly.size(), swordsMan);
 
 
-            else if (number ==2)
-                infantriesOFFriendly.add(infantriesOFFriendly.size(), archer);
+            else if (tier == 3)
+            {
+                if(number ==1)
+                    infantriesOFFriendly.add(infantriesOFFriendly.size(), soldier);
 
-            else if(number ==3)
-                infantriesOFFriendly.add(infantriesOFFriendly.size(), knight);
+                else if(number ==2)
+                    infantriesOFFriendly.add(infantriesOFFriendly.size(), sniper);
 
-        }
+                else if(number ==3)
+                    infantriesOFFriendly.add(infantriesOFFriendly.size(), tank);
+
+            }
+            else if (tier ==4)
+            {
+                if(number ==1)
+                    infantriesOFFriendly.add(infantriesOFFriendly.size(), blader);
+
+                else if(number ==2)
+                    infantriesOFFriendly.add(infantriesOFFriendly.size(), blaster);
+
+                else if(number ==3)
+                    infantriesOFFriendly.add(infantriesOFFriendly.size(), HayesWrath);
 
 
+            }
 
-        else if (tier == 3)
-        {
-            if(number ==1)
-                infantriesOFFriendly.add(infantriesOFFriendly.size(), soldier);
-
-            else if(number ==2)
-                infantriesOFFriendly.add(infantriesOFFriendly.size(), sniper);
-
-            else if(number ==3)
-                infantriesOFFriendly.add(infantriesOFFriendly.size(), tank);
-
-        }
-        else if (tier ==4)
-        {
-            if(number ==1)
-                infantriesOFFriendly.add(infantriesOFFriendly.size(), blader);
-
-            else if(number ==2)
-                infantriesOFFriendly.add(infantriesOFFriendly.size(), blaster);
-
-            else if(number ==3)
-                infantriesOFFriendly.add(infantriesOFFriendly.size(), HayesWrath);
 
 
         }
-
-
-
-    }
-*/
+    */
     public void move()
     {
         this.x = this.x + 5;
