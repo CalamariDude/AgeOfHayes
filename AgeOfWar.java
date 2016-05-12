@@ -175,7 +175,7 @@ public class AgeOfWar
                             }
 
                             //check if possible to (move)
-                            else if (tempF.getX() + 40 < tempE.getX())
+                            else if (tempF.getX() + 50 < tempE.getX())
                             {
                                 tempF.move();
                             }
@@ -187,7 +187,7 @@ public class AgeOfWar
                         {
                             //determines whether to (move) based on distance between
                             //currently friendly infantry and friendly infantry in front
-                            if( AOWRunner.infantriesOFFriendly.get(i-1).getX() - tempF.getX() > 40)
+                            if( AOWRunner.infantriesOFFriendly.get(i-1).getX() - tempF.getX() > 50)
                             {
                                 tempF.move();
                             }
@@ -232,7 +232,7 @@ public class AgeOfWar
                     {
                         //determines whether to (move) based on distance between
                         //currently friendly infantry and friendly infantry in front
-                        if( AOWRunner.infantriesOFFriendly.get(i-1).getX() - tempF.getX() > 40)
+                        if( AOWRunner.infantriesOFFriendly.get(i-1).getX() - tempF.getX() > 50)
                         {
                             tempF.move();
                         }
@@ -283,7 +283,7 @@ public class AgeOfWar
                             }
 
                             //check if possible to (move)
-                            else if (tempF.getX() - 40 > tempE.getX())
+                            else if (tempF.getX() - 50 > tempE.getX())
                             {
                                 tempF.moveE();
                             }
@@ -295,7 +295,7 @@ public class AgeOfWar
                         {
                             //determines whether to (move) based on distance between
                             //currently friendly infantry and friendly infantry in front
-                            if( tempF.getX() - AOWRunner.infantriesOFEnemy.get(j-1).getX() > 40)
+                            if( tempF.getX() - AOWRunner.infantriesOFEnemy.get(j-1).getX() > 50)
                             {
                                 tempF.moveE();
                             }
@@ -340,7 +340,7 @@ public class AgeOfWar
                     {
                         //determines whether to (move) based on distance between
                         //currently enemy infantry and enemy infantry in front
-                        if(tempF.getX() - AOWRunner.infantriesOFEnemy.get(j-1).getX()  > 40)
+                        if(tempF.getX() - AOWRunner.infantriesOFEnemy.get(j-1).getX()  > 50)
                         {
                             tempF.moveE();
                         }

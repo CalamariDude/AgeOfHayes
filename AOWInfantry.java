@@ -6,7 +6,7 @@ public class AOWInfantry extends AOWUnit
 {
 	protected int attackDamage,attackSpeed,range,tier, health, cost, xpGiver, goldGiver,x, frame;
     ArrayList<Image> walkAnimations;
-
+	public int spawnHealth;
 
 	//attack damage - takes out set number of health
 	//attack speed - number of attacks every 10 seconds
@@ -26,6 +26,8 @@ public class AOWInfantry extends AOWUnit
 		this.xpGiver = xpGiver;
 		this.goldGiver = goldGiver;
         this.walkAnimations = walkAnimations;
+		spawnHealth = health;
+
 
 		x = spawn;
 		frame = -1;
@@ -52,7 +54,6 @@ public class AOWInfantry extends AOWUnit
 	public int getX() {
 		return x;
 	}
-
 
 
 	@Override
@@ -146,6 +147,11 @@ public class AOWInfantry extends AOWUnit
 
 	public void setGoldGiver(int goldGiver) {
 		this.goldGiver = goldGiver;
+	}
+
+	public int getSpawnHealth()
+	{
+		return spawnHealth;
 	}
 
 	public void move()

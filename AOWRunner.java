@@ -185,7 +185,7 @@ public class AOWRunner extends JPanel implements ActionListener{
         SlingerE = new AOWInfantry(5, 4, 200, 0, 40, 60, 50, 80, 100, SlingerArray);
         Slinger2 = new AOWInfantry(5, 4, 200, 0, 40, 60, 50, 80, 100, SlingerArray);
 
-        clubManE = new AOWInfantry(25, 5, 47, 0, 75, 60, 50, 80, 700, clubArray);
+        clubManE = new AOWInfantry(25, 5, 50, 0, 75, 60, 50, 80, 700, clubArray);
 
         clubMan2 = new AOWInfantry(25, 5, 50, 0, 75, 60, 50, 80, 300, clubArray );
 
@@ -212,7 +212,7 @@ public class AOWRunner extends JPanel implements ActionListener{
         //------------------testing
         //   infantriesOFFriendly.add(clubMan);
         infantriesOFEnemy.add(clubManE);
-        clubManE = new AOWInfantry(25, 5, 47, 0, 75, 60, 50, 80, 700, clubArray);
+        clubManE = new AOWInfantry(25, 5, 50, 0, 75, 60, 50, 80, 700, clubArray);
         infantriesOFEnemy.add(clubManE);
         //    infantriesOFFriendly.add(clubMan2);
         //---------------------------------
@@ -344,6 +344,13 @@ public class AOWRunner extends JPanel implements ActionListener{
             {
                 tempF = infantriesOFFriendly.get(i);
 
+                g2d.setColor(Color.RED);
+                g2d.fillRect(tempF.getX(),450,45, 10);
+
+                g2d.setColor(Color.GREEN);
+                double percentageOFHealth =  ((double)tempF.getHealth()) / ((double)tempF.getSpawnHealth());
+                int greenPixels = (int)(percentageOFHealth * 45);
+                g2d.fillRect(tempF.getX(),450,greenPixels,10);
                 g2d.drawImage(tempF.getWalkAnimations().get(tempF.getFrame()), tempF.getX(), 400, this);
             }
 
@@ -351,6 +358,13 @@ public class AOWRunner extends JPanel implements ActionListener{
             {
                 tempE = infantriesOFEnemy.get(i);
 
+                g2d.setColor(Color.RED);
+                g2d.fillRect(tempE.getX(),450,45, 10);
+
+                g2d.setColor(Color.GREEN);
+                double percentageOFHealth =  ((double)tempE.getHealth()) / ((double)tempE.getSpawnHealth());
+                int greenPixels = (int)(percentageOFHealth * 45);
+                g2d.fillRect(tempE.getX(),450,greenPixels,10);
                 g2d.drawImage(tempE.getWalkAnimations().get(tempE.getFrame()), tempE.getX(), 400, this);
             }
             /*
