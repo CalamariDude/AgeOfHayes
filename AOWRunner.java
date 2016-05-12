@@ -92,8 +92,8 @@ public class AOWRunner extends JPanel implements ActionListener{
         turretsOFEnemy = new ArrayList();
 */
 
-        baseF = new AOWBase(1000, 100, 25);
-        baseE = new AOWBase(1000, 100, 1200);
+        baseF = new AOWBase(1000, 200, 25);
+        baseE = new AOWBase(1000, 200, 1200);
 
 
 
