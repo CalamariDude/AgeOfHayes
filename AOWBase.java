@@ -26,9 +26,9 @@ public class AOWBase {
         return xp;
     }
 
-    public void setXP(int increase)
+    public void setXP(int newxp)
     {
-        xp = xp + increase;
+        xp = newxp;
     }
 
     public int getHealth()

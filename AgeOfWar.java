@@ -167,6 +167,7 @@ public class AgeOfWar
                                 if(tempE.getHealth() <= 0)
                                 {
                                     AOWRunner.baseF.setMoney(AOWRunner.baseF.getMoney() + tempE.getGoldGiver());
+                                    AOWRunner.baseF.setXP(AOWRunner.baseF.getXP() + tempE.getXpGiver());
 
                                     AOWRunner.infantriesOFEnemy.remove(0);
                                 }
@@ -174,8 +175,8 @@ public class AgeOfWar
 
                             }
 
-                            //check if possible to (move)
-                            else if (tempF.getX() + 50 < tempE.getX())
+
+                            else
                             {
                                 tempF.move();
                             }
@@ -200,6 +201,7 @@ public class AgeOfWar
                                 if(tempE.getHealth() <= 0)
                                 {
                                     AOWRunner.baseF.setMoney(AOWRunner.baseF.getMoney() + tempE.getGoldGiver());
+                                    AOWRunner.baseF.setXP(AOWRunner.baseF.getXP() + tempE.getXpGiver());
 
                                     AOWRunner.infantriesOFEnemy.remove(0);
                                 }
@@ -277,13 +279,13 @@ public class AgeOfWar
                                 if(tempE.getHealth() <= 0)
                                 {
                                     AOWRunner.baseE.setMoney(AOWRunner.baseE.getMoney() + tempF.getGoldGiver());
+                                    AOWRunner.baseE.setXP(AOWRunner.baseE.getXP() + tempF.getXpGiver());
 
                                     AOWRunner.infantriesOFFriendly.remove(0);
                                 }
                             }
 
-                            //check if possible to (move)
-                            else if (tempF.getX() - 50 > tempE.getX())
+                            else
                             {
                                 tempF.moveE();
                             }
@@ -308,6 +310,7 @@ public class AgeOfWar
                                 if(tempE.getHealth() <= 0)
                                 {
                                     AOWRunner.baseE.setMoney(AOWRunner.baseE.getMoney() + tempF.getGoldGiver());
+                                    AOWRunner.baseE.setXP(AOWRunner.baseE.getXP() + tempF.getXpGiver());
 
                                     AOWRunner.infantriesOFFriendly.remove(0);
                                 }
@@ -374,6 +377,7 @@ public class AgeOfWar
             Thread.sleep(50);
 
             System.out.println(AOWRunner.infantriesOFFriendly.size());
+            System.out.println(AOWRunner.baseF.getTier());
 
         }// end of game while loop
 

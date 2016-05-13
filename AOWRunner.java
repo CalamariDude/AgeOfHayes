@@ -19,39 +19,48 @@ public class AOWRunner extends JPanel implements ActionListener{
     static ArrayList<AOWInfantry> infantriesOFEnemy = new ArrayList();
     static ArrayList<AOWInfantry> turretsOFEnemy = new ArrayList();
 
-    //DONT HAVE THE RANGE BE NEGATIVE I CHANGED IT SO THAT THE RANGE CAN BE POSITIVE FOR ALL FRIENDLY AND ENEMY UNITS
-
-    JLabel label;
-    BufferedImage image;
-
     int x;
     int y;
-    int tier = 1;
-
-    Image im;//background image
-
-    Image base1;
-    Image base2;
-
-
-    Image clubManMove1;
-    Image clubManMove2;
-    Image clubManMove3;
-
-    Image SlingerMove1;
-    Image SlingerMove2;
-    Image SlingerMove3;
-
-    Image AOWMelee;
-    Image AOWRanged;
-    Image AOWTank;
 
     static AOWBase baseF;
     static AOWBase baseE;
 
+//------------------------------------------------------Initializes All Images----------------------
+    //backgrounds images
+    Image prehistoric;
+
+    //base1 and base2 images
+    Image base1;
+    Image base2;
+
+    //summon infantry image
+    Image AOWMelee;
+    Image AOWRanged;
+    Image AOWTank;
+
+    //level up tier image
+    Image levelUp;
+
+    //frames for clubMan
+    Image clubManMove1;
+    Image clubManMove2;
+    Image clubManMove3;
+
+    //frames for slinger
+    Image SlingerMove1;
+    Image SlingerMove2;
+    Image SlingerMove3;
+
+
+
+
+//---------------------------------------------------End of Initializing All Images-------------------
+
+
+//--------------------------------------------------Initializes All Infantry---------------------------
     //Initializes Units
     AOWInfantry clubMan;
-    AOWInfantry Slinger;
+    AOWInfantry slinger;
     AOWInfantry dinoRider;
     AOWTurrets eggPault;
 
@@ -70,6 +79,26 @@ public class AOWRunner extends JPanel implements ActionListener{
     AOWInfantry HayesWrath;
     AOWTurrets plasmaCannon;
 
+//-----------------------------------------------End of Initializing All Infantry------------------------
+
+
+//----------------------------------------------Initializes All Picture ArrayList For Infantry Frames-----
+    public ArrayList<Image> clubArray = new ArrayList();
+    public ArrayList<Image> slingerArray = new ArrayList();
+    ArrayList<Image> dinoRiderArray = new ArrayList();
+    ArrayList<Image> swordsManArray = new ArrayList();
+    ArrayList<Image> archerArray = new ArrayList();
+    ArrayList<Image> knightArray = new ArrayList();
+    ArrayList<Image> soldierArray = new ArrayList();
+    ArrayList<Image> sniperArray = new ArrayList();
+    ArrayList<Image> tankArray = new ArrayList();
+    ArrayList<Image> bladerArray = new ArrayList();
+    ArrayList<Image> blasterArray = new ArrayList();
+    ArrayList<Image> HayesWrathArray = new ArrayList();
+
+//------------------------------------------End of Initializing all ArrayLists--------------------------
+
+
     AOWInfantry clubManE;
 
     AOWInfantry clubMan2;
@@ -78,61 +107,45 @@ public class AOWRunner extends JPanel implements ActionListener{
 
     AOWInfantry Slinger2;
 
-    ArrayList<Image> clubArray;
+
 
 
     public AOWRunner() throws IOException{
 
-        //Creates the Array Lists
-    /*    infantries = new ArrayList();
-        turrets= new ArrayList();
-        infantriesOFFriendly = new ArrayList();
-        turretsOFFriendly = new ArrayList();
-        infantriesOFEnemy = new ArrayList();
-        turretsOFEnemy = new ArrayList();
-*/
-
+        //Creates base objects
         baseF = new AOWBase(1000, 200, 25);
         baseE = new AOWBase(1000, 200, 1200);
 
+        //---------------------------------------Assign variables to pictures----------------------
+        //background pictures
+        prehistoric = ImageIO.read(new File("Resources\\Main Menu\\Prehistoric.jpg"));
 
-
-//SCHOOL
-        im = ImageIO.read(new File("Resources\\Main Menu\\Prehistoric.jpg"));
-
+        //base pictures
         base1 = ImageIO.read(new File("Resources\\Tier 1\\Base.jpg"));
         base2 = ImageIO.read(new File("Resources\\Tier 1\\Base.jpg"));
 
+        //levelUp picture
+        levelUp = ImageIO.read(new File("Resources\\Main Menu\\levelUp.jpg"));
+
+        //clubMan pictures
         clubManMove1 = ImageIO.read(new File("Resources\\Tier 1\\clubManMove1.jpg"));
         clubManMove2 = ImageIO.read(new File("Resources\\Tier 1\\clubManMove2.jpg"));
         clubManMove3 = ImageIO.read(new File("Resources\\Tier 1\\clubManMove3.jpg"));
 
+        //slinger pictures
         SlingerMove1 = ImageIO.read(new File("Resources\\Tier 1\\SlingerMove1.jpg"));
         SlingerMove2 = ImageIO.read(new File("Resources\\Tier 1\\SlingerMove2.jpg"));
         SlingerMove3 = ImageIO.read(new File("Resources\\Tier 1\\SlingerMove3.jpg"));
 
-
+        //summon infantry pictures
         AOWMelee = ImageIO.read(new File("Resources\\Main Menu\\AOWMelee.jpg"));
         AOWRanged = ImageIO.read(new File("Resources\\Main Menu\\AOWRanged.jpg"));
         AOWTank = ImageIO.read(new File("Resources\\Main Menu\\AOWTank.jpg"));
 
-/*
+        //------------------------------------End of Assign variables to pictures-----------------------
 
 
-
-        im = ImageIO.read(new File("C:\\Users\\matthew\\IdeaProjects\\AgeOfHayes\\Pictures\\Main Menu\\Prehistoric.jpg"));
-
-        clubManMove1 = ImageIO.read(new File("C:\\Users\\matthew\\IdeaProjects\\AgeOfHayes\\Pictures\\Tier 1\\clubManMove1.jpg"));
-        clubManMove2 = ImageIO.read(new File("C:\\Users\\matthew\\IdeaProjects\\AgeOfHayes\\Pictures\\Tier 1\\clubManMove2.jpg"));
-        clubManMove3 = ImageIO.read(new File("C:\\Users\\matthew\\IdeaProjects\\AgeOfHayes\\Pictures\\Tier 1\\clubManMove3.jpg"));
-
-
-        AOWMelee = ImageIO.read(new File("C:\\Users\\matthew\\IdeaProjects\\AgeOfHayes\\Pictures\\Main Menu\\AOWMelee.jpg"));
-        AOWRanged = ImageIO.read(new File("C:\\Users\\matthew\\IdeaProjects\\AgeOfHayes\\Pictures\\Main Menu\\AOWRanged.jpg"));
-        AOWTank = ImageIO.read(new File("C:\\Users\\matthew\\IdeaProjects\\AgeOfHayes\\Pictures\\Main Menu\\AOWTank.jpg"));
-*/
-
-        final ArrayList<Image> clubArray  = new ArrayList();
+        //----------------------------------Assign Pictures to Pictures ArrayList-----------------------
         clubArray.add(clubManMove1);
         clubArray.add(clubManMove2);
         clubArray.add(clubManMove3);
@@ -140,15 +153,17 @@ public class AOWRunner extends JPanel implements ActionListener{
         clubArray.add(clubManMove2);
         clubArray.add(clubManMove1);
 
-        final ArrayList<Image> SlingerArray = new ArrayList();
-        SlingerArray.add(SlingerMove1);
-        SlingerArray.add(SlingerMove2);
-        SlingerArray.add(SlingerMove3);
-        SlingerArray.add(SlingerMove3);
-        SlingerArray.add(SlingerMove2);
-        SlingerArray.add(SlingerMove1);
+        slingerArray.add(SlingerMove1);
+        slingerArray.add(SlingerMove2);
+        slingerArray.add(SlingerMove3);
+        slingerArray.add(SlingerMove3);
+        slingerArray.add(SlingerMove2);
+        slingerArray.add(SlingerMove1);
+        //----------------------------End of Assign Pictures to Picture ArrayList------------------------
 
 
+
+        //-------------------------------------Infantry Objects------------------------------------------
 
         //attack damage - takes out set number of health
         //attack speed - number of attacks every 10 seconds
@@ -159,31 +174,32 @@ public class AOWRunner extends JPanel implements ActionListener{
         //xpGiver - gives the other player a set amount of experience based upon type of unit killed
         //goldGiver- gives the other player a set amount of gold based up type of unit killed
 
-        clubMan = new AOWInfantry(25, 5, 50, 0, 75, 60, 50, 80, 300, clubArray );
+        clubMan = new AOWInfantry(25, 5, 50, 1, 75, 60, 50, 80, 300, clubArray );
 
-        Slinger = new AOWInfantry(5, 4, 200, 0, 40, 60, 50, 80, 100, SlingerArray);
+        slinger = new AOWInfantry(5, 4, 200, 1, 40, 60, 50, 80, 100, slingerArray);
 /*
-		dinoRider = new AOWInfantry(40, 3, 100, 0, 125, 90, 70, 110, 100);
-        eggPault = new AOWTurrets(10, 4, 300, 0, 150);
+		dinoRider = new AOWInfantry(40, 3, 100, 1, 125, 90, 70, 110, 100);
+        eggPault = new AOWTurrets(10, 4, 300, 1, 150);
 
-        swordsMan = new AOWInfantry(50, 5, 1, 1, 150, 90, 50, 110, 100);
-        archer = new AOWInfantry(40, 4, 200, 1, 90, 90, 50, 110, 100);
-        knight = new AOWInfantry(80, 3, 100, 1, 250, 120, 70, 140, 100);
-        catapult = new AOWTurrets(20, 4, 300, 1, 200);
+        swordsMan = new AOWInfantry(50, 5, 1, 2, 150, 90, 50, 110, 100);
+        archer = new AOWInfantry(40, 4, 200, 2, 90, 90, 50, 110, 100);
+        knight = new AOWInfantry(80, 3, 100, 2, 250, 120, 70, 140, 100);
+        catapult = new AOWTurrets(20, 4, 300, 2, 200);
 
-        soldier = new AOWInfantry(80, 5, 1, 2, 300, 120, 70, 140, 100);
-        sniper = new AOWInfantry(65, 4, 300, 2, 200, 120, 70, 140, 100);
-        tank = new AOWInfantry(150, 3, 100, 2, 500, 190, 100, 220, 100);
-        rocketLauncher = new AOWTurrets(70, 3, 400, 2, 250);
+        soldier = new AOWInfantry(80, 5, 1, 3, 300, 120, 70, 140, 100);
+        sniper = new AOWInfantry(65, 4, 300, 3, 200, 120, 70, 140, 100);
+        tank = new AOWInfantry(150, 3, 100, 3, 500, 190, 100, 220, 100);
+        rocketLauncher = new AOWTurrets(70, 3, 400, 3, 250);
 
-        blader = new AOWInfantry(150, 5, 1, 3, 400, 200, 120, 220, 100);
-        blaster = new AOWInfantry(130, 4, 200, 3, 300, 200, 120, 220, 100);
-        HayesWrath = new AOWInfantry(300, 3, 100, 3, 1500, 300, 275, 330, 100);
-        plasmaCannon = new AOWTurrets(75, 4, 300, 3, 1000);
+        blader = new AOWInfantry(150, 5, 1, 4, 400, 200, 120, 220, 100);
+        blaster = new AOWInfantry(130, 4, 200, 4, 300, 200, 120, 220, 100);
+        HayesWrath = new AOWInfantry(300, 3, 100, 4, 1500, 300, 275, 330, 100);
+        plasmaCannon = new AOWTurrets(75, 4, 300, 4, 1000);
 */
+        //----------------------------------End Of Infantry Objects----------------------------
 
-        SlingerE = new AOWInfantry(5, 4, 200, 0, 40, 60, 50, 80, 100, SlingerArray);
-        Slinger2 = new AOWInfantry(5, 4, 200, 0, 40, 60, 50, 80, 100, SlingerArray);
+        SlingerE = new AOWInfantry(5, 4, 200, 0, 40, 60, 50, 80, 100, slingerArray);
+        Slinger2 = new AOWInfantry(5, 4, 200, 0, 40, 60, 50, 80, 100, slingerArray);
 
         clubManE = new AOWInfantry(25, 5, 50, 0, 75, 60, 50, 80, 700, clubArray);
 
@@ -191,7 +207,7 @@ public class AOWRunner extends JPanel implements ActionListener{
 
 
         infantries.add(clubMan);
-        infantries.add(Slinger);
+        infantries.add(slinger);
         infantries.add(dinoRider);
         infantries.add(swordsMan);
         infantries.add(archer);
@@ -212,7 +228,7 @@ public class AOWRunner extends JPanel implements ActionListener{
         //------------------testing
         //   infantriesOFFriendly.add(clubMan);
         infantriesOFEnemy.add(clubManE);
-        clubManE = new AOWInfantry(25, 5, 50, 0, 75, 60, 50, 80, 700, clubArray);
+        clubManE = new AOWInfantry(25, 5, 50, 1, 75, 60, 50, 80, 700, clubArray);
         infantriesOFEnemy.add(clubManE);
         //    infantriesOFFriendly.add(clubMan2);
         //---------------------------------
@@ -231,11 +247,6 @@ public class AOWRunner extends JPanel implements ActionListener{
 
 
             public void mousePressed(MouseEvent e) {
-            /*if (e.getX() < 100 && e.getY() < 100)
-                {
-                    repaint();
-                }*/
-
 
 //CHANGE THE VALUES OF THE 500 TO 900 WHEN WE GET HOME AND 545 TO 94===========================================
 
@@ -246,10 +257,21 @@ public class AOWRunner extends JPanel implements ActionListener{
                     {
                         if(baseF.getMoney() >= clubMan.getCost())
                         {
-                            AOWInfantry clubMan = new AOWInfantry(25, 5, 50, 0, 75, 60, 50, 80, 100, clubArray);
-                            infantriesOFFriendly.add(infantriesOFFriendly.size(), clubMan);
+                            if(baseF.getTier() == 1)
+                            {
+                                AOWInfantry clubMan = new AOWInfantry(25, 5, 50, 1, 75, 60, 50, 80, 50, clubArray);
+                                infantriesOFFriendly.add(infantriesOFFriendly.size(), clubMan);
 
-                            baseF.setMoney(baseF.getMoney() - clubMan.getCost());
+                                baseF.setMoney(baseF.getMoney() - clubMan.getCost());
+                            }
+
+                            else if(baseF.getTier() == 2)
+                            {
+                                
+
+
+                            }
+
                         }
                     }
                 }
@@ -260,9 +282,9 @@ public class AOWRunner extends JPanel implements ActionListener{
 
                     if(infantriesOFFriendly.size() < 10)
                     {
-                        if(baseF.getMoney() >= Slinger.getCost())
+                        if(baseF.getMoney() >= slinger.getCost())
                         {
-                            AOWInfantry Slinger = new AOWInfantry(5, 4, 200, 0, 40, 60, 50, 80, 100, SlingerArray);
+                            AOWInfantry Slinger = new AOWInfantry(5, 4, 200, 1, 40, 60, 50, 80, 50, slingerArray);
                             infantriesOFFriendly.add(infantriesOFFriendly.size(), Slinger);
 
                             baseF.setMoney(baseF.getMoney() - Slinger.getCost());
@@ -271,14 +293,26 @@ public class AOWRunner extends JPanel implements ActionListener{
 
                 }
 
-
-
                 //Create tank minion
                 else if (e.getX() > 100 && e.getX() < 145 && e.getY() > 500 && e.getY() < 545)
                 {
                     //Create(3);
                 }
+
+                //Increases tier
+                else if(e.getX() > 1100 && e.getX() < 1160 && e.getY() > 500 && e.getY() < 560)
+                {
+                    if (baseF.getXP() >= 500)
+                    {
+                        baseF.incTier();
+
+                        baseF.setXP(baseF.getXP() - 500);
+
+                    }
+                }
+
                 System.out.println("mouseClicked at (" + e.getX() + ", " + e.getY() + ")");
+
             }
 
 
@@ -311,39 +345,42 @@ public class AOWRunner extends JPanel implements ActionListener{
         // getters and setters
     }
 
-    public void paint(Graphics g) {
+    public void paint(Graphics g)
+    {
         super.paint(g);
         Graphics2D g2d = (Graphics2D) g;
 //		g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
         //			RenderingHints.VALUE_ANTIALIAS_ON);
 
+        //draws the background
+        g2d.drawImage(prehistoric,0,0,this);
 
-        //make loop for infantry
+        //draws the levelUp button
+        g2d.drawImage(levelUp, 1100, 500, this);
 
-        g2d.drawImage(im,0,0,this);
-        g2d.drawRect(1100,650, 200, 50);
-        //g2d.fillOval(x, y, 50, 50);
-        //--------------------------------------------------------------------------------------------------------------------------
-        //CHANGE THIS WHEN WE GET TO HOME IT SHOULD BE 800 OR 900
-        //-------------------------------------------------------------------------------------------------------------------------
+
+        //draws the summon infantry buttons
         g2d.drawImage(AOWMelee,0,500, this);
         g2d.drawImage(AOWRanged,50,500, this);
         g2d.drawImage(AOWTank,100,500,this );
+
+        //draws the base
+        g2d.drawImage(base1, 0, 300, this);
+        g2d.drawImage(base2, 1100, 300, this);
 
 
         AOWInfantry tempF;
         AOWInfantry tempE;
 
-        g2d.drawImage(base1, 0, 200, this);
-        g2d.drawImage(base2, 1100, 200, this);
-
         for(int i = 0; i < 10; i++)
         {
-
+            
+            //goes through friendly infantries
             if(i < infantriesOFFriendly.size() )
             {
                 tempF = infantriesOFFriendly.get(i);
 
+                //draws the health bar
                 g2d.setColor(Color.RED);
                 g2d.fillRect(tempF.getX(),450,45, 10);
 
@@ -351,13 +388,17 @@ public class AOWRunner extends JPanel implements ActionListener{
                 double percentageOFHealth =  ((double)tempF.getHealth()) / ((double)tempF.getSpawnHealth());
                 int greenPixels = (int)(percentageOFHealth * 45);
                 g2d.fillRect(tempF.getX(),450,greenPixels,10);
+
+                //draws the Infantry Unit
                 g2d.drawImage(tempF.getWalkAnimations().get(tempF.getFrame()), tempF.getX(), 400, this);
             }
 
+            //goes through enemy infantries
             if(i < infantriesOFEnemy.size() )
             {
                 tempE = infantriesOFEnemy.get(i);
 
+                //draws the health bar
                 g2d.setColor(Color.RED);
                 g2d.fillRect(tempE.getX(),450,45, 10);
 
@@ -365,13 +406,11 @@ public class AOWRunner extends JPanel implements ActionListener{
                 double percentageOFHealth =  ((double)tempE.getHealth()) / ((double)tempE.getSpawnHealth());
                 int greenPixels = (int)(percentageOFHealth * 45);
                 g2d.fillRect(tempE.getX(),450,greenPixels,10);
+
+                //draws the Infantry Unit
                 g2d.drawImage(tempE.getWalkAnimations().get(tempE.getFrame()), tempE.getX(), 400, this);
             }
-            /*
-            g2d.drawImage(clubMan.getWalkAnimations().get(clubMan.getFrame()), infantriesOFFriendly.get(0).getX(), 800, this);
-            g2d.drawImage(clubMan2.getWalkAnimations().get(clubMan2.getFrame()), infantriesOFFriendly.get(1).getX(), 800, this);
-            g2d.drawImage(clubManE.getWalkAnimations().get(clubManE.getFrame()), infantriesOFEnemy.get(0).getX(), 800, this);
-*/
+
         }
 
 

@@ -157,7 +157,7 @@ public class AOWInfantry extends AOWUnit
 	public void move()
 	{
 
-		x +=3;
+		x +=6;
 		frame++;
 		if(frame>2)
 			frame=0;
@@ -168,7 +168,7 @@ public class AOWInfantry extends AOWUnit
 	public void moveE()
 	{
 
-		x-=3;
+		x-=6;
 		frame++;
 		if(frame > 2)
 			frame = 0;
