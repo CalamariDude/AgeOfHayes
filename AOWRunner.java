@@ -17,7 +17,7 @@ public class AOWRunner extends JPanel implements ActionListener{
     static ArrayList<AOWInfantry> infantriesOFFriendly = new ArrayList();
     static ArrayList<AOWTurrets> turretsOFFriendly = new ArrayList();
     static ArrayList<AOWInfantry> infantriesOFEnemy = new ArrayList();
-    static ArrayList<AOWInfantry> turretsOFEnemy = new ArrayList();
+    static ArrayList<AOWTurrets> turretsOFEnemy = new ArrayList();
 
     int x;
     int y;
@@ -40,6 +40,13 @@ public class AOWRunner extends JPanel implements ActionListener{
 
     //level up tier image
     Image levelUp;
+
+    //Frames for Turret
+    Image eggPaultRest;
+    Image eggPaultAttack1;
+    Image eggPaultAttack2;
+    Image eggPaultAttack3;
+
 
     //frames for clubMan
     Image clubManMove1;
@@ -96,6 +103,11 @@ public class AOWRunner extends JPanel implements ActionListener{
     ArrayList<Image> blasterArray = new ArrayList();
     ArrayList<Image> HayesWrathArray = new ArrayList();
 
+
+//----------------------------------------------Initializes All Picture ArrayList For Turrets Frames-----
+    ArrayList<Image> eggPaultArray = new ArrayList();
+
+
 //------------------------------------------End of Initializing all ArrayLists--------------------------
 
 
@@ -137,9 +149,17 @@ public class AOWRunner extends JPanel implements ActionListener{
         SlingerMove2 = ImageIO.read(new File("Resources\\Tier 1\\SlingerMove2.jpg"));
         SlingerMove3 = ImageIO.read(new File("Resources\\Tier 1\\SlingerMove3.jpg"));
 
+
+        //Turret pictures
+        eggPaultRest = ImageIO.read(new File("Resources\\Tier 1\\TurretRest.jpg"));
+        eggPaultAttack1 = ImageIO.read(new File("Resources\\Tier 1\\TurretAttack1.jpg"));
+        eggPaultAttack2=  ImageIO.read(new File("Resources\\Tier 1\\TurretAttack2.jpg"));
+        eggPaultAttack3=  ImageIO.read(new File("Resources\\Tier 1\\TurretAttack3.jpg"));
+
+
         //summon infantry pictures
         AOWMelee = ImageIO.read(new File("Resources\\Main Menu\\AOWMelee.jpg"));
-        AOWRanged = ImageIO.read(new File("Resources\\Main Menu\\AOWRanged.jpg"));
+        AOWRanged = ImageIO.read(new File("Resources\\Main Menu\\AOWRanged.jpg.png"));
         AOWTank = ImageIO.read(new File("Resources\\Main Menu\\AOWTank.jpg"));
 
         //------------------------------------End of Assign variables to pictures-----------------------
@@ -159,6 +179,12 @@ public class AOWRunner extends JPanel implements ActionListener{
         slingerArray.add(SlingerMove3);
         slingerArray.add(SlingerMove2);
         slingerArray.add(SlingerMove1);
+
+        eggPaultArray.add(eggPaultRest);
+        eggPaultArray.add(eggPaultAttack1);
+        eggPaultArray.add(eggPaultAttack2);
+        eggPaultArray.add(eggPaultAttack3);
+
         //----------------------------End of Assign Pictures to Picture ArrayList------------------------
 
 
@@ -177,6 +203,8 @@ public class AOWRunner extends JPanel implements ActionListener{
         clubMan = new AOWInfantry(25, 5, 50, 1, 75, 60, 50, 80, 300, clubArray );
 
         slinger = new AOWInfantry(5, 4, 200, 1, 40, 60, 50, 80, 100, slingerArray);
+
+        eggPault = new AOWTurrets(10,5,500,1,250,10,eggPaultArray);
 /*
 		dinoRider = new AOWInfantry(40, 3, 100, 1, 125, 90, 70, 110, 100);
         eggPault = new AOWTurrets(10, 4, 300, 1, 150);
@@ -234,6 +262,13 @@ public class AOWRunner extends JPanel implements ActionListener{
         //---------------------------------
         //infantriesOFEnemy.add(SlingerE);
 
+        //-----------------Testing Turrets
+        //replace with the mouselistener to add
+
+        turretsOFFriendly.add(eggPault);
+        turretsOFEnemy.add(new AOWTurrets(eggPault));
+
+        //----------------------------
 
 
 
@@ -371,6 +406,8 @@ public class AOWRunner extends JPanel implements ActionListener{
 
         AOWInfantry tempF;
         AOWInfantry tempE;
+        AOWTurrets turrF;
+        AOWTurrets turrE;
 
         for(int i = 0; i < 10; i++)
         {
@@ -410,6 +447,23 @@ public class AOWRunner extends JPanel implements ActionListener{
                 //draws the Infantry Unit
                 g2d.drawImage(tempE.getWalkAnimations().get(tempE.getFrame()), tempE.getX(), 400, this);
             }
+
+        }
+        //goes through friendly turrets
+        for(int i = 0; i<turretsOFFriendly.size();i++ ){
+            turrF = turretsOFFriendly.get(i);
+
+
+            g2d.drawImage(turrF.getAnimations().get(turrF.getFrame()),turrF.getX(),350, this);
+
+        }
+
+        //goes through enemy turrets
+        for(int i = 0; i<turretsOFEnemy.size();i++ ){
+            turrE = turretsOFEnemy.get(i);
+
+
+            g2d.drawImage(turrE.getAnimations().get(turrE.getFrame()),turrE.getX(),350, this);
 
         }
 

@@ -1,16 +1,52 @@
+import java.awt.*;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class AOWTurrets extends AOWUnit {
-    int range, attackSpeed, attackDamage, tier, cost, speed;
+    int range, attackSpeed, attackDamage, tier, cost, speed, frame, x;
+    ArrayList<Image> animations;
+    //animations are size 4  [0,3]
+    //index 0 is the rest animations
+    //1-3 are attack animations
 
-    public AOWTurrets(int attackDamage, int attackSpeed, int range, int tier, int cost, ArrayList<File> animations) {
-        this.tier = tier;
+    public AOWTurrets(int attackDamage, int attackSpeed, int range, int tier, int cost,int x , ArrayList<Image> animations) {
+        this.attackDamage=attackDamage;
+        this.attackSpeed=attackSpeed;
+        this.range=range;
+        this.tier=tier;
+        this.cost=cost;
+        this.animations=animations;
+        this.x=x;
+        frame=0;
 
 
     }
 
+    public AOWTurrets(AOWTurrets a) {
+        this.attackDamage=a.attackDamage;
+        this.attackSpeed=a.attackSpeed;
+        this.range=a.range;
+        this.tier=a.tier;
+        this.cost=a.cost;
+        this.animations=a.animations;
+        this.x=1100;
+        frame=0;
+
+
+    }
+
+    public int getFrame() {
+        return frame;
+    }
+
+    public ArrayList<Image> getAnimations() {
+        return animations;
+    }
+
+    public int getX() {
+        return x;
+    }
 
     @Override
     public int getAttackDamage() {
@@ -79,6 +115,25 @@ public class AOWTurrets extends AOWUnit {
         return 0;
     }
 
+    public void attack(AOWInfantry matthew){
+        if(frame<1)
+            frame=0;
+
+        frame++;
+
+        if(frame ==3)
+            matthew.setHealth(matthew.getHealth() - this.getAttackDamage());
+
+        if(frame >3)
+            frame = 1;
+
+
+    }
+
+    public void rest(){
+
+        frame=0;
+    }
 
 
 }

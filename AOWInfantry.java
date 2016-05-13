@@ -194,7 +194,7 @@ public class AOWInfantry extends AOWUnit
 		frame++;
 
 		if(frame ==6)
-			matthew.setHealth(matthew.getHealth()-this.getAttackDamage()/3);
+			matthew.setHealth(matthew.getHealth()-this.getAttackDamage());
 
 		if(frame >5)
 			frame = 3;
@@ -209,7 +209,7 @@ public class AOWInfantry extends AOWUnit
 		frame++;
 
 		if(frame ==6)
-			matthew.setHealth(matthew.getHealth()-this.getAttackDamage()/3);
+			matthew.setHealth(matthew.getHealth()-this.getAttackDamage());
 
 		if(frame >5)
 			frame = 3;

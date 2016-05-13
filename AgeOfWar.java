@@ -155,6 +155,8 @@ public class AgeOfWar
                         tempE = AOWRunner.infantriesOFEnemy.get(0);
 
 
+
+
                         //first friendly infantry
                         if(i == 0)
                         {
@@ -368,16 +370,98 @@ public class AgeOfWar
 
             // game.Create(1);
 
+            AOWTurrets TurrF, TurrE;
+            //loop through all posible turrets
+            for(int i = 0; i <1; i++){
+
+
+                //if the size of the TurretsOFFriendly array is this size
+                if(AOWRunner.turretsOFFriendly.size()>i) {
+
+
+
+                    //if there is a turret at this index
+                    if (AOWRunner.turretsOFFriendly.get(i) != null) {
+                        TurrF = AOWRunner.turretsOFFriendly.get(i);
+
+
+                        //if there is an enemy on the field
+                        if (AOWRunner.infantriesOFEnemy.size() > 0) {
+
+
+
+
+                            //if that enemy is in range, attack
+                            if (TurrF.getRange() + TurrF.getX() > AOWRunner.infantriesOFEnemy.get(0).getX()) {
+
+                                TurrF.attack(AOWRunner.infantriesOFEnemy.get(0));if(AOWRunner.infantriesOFEnemy.get(0).getHealth() <= 0)
+                                {
+                                    AOWRunner.baseF.setMoney(AOWRunner.baseF.getMoney() + AOWRunner.infantriesOFEnemy.get(0).getGoldGiver());
+                                    AOWRunner.baseF.setXP(AOWRunner.baseF.getXP() + AOWRunner.infantriesOFEnemy.get(0).getXpGiver());
+
+                                    AOWRunner.infantriesOFEnemy.remove(0);
+                                }
+
+
+                            } else
+                                TurrF.rest();
+
+                        }
+
+                    }
+                }
+
+                //if the size of the TurretsOFEnemy array is this size
+                if(AOWRunner.turretsOFEnemy.size()>i) {
+
+                    //if there is a turret at this index
+                    if (AOWRunner.turretsOFEnemy.get(i) != null) {
+                        TurrE = AOWRunner.turretsOFEnemy.get(i);
+
+                        //if there is an Friendly on the field
+                        if (AOWRunner.infantriesOFFriendly.size()>0) {
+
+
+                            //if that Friendly is in range, attack
+                            if (TurrE.getX() - TurrE.getRange() < AOWRunner.infantriesOFFriendly.get(0).getX()) {
+                                TurrE.attack(AOWRunner.infantriesOFFriendly.get(0));
+                                if(AOWRunner.infantriesOFFriendly.get(0).getHealth() <= 0)
+                                {
+                                    AOWRunner.baseE.setMoney(AOWRunner.baseE.getMoney() + AOWRunner.infantriesOFFriendly.get(0).getGoldGiver());
+                                    AOWRunner.baseE.setXP(AOWRunner.baseE.getXP() + AOWRunner.infantriesOFFriendly.get(0).getXpGiver());
+
+                                    AOWRunner.infantriesOFFriendly.remove(0);
+                                }
+                            } else
+                                TurrE.rest();
+
+                        }
+
+                    }
+
+                }
+
+
+            }
+
+
+
+
+
+
+
+
+
 
 
 
 
             game.repaint();
 
-            Thread.sleep(50);
+            Thread.sleep(100);
 
-            System.out.println(AOWRunner.infantriesOFFriendly.size());
-            System.out.println(AOWRunner.baseF.getTier());
+            //System.out.println(AOWRunner.infantriesOFFriendly.size());
+            //System.out.println(AOWRunner.baseF.getTier());
 
         }// end of game while loop
 
