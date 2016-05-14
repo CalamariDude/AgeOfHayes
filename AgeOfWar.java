@@ -36,6 +36,7 @@ public class AgeOfWar
 
         JLabel title = new JLabel(xp);
         title.setFont(new Font("Serif", Font.BOLD, 50));
+        frame.add(title);
 
 
 

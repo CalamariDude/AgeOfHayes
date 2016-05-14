@@ -394,9 +394,7 @@ public class AOWRunner extends JPanel implements ActionListener{
 
     public AOWRunner() throws IOException{
 
-        //gold and xp
-        gold = new TextField("Gold:"+baseF.getMoney());
-        xp = new TextField("XP: "+ baseF.getXP());
+
 
         //Creates base objects
         baseF = new AOWBase(1000, 500000, 25);
@@ -1375,7 +1373,6 @@ public class AOWRunner extends JPanel implements ActionListener{
 
 
         Graphics2D g2d = (Graphics2D) g;
-        g2d.dr
 //		g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
         //			RenderingHints.VALUE_ANTIALIAS_ON);
 
