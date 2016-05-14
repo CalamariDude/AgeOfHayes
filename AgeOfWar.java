@@ -31,6 +31,12 @@ public class AgeOfWar
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
         frame.setResizable(false);
+        String xp = "" + AOWRunner.baseF.getXP();
+        String gold = "" + AOWRunner.baseF.getMoney();
+
+        JLabel title = new JLabel(xp);
+        title.setFont(new Font("Serif", Font.BOLD, 50));
+
 
 
 

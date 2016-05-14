@@ -32,7 +32,7 @@ public class AOWInfantry extends AOWUnit
 
 
 	}
-        //copy constructor
+        //copy constructor for enemy
     public AOWInfantry(AOWInfantry infant, ArrayList<Image> walkAnimations){
         this.attackDamage = infant.attackDamage;
         this.range = infant.range;
