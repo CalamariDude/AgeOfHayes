@@ -37,6 +37,16 @@ public class AOWRunner extends JPanel implements ActionListener{
     Image base1;
     Image base2;
 
+    Image medievalBase1;
+    Image medievalBase2;
+
+    Image militaryBase1;
+    Image militaryBase2;
+
+    Image futureBase1;
+    Image futureBase2;
+
+
     //summon infantry image
     Image AOWMelee;
     Image AOWRanged;
@@ -393,15 +403,28 @@ public class AOWRunner extends JPanel implements ActionListener{
         Futuristic = ImageIO.read(new File("Resources\\Main Menu\\Futuristic.jpg"));
 
         //base pictures
+        //tier 1
         base1 = ImageIO.read(new File("Resources\\Tier 1\\Base.jpg"));
-        base2 = ImageIO.read(new File("Resources\\Tier 1\\Base.jpg"));
+        base2 = ImageIO.read(new File("Resources\\Tier 1\\Basee.jpg"));
+
+        //tier 2
+        medievalBase1 = ImageIO.read(new File("Resources\\Tier 2\\Medieval Base.jpg"));
+        medievalBase2 = ImageIO.read(new File("Resources\\Tier 2\\Medieval Basee.jpg"));
+
+        //tier 3
+        militaryBase1 = ImageIO.read(new File("Resources\\Tier 3\\Military Base.jpg"));
+        militaryBase2 = ImageIO.read(new File("Resources\\Tier 3\\Military Basee.jpg"));
+
+        //tier 4
+        futureBase1 = ImageIO.read(new File("Resources\\Tier 4\\Future Base.jpg"));
+        futureBase1 = ImageIO.read(new File("Resources\\Tier 4\\Future Basee.jpg"));
 
         //levelUp picture
         levelUp = ImageIO.read(new File("Resources\\Main Menu\\levelUp.jpg"));
 
         //summon infantry pictures
         AOWMelee = ImageIO.read(new File("Resources\\Main Menu\\AOWMelee.jpg"));
-        AOWRanged = ImageIO.read(new File("Resources\\Main Menu\\AOWRanged.jpg"));
+        AOWRanged = ImageIO.read(new File("Resources\\Main Menu\\AOWRanged.jpg.png"));
         AOWTank = ImageIO.read(new File("Resources\\Main Menu\\AOWTank.jpg"));
         AOWTurret = ImageIO.read(new File("Resources\\Main Menu\\turret.jpg"));
 
@@ -417,12 +440,12 @@ public class AOWRunner extends JPanel implements ActionListener{
         clubManAttack3 = ImageIO.read(new File("Resources\\Tier 1\\clubManAttack3.jpg"));
 
         //enemy clubMan pictures
-        clubManEMove1 = ImageIO.read(new File("Resources\\Tier 1\\clubManEMove1.jpg"));
-        clubManEMove2 = ImageIO.read(new File("Resources\\Tier 1\\clubManEMove2.jpg"));
-        clubManEMove3 = ImageIO.read(new File("Resources\\Tier 1\\clubManEMove3.jpg"));
-        clubManEAttack1 = ImageIO.read(new File("Resources\\Tier 1\\clubManEAttack1.jpg"));
-        clubManEAttack2 = ImageIO.read(new File("Resources\\Tier 1\\clubManEAttack2.jpg"));
-        clubManEAttack3 = ImageIO.read(new File("Resources\\Tier 1\\clubManEAttack3.jpg"));
+        clubManEMove1 = ImageIO.read(new File("Resources\\Tier 1\\clubManMove1e.jpg"));
+        clubManEMove2 = ImageIO.read(new File("Resources\\Tier 1\\clubManMove2e.jpg"));
+        clubManEMove3 = ImageIO.read(new File("Resources\\Tier 1\\clubManMove3e.jpg"));
+        clubManEAttack1 = ImageIO.read(new File("Resources\\Tier 1\\clubManAttack1e.jpg"));
+        clubManEAttack2 = ImageIO.read(new File("Resources\\Tier 1\\clubManAttack2e.jpg"));
+        clubManEAttack3 = ImageIO.read(new File("Resources\\Tier 1\\clubManAttack3e.jpg"));
 
         //slinger pictures
         SlingerMove1 = ImageIO.read(new File("Resources\\Tier 1\\SlingerMove1.jpg"));
@@ -433,12 +456,12 @@ public class AOWRunner extends JPanel implements ActionListener{
         SlingerAttack3 = ImageIO.read(new File("Resources\\Tier 1\\SlingerAttack3.jpg"));
 
         //enemy slinger pictures
-        SlingerEMove1 = ImageIO.read(new File("Resources\\Tier 1\\SlingerEMove1.jpg"));
-        SlingerEMove2 = ImageIO.read(new File("Resources\\Tier 1\\SlingerEMove2.jpg"));
-        SlingerEMove3 = ImageIO.read(new File("Resources\\Tier 1\\SlingerEMove3.jpg"));
-        SlingerEAttack1 = ImageIO.read(new File("Resources\\Tier 1\\SlingerEAttack1.jpg"));
-        SlingerEAttack2 = ImageIO.read(new File("Resources\\Tier 1\\SlingerEAttack2.jpg"));
-        SlingerEAttack3 = ImageIO.read(new File("Resources\\Tier 1\\SlingerEAttack3.jpg"));
+        SlingerEMove1 = ImageIO.read(new File("Resources\\Tier 1\\SlingerMove1e.jpg"));
+        SlingerEMove2 = ImageIO.read(new File("Resources\\Tier 1\\SlingerMove2e.jpg"));
+        SlingerEMove3 = ImageIO.read(new File("Resources\\Tier 1\\SlingerMove3e.jpg"));
+        SlingerEAttack1 = ImageIO.read(new File("Resources\\Tier 1\\SlingerAttack1e.jpg"));
+        SlingerEAttack2 = ImageIO.read(new File("Resources\\Tier 1\\SlingerAttack2e.jpg"));
+        SlingerEAttack3 = ImageIO.read(new File("Resources\\Tier 1\\SlingerAttack3e.jpg"));
 
         //dinoRider pictures
         dinoRiderMove1 = ImageIO.read(new File("Resources\\Tier 1\\dinoRiderMove1.jpg"));
@@ -449,12 +472,12 @@ public class AOWRunner extends JPanel implements ActionListener{
         dinoRiderAttack3 = ImageIO.read(new File("Resources\\Tier 1\\dinoRiderAttack3.jpg"));
 
         //dinoRider pictures
-        dinoRiderEMove1 = ImageIO.read(new File("Resources\\Tier 1\\dinoRiderEMove1.jpg"));
-        dinoRiderEMove2 = ImageIO.read(new File("Resources\\Tier 1\\dinoRiderEMove2.jpg"));
-        dinoRiderEMove3 = ImageIO.read(new File("Resources\\Tier 1\\dinoRiderEMove3.jpg"));
-        dinoRiderEAttack1 = ImageIO.read(new File("Resources\\Tier 1\\dinoRiderEAttack1.jpg"));
-        dinoRiderEAttack2 = ImageIO.read(new File("Resources\\Tier 1\\dinoRiderEAttack2.jpg"));
-        dinoRiderEAttack3 = ImageIO.read(new File("Resources\\Tier 1\\dinoRiderEAttack3.jpg"));
+        dinoRiderEMove1 = ImageIO.read(new File("Resources\\Tier 1\\dinoRiderMove1e.jpg"));
+        dinoRiderEMove2 = ImageIO.read(new File("Resources\\Tier 1\\dinoRiderMove2e.jpg"));
+        dinoRiderEMove3 = ImageIO.read(new File("Resources\\Tier 1\\dinoRiderMove3e.jpg"));
+        dinoRiderEAttack1 = ImageIO.read(new File("Resources\\Tier 1\\dinoRiderAttack1e.jpg"));
+        dinoRiderEAttack2 = ImageIO.read(new File("Resources\\Tier 1\\dinoRiderAttack2e.jpg"));
+        dinoRiderEAttack3 = ImageIO.read(new File("Resources\\Tier 1\\dinoRiderAttack3e.jpg"));
 
         //eggPault pictures
         eggPaultRest = ImageIO.read(new File("Resources\\Tier 1\\TurretRest.jpg"));
@@ -463,10 +486,10 @@ public class AOWRunner extends JPanel implements ActionListener{
         eggPaultAttack3=  ImageIO.read(new File("Resources\\Tier 1\\TurretAttack3.jpg"));
 
         //enemy eggPault pictures
-        eggPaultERest = ImageIO.read(new File("Resources\\Tier 1\\TurretERest.jpg"));
-        eggPaultEAttack1 = ImageIO.read(new File("Resources\\Tier 1\\TurretEAttack1.jpg"));
-        eggPaultEAttack2=  ImageIO.read(new File("Resources\\Tier 1\\TurretEAttack2.jpg"));
-        eggPaultEAttack3=  ImageIO.read(new File("Resources\\Tier 1\\TurretEAttack3.jpg"));
+        eggPaultERest = ImageIO.read(new File("Resources\\Tier 1\\TurretReste.jpg"));
+        eggPaultEAttack1 = ImageIO.read(new File("Resources\\Tier 1\\TurretAttack1e.jpg"));
+        eggPaultEAttack2=  ImageIO.read(new File("Resources\\Tier 1\\TurretAttack2e.jpg"));
+        eggPaultEAttack3=  ImageIO.read(new File("Resources\\Tier 1\\TurretAttack3e.jpg"));
 
         //swordsMan pictures
         swordsManMove1 = ImageIO.read(new File("Resources\\Tier 2\\swordsManMove1.jpg"));
@@ -477,12 +500,12 @@ public class AOWRunner extends JPanel implements ActionListener{
         swordsManAttack3 = ImageIO.read(new File("Resources\\Tier 2\\swordsManAttack3.jpg"));
 
         //enemy swordsMan pictures
-        swordsManEMove1 = ImageIO.read(new File("Resources\\Tier 2\\swordsManEMove1.jpg"));
-        swordsManEMove2 = ImageIO.read(new File("Resources\\Tier 2\\swordsManEMove2.jpg"));
-        swordsManEMove3 = ImageIO.read(new File("Resources\\Tier 2\\swordsManEMove3.jpg"));
-        swordsManEAttack1 = ImageIO.read(new File("Resources\\Tier 2\\swordsManEAttack1.jpg"));
-        swordsManEAttack2 = ImageIO.read(new File("Resources\\Tier 2\\swordsManEAttack2.jpg"));
-        swordsManEAttack3 = ImageIO.read(new File("Resources\\Tier 2\\swordsManEAttack3.jpg"));
+        swordsManEMove1 = ImageIO.read(new File("Resources\\Tier 2\\swordsManMove1e.jpg"));
+        swordsManEMove2 = ImageIO.read(new File("Resources\\Tier 2\\swordsManMove2e.jpg"));
+        swordsManEMove3 = ImageIO.read(new File("Resources\\Tier 2\\swordsManMove3e.jpg"));
+        swordsManEAttack1 = ImageIO.read(new File("Resources\\Tier 2\\swordsManAttack1e.jpg"));
+        swordsManEAttack2 = ImageIO.read(new File("Resources\\Tier 2\\swordsManAttack2e.jpg"));
+        swordsManEAttack3 = ImageIO.read(new File("Resources\\Tier 2\\swordsManAttack3e.jpg"));
 
         //archer pictures
         archerMove1 = ImageIO.read(new File("Resources\\Tier 2\\archerMove1.jpg"));
@@ -493,12 +516,12 @@ public class AOWRunner extends JPanel implements ActionListener{
         archerAttack3 = ImageIO.read(new File("Resources\\Tier 2\\archerAttack3.jpg"));
 
         //enemy archer pictures
-        archerEMove1 = ImageIO.read(new File("Resources\\Tier 2\\archerEMove1.jpg"));
-        archerEMove2 = ImageIO.read(new File("Resources\\Tier 2\\archerEMove2.jpg"));
-        archerEMove3 = ImageIO.read(new File("Resources\\Tier 2\\archerEMove3.jpg"));
-        archerEAttack1 = ImageIO.read(new File("Resources\\Tier 2\\archerEAttack1.jpg"));
-        archerEAttack2 = ImageIO.read(new File("Resources\\Tier 2\\archerEAttack2.jpg"));
-        archerEAttack3 = ImageIO.read(new File("Resources\\Tier 2\\archerEAttack3.jpg"));
+        archerEMove1 = ImageIO.read(new File("Resources\\Tier 2\\archerMove1e.jpg"));
+        archerEMove2 = ImageIO.read(new File("Resources\\Tier 2\\archerMove2e.jpg"));
+        archerEMove3 = ImageIO.read(new File("Resources\\Tier 2\\archerMove3e.jpg"));
+        archerEAttack1 = ImageIO.read(new File("Resources\\Tier 2\\archerAttack1e.jpg"));
+        archerEAttack2 = ImageIO.read(new File("Resources\\Tier 2\\archerAttack2e.jpg"));
+        archerEAttack3 = ImageIO.read(new File("Resources\\Tier 2\\archerAttack3e.jpg"));
 
         //knight pictures
         knightMove1 = ImageIO.read(new File("Resources\\Tier 2\\knightMove1.jpg"));
@@ -509,12 +532,12 @@ public class AOWRunner extends JPanel implements ActionListener{
         knightAttack3 = ImageIO.read(new File("Resources\\Tier 2\\knightAttack3.jpg"));
 
         //knight pictures
-        knightEMove1 = ImageIO.read(new File("Resources\\Tier 2\\knightEMove1.jpg"));
-        knightEMove2 = ImageIO.read(new File("Resources\\Tier 2\\knightEMove2.jpg"));
-        knightEMove3 = ImageIO.read(new File("Resources\\Tier 2\\knightEMove3.jpg"));
-        knightEAttack1 = ImageIO.read(new File("Resources\\Tier 2\\knightEAttack1.jpg"));
-        knightEAttack2 = ImageIO.read(new File("Resources\\Tier 2\\knightEAttack2.jpg"));
-        knightEAttack3 = ImageIO.read(new File("Resources\\Tier 2\\knightEAttack3.jpg"));
+        knightEMove1 = ImageIO.read(new File("Resources\\Tier 2\\knightMove1e.jpg"));
+        knightEMove2 = ImageIO.read(new File("Resources\\Tier 2\\knightMove2e.jpg"));
+        knightEMove3 = ImageIO.read(new File("Resources\\Tier 2\\knightMove3e.jpg"));
+        knightEAttack1 = ImageIO.read(new File("Resources\\Tier 2\\knightAttack1e.jpg"));
+        knightEAttack2 = ImageIO.read(new File("Resources\\Tier 2\\knightAttack2e.jpg"));
+        knightEAttack3 = ImageIO.read(new File("Resources\\Tier 2\\knightAttack3e.jpg"));
 
         //catapault pictures
         catapaultRest = ImageIO.read(new File("Resources\\Tier 2\\catapaultRest.jpg"));
@@ -523,26 +546,26 @@ public class AOWRunner extends JPanel implements ActionListener{
         catapaultAttack3 = ImageIO.read(new File("Resources\\Tier 2\\catapaultAttack3.jpg"));
 
         //enemy catapault pictures
-        catapaultERest = ImageIO.read(new File("Resources\\Tier 2\\catapaultERest.jpg"));
-        catapaultEAttack1 = ImageIO.read(new File("Resources\\Tier 2\\catapaultEAttack1.jpg"));
-        catapaultEAttack2 = ImageIO.read(new File("Resources\\Tier 2\\catapaultEAttack2.jpg"));
-        catapaultEAttack3 = ImageIO.read(new File("Resources\\Tier 2\\catapaultEAttack3.jpg"));
+        catapaultERest = ImageIO.read(new File("Resources\\Tier 2\\catapaultReste.jpg"));
+        catapaultEAttack1 = ImageIO.read(new File("Resources\\Tier 2\\catapaultAttack1e.jpg"));
+        catapaultEAttack2 = ImageIO.read(new File("Resources\\Tier 2\\catapaultAttack2e.jpg"));
+        catapaultEAttack3 = ImageIO.read(new File("Resources\\Tier 2\\catapaultAttack3e.jpg"));
 
         //soldier pictures
-        soldierMove1 = ImageIO.read(new File("Resources\\Tier 3\\soldierMove1.jpg"));
-        soldierMove2 = ImageIO.read(new File("Resources\\Tier 3\\soldierMove2.jpg"));
-        soldierMove3 = ImageIO.read(new File("Resources\\Tier 3\\soldierMove3.jpg"));
+        soldierMove1 = ImageIO.read(new File("Resources\\Tier 3\\soliderMove1.jpg"));
+        soldierMove2 = ImageIO.read(new File("Resources\\Tier 3\\soliderMove2.jpg"));
+        soldierMove3 = ImageIO.read(new File("Resources\\Tier 3\\soliderMove3.jpg"));
         soldierAttack1 = ImageIO.read(new File("Resources\\Tier 3\\soldierAttack1.jpg"));
         soldierAttack2 = ImageIO.read(new File("Resources\\Tier 3\\soldierAttack2.jpg"));
         soldierAttack3 = ImageIO.read(new File("Resources\\Tier 3\\soldierAttack3.jpg"));
 
         //enemy soldier pictures
-        soldierEMove1 = ImageIO.read(new File("Resources\\Tier 3\\soldierEMove1.jpg"));
-        soldierEMove2 = ImageIO.read(new File("Resources\\Tier 3\\soldierEMove2.jpg"));
-        soldierEMove3 = ImageIO.read(new File("Resources\\Tier 3\\soldierEMove3.jpg"));
-        soldierEAttack1 = ImageIO.read(new File("Resources\\Tier 3\\soldierEAttack1.jpg"));
-        soldierEAttack2 = ImageIO.read(new File("Resources\\Tier 3\\soldierEAttack2.jpg"));
-        soldierEAttack3 = ImageIO.read(new File("Resources\\Tier 3\\soldierEAttack3.jpg"));
+        soldierEMove1 = ImageIO.read(new File("Resources\\Tier 3\\soldierMove1e.jpg"));
+        soldierEMove2 = ImageIO.read(new File("Resources\\Tier 3\\soldierMove2e.jpg"));
+        soldierEMove3 = ImageIO.read(new File("Resources\\Tier 3\\soldierMove3e.jpg"));
+        soldierEAttack1 = ImageIO.read(new File("Resources\\Tier 3\\soldierAttack1e.jpg"));
+        soldierEAttack2 = ImageIO.read(new File("Resources\\Tier 3\\soldierAttack2e.jpg"));
+        soldierEAttack3 = ImageIO.read(new File("Resources\\Tier 3\\soldierAttack3e.jpg"));
 
         //sniper pictures
         sniperMove1 = ImageIO.read(new File("Resources\\Tier 3\\sniperMove1.jpg"));
@@ -553,12 +576,12 @@ public class AOWRunner extends JPanel implements ActionListener{
         sniperAttack3 = ImageIO.read(new File("Resources\\Tier 3\\sniperAttack3.jpg"));
 
         //enemy sniper pictures
-        sniperEMove1 = ImageIO.read(new File("Resources\\Tier 3\\sniperEMove1.jpg"));
-        sniperEMove2 = ImageIO.read(new File("Resources\\Tier 3\\sniperEMove2.jpg"));
-        sniperEMove3 = ImageIO.read(new File("Resources\\Tier 3\\sniperEMove3.jpg"));
-        sniperEAttack1 = ImageIO.read(new File("Resources\\Tier 3\\sniperEAttack1.jpg"));
-        sniperEAttack2 = ImageIO.read(new File("Resources\\Tier 3\\sniperEAttack2.jpg"));
-        sniperEAttack3 = ImageIO.read(new File("Resources\\Tier 3\\sniperEAttack3.jpg"));
+        sniperEMove1 = ImageIO.read(new File("Resources\\Tier 3\\sniperMove1e.jpg"));
+        sniperEMove2 = ImageIO.read(new File("Resources\\Tier 3\\sniperMove2e.jpg"));
+        sniperEMove3 = ImageIO.read(new File("Resources\\Tier 3\\sniperMove3e.jpg"));
+        sniperEAttack1 = ImageIO.read(new File("Resources\\Tier 3\\sniperAttack1e.jpg"));
+        sniperEAttack2 = ImageIO.read(new File("Resources\\Tier 3\\sniperAttack2e.jpg"));
+        sniperEAttack3 = ImageIO.read(new File("Resources\\Tier 3\\sniperAttack3e.jpg"));
 
         //tank pictures
         tankMove1 = ImageIO.read(new File("Resources\\Tier 3\\tankMove1.jpg"));
@@ -569,12 +592,12 @@ public class AOWRunner extends JPanel implements ActionListener{
         tankAttack3 = ImageIO.read(new File("Resources\\Tier 3\\tankAttack3.jpg"));
 
         //enemy tank pictures
-        tankEMove1 = ImageIO.read(new File("Resources\\Tier 3\\tankEMove1.jpg"));
-        tankEMove2 = ImageIO.read(new File("Resources\\Tier 3\\tankEMove2.jpg"));
-        tankEMove3 = ImageIO.read(new File("Resources\\Tier 3\\tankEMove3.jpg"));
-        tankEAttack1 = ImageIO.read(new File("Resources\\Tier 3\\tankEAttack1.jpg"));
-        tankEAttack2 = ImageIO.read(new File("Resources\\Tier 3\\tankEAttack2.jpg"));
-        tankEAttack3 = ImageIO.read(new File("Resources\\Tier 3\\tankEAttack3.jpg"));
+        tankEMove1 = ImageIO.read(new File("Resources\\Tier 3\\tankMove1e.jpg"));
+        tankEMove2 = ImageIO.read(new File("Resources\\Tier 3\\tankMove2e.jpg"));
+        tankEMove3 = ImageIO.read(new File("Resources\\Tier 3\\tankMove3e.jpg"));
+        tankEAttack1 = ImageIO.read(new File("Resources\\Tier 3\\tankAttack1e.jpg"));
+        tankEAttack2 = ImageIO.read(new File("Resources\\Tier 3\\tankAttack2e.jpg"));
+        tankEAttack3 = ImageIO.read(new File("Resources\\Tier 3\\tankAttack3e.jpg"));
 
         //rocketLauncher pictures
         rocketLauncherRest = ImageIO.read(new File("Resources\\Tier 3\\rocketLauncherRest.jpg"));
@@ -583,10 +606,10 @@ public class AOWRunner extends JPanel implements ActionListener{
         rocketLauncherAttack3 = ImageIO.read(new File("Resources\\Tier 3\\rocketLauncherAttack3.jpg"));
 
         //enemy rocketLauncher pictures
-        rocketLauncherERest = ImageIO.read(new File("Resources\\Tier 3\\rocketLauncherERest.jpg"));
-        rocketLauncherEAttack1 = ImageIO.read(new File("Resources\\Tier 3\\rocketLauncherEAttack1.jpg"));
-        rocketLauncherEAttack2 = ImageIO.read(new File("Resources\\Tier 3\\rocketLauncherEAttack2.jpg"));
-        rocketLauncherEAttack3 = ImageIO.read(new File("Resources\\Tier 3\\rocketLauncherEAttack3.jpg"));
+        rocketLauncherERest = ImageIO.read(new File("Resources\\Tier 3\\rocketLauncherReste.jpg"));
+        rocketLauncherEAttack1 = ImageIO.read(new File("Resources\\Tier 3\\rocketLauncherAttack1e.jpg"));
+        rocketLauncherEAttack2 = ImageIO.read(new File("Resources\\Tier 3\\rocketLauncherAttack2e.jpg"));
+        rocketLauncherEAttack3 = ImageIO.read(new File("Resources\\Tier 3\\rocketLauncherAttack3e.jpg"));
 
         //blader pictures
         bladerMove1 = ImageIO.read(new File("Resources\\Tier 4\\bladerMove1.jpg"));
@@ -597,12 +620,12 @@ public class AOWRunner extends JPanel implements ActionListener{
         bladerAttack3 = ImageIO.read(new File("Resources\\Tier 4\\bladerAttack3.jpg"));
 
         //enemy blader pictures
-        bladerEMove1 = ImageIO.read(new File("Resources\\Tier 4\\bladerEMove1.jpg"));
-        bladerEMove2 = ImageIO.read(new File("Resources\\Tier 4\\bladerEMove2.jpg"));
-        bladerEMove3 = ImageIO.read(new File("Resources\\Tier 4\\bladerEMove3.jpg"));
-        bladerEAttack1 = ImageIO.read(new File("Resources\\Tier 4\\bladerEAttack1.jpg"));
-        bladerEAttack2 = ImageIO.read(new File("Resources\\Tier 4\\bladerEAttack2.jpg"));
-        bladerEAttack3 = ImageIO.read(new File("Resources\\Tier 4\\bladerEAttack3.jpg"));
+        bladerEMove1 = ImageIO.read(new File("Resources\\Tier 4\\bladerMove1e.jpg"));
+        bladerEMove2 = ImageIO.read(new File("Resources\\Tier 4\\bladerMove2e.jpg"));
+        bladerEMove3 = ImageIO.read(new File("Resources\\Tier 4\\bladerMove3e.jpg"));
+        bladerEAttack1 = ImageIO.read(new File("Resources\\Tier 4\\bladerAttack1e.jpg"));
+        bladerEAttack2 = ImageIO.read(new File("Resources\\Tier 4\\bladerAttack2e.jpg"));
+        bladerEAttack3 = ImageIO.read(new File("Resources\\Tier 4\\bladerAttack3e.jpg"));
 
         //blaster pictures
         blasterMove1 = ImageIO.read(new File("Resources\\Tier 4\\blasterMove1.jpg"));
@@ -613,12 +636,12 @@ public class AOWRunner extends JPanel implements ActionListener{
         blasterAttack3 = ImageIO.read(new File("Resources\\Tier 4\\blasterAttack3.jpg"));
 
         //enemy blaster pictures
-        blasterEMove1 = ImageIO.read(new File("Resources\\Tier 4\\blasterEMove1.jpg"));
-        blasterEMove2 = ImageIO.read(new File("Resources\\Tier 4\\blasterEMove2.jpg"));
-        blasterEMove3 = ImageIO.read(new File("Resources\\Tier 4\\blasterEMove3.jpg"));
-        blasterEAttack1 = ImageIO.read(new File("Resources\\Tier 4\\blasterEAttack1.jpg"));
-        blasterEAttack2 = ImageIO.read(new File("Resources\\Tier 4\\blasterEAttack2.jpg"));
-        blasterEAttack3 = ImageIO.read(new File("Resources\\Tier 4\\blasterEAttack3.jpg"));
+        blasterEMove1 = ImageIO.read(new File("Resources\\Tier 4\\blasterMove1e.jpg"));
+        blasterEMove2 = ImageIO.read(new File("Resources\\Tier 4\\blasterMove2e.jpg"));
+        blasterEMove3 = ImageIO.read(new File("Resources\\Tier 4\\blasterMove3e.jpg"));
+        blasterEAttack1 = ImageIO.read(new File("Resources\\Tier 4\\blasterAttack1e.jpg"));
+        blasterEAttack2 = ImageIO.read(new File("Resources\\Tier 4\\blasterAttack2e.jpg"));
+        blasterEAttack3 = ImageIO.read(new File("Resources\\Tier 4\\blasterAttack3e.jpg"));
 
         //HayesWrath pictures
         HayesWrathMove1 = ImageIO.read(new File("Resources\\Tier 4\\HayesWrathMove1.jpg"));
@@ -629,12 +652,12 @@ public class AOWRunner extends JPanel implements ActionListener{
         HayesWrathAttack3 = ImageIO.read(new File("Resources\\Tier 4\\HayesWrathAttack3.jpg"));
 
         //enemy HayesWrath pictures
-        HayesWrathEMove1 = ImageIO.read(new File("Resources\\Tier 4\\HayesWrathEMove1.jpg"));
-        HayesWrathEMove2 = ImageIO.read(new File("Resources\\Tier 4\\HayesWrathEMove2.jpg"));
-        HayesWrathEMove3 = ImageIO.read(new File("Resources\\Tier 4\\HayesWrathEMove3.jpg"));
-        HayesWrathEAttack1 = ImageIO.read(new File("Resources\\Tier 4\\HayesWrathEAttack1.jpg"));
-        HayesWrathEAttack2 = ImageIO.read(new File("Resources\\Tier 4\\HayesWrathEAttack2.jpg"));
-        HayesWrathEAttack3 = ImageIO.read(new File("Resources\\Tier 4\\HayesWrathEAttack3.jpg"));
+        HayesWrathEMove1 = ImageIO.read(new File("Resources\\Tier 4\\HayesWrathMove1e.jpg"));
+        HayesWrathEMove2 = ImageIO.read(new File("Resources\\Tier 4\\HayesWrathMove2e.jpg"));
+        HayesWrathEMove3 = ImageIO.read(new File("Resources\\Tier 4\\HayesWrathMove3e.jpg"));
+        HayesWrathEAttack1 = ImageIO.read(new File("Resources\\Tier 4\\HayesWrathAttack1e.jpg"));
+        HayesWrathEAttack2 = ImageIO.read(new File("Resources\\Tier 4\\HayesWrathAttack2e.jpg"));
+        HayesWrathEAttack3 = ImageIO.read(new File("Resources\\Tier 4\\HayesWrathAttack3e.jpg"));
 
         //plasmaCanon pictures
         plasmaCannonRest = ImageIO.read(new File("Resources\\Tier 4\\plasmaCannonRest.jpg"));
@@ -642,11 +665,11 @@ public class AOWRunner extends JPanel implements ActionListener{
         plasmaCannonAttack2 = ImageIO.read(new File("Resources\\Tier 4\\plasmaCannonAttack2.jpg"));
         plasmaCannonAttack3 = ImageIO.read(new File("Resources\\Tier 4\\plasmaCannonAttack3.jpg"));
 
-        //plasmaCanon pictures
-        plasmaCannonERest = ImageIO.read(new File("Resources\\Tier 4\\plasmaCannonERest.jpg"));
-        plasmaCannonEAttack1 = ImageIO.read(new File("Resources\\Tier 4\\plasmaCannonEAttack1.jpg"));
-        plasmaCannonEAttack2 = ImageIO.read(new File("Resources\\Tier 4\\plasmaCannonEAttack2.jpg"));
-        plasmaCannonEAttack3 = ImageIO.read(new File("Resources\\Tier 4\\plasmaCannonEAttack3.jpg"));
+        //enemy plasmaCanon pictures
+        plasmaCannonERest = ImageIO.read(new File("Resources\\Tier 4\\plasmaCannonReste.jpg"));
+        plasmaCannonEAttack1 = ImageIO.read(new File("Resources\\Tier 4\\plasmaCannonAttack1e.jpg"));
+        plasmaCannonEAttack2 = ImageIO.read(new File("Resources\\Tier 4\\plasmaCannonAttack2e.jpg"));
+        plasmaCannonEAttack3 = ImageIO.read(new File("Resources\\Tier 4\\plasmaCannonAttack3e.jpg"));
 
 
 
