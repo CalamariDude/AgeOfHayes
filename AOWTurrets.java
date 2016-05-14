@@ -4,15 +4,14 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class AOWTurrets extends AOWUnit {
-    int range, attackSpeed, attackDamage, tier, cost, speed, frame, x;
+    int attackDamage, range,  tier, cost, x, frame;
     ArrayList<Image> animations;
     //animations are size 4  [0,3]
     //index 0 is the rest animations
     //1-3 are attack animations
 
-    public AOWTurrets(int attackDamage, int attackSpeed, int range, int tier, int cost,int x , ArrayList<Image> animations) {
+    public AOWTurrets(int attackDamage,  int range, int tier, int cost,int x , ArrayList<Image> animations) {
         this.attackDamage=attackDamage;
-        this.attackSpeed=attackSpeed;
         this.range=range;
         this.tier=tier;
         this.cost=cost;
@@ -23,13 +22,12 @@ public class AOWTurrets extends AOWUnit {
 
     }
 
-    public AOWTurrets(AOWTurrets a) {
+    public AOWTurrets(AOWTurrets a, ArrayList<Image> animations) {
         this.attackDamage=a.attackDamage;
-        this.attackSpeed=a.attackSpeed;
         this.range=a.range;
         this.tier=a.tier;
         this.cost=a.cost;
-        this.animations=a.animations;
+        this.animations= animations;
         this.x=1100;
         frame=0;
 
@@ -98,19 +96,8 @@ public class AOWTurrets extends AOWUnit {
         return cost;
     }
 
-    @Override
-    public int getAttackSpeed() {
-        return attackSpeed;
-    }
-
-    @Override
-    public void setAttackSpeed(int speed) {
-        this.speed=speed;
-    }
 
     public int sell(){
-
-
 
         return 0;
     }

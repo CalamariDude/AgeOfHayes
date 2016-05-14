@@ -25,11 +25,7 @@ public abstract class AOWUnit
     //Returns the cost of an infantry, turret, or upgrade
     abstract public int getCost();
 
-    //Returns the attack speed
-    abstract public int getAttackSpeed();
 
-    //Sets the attack speed
-    abstract protected void setAttackSpeed(int speed);
 
 
 

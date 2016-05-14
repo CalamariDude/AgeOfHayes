@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class AOWInfantry extends AOWUnit
 {
-	protected int attackDamage,attackSpeed,range,tier, health, cost, xpGiver, goldGiver,x, frame;
+	protected int attackDamage,range,tier, health, cost, xpGiver, goldGiver,x, frame;
     ArrayList<Image> walkAnimations;
 	public int spawnHealth;
 
@@ -16,9 +16,8 @@ public class AOWInfantry extends AOWUnit
 	//cost - amount of gold to buy infantry
 	//xpGiver - gives the other player a set amount of experience based upon type of unit killed
 	//goldGiver- gives the other player a set amount of gold based up type of unit killed
-	public AOWInfantry(int attackDamage, int attackSpeed, int range, int tier, int health, int cost, int xpGiver,int goldGiver, ArrayList<Image> walkAnimations){
+	public AOWInfantry(int attackDamage, int range, int tier, int health, int cost, int xpGiver,int goldGiver, ArrayList<Image> walkAnimations){
 		this.attackDamage = attackDamage;
-		this.attackSpeed = attackSpeed;
 		this.range = range;
 		this.tier = tier;
 		this.health = health;
@@ -34,16 +33,15 @@ public class AOWInfantry extends AOWUnit
 
 	}
         //copy constructor
-    public AOWInfantry(AOWInfantry infant){
+    public AOWInfantry(AOWInfantry infant, ArrayList<Image> walkAnimations){
         this.attackDamage = infant.attackDamage;
-        this.attackSpeed = infant.attackSpeed;
         this.range = infant.range;
         this.tier = infant.tier;
         this.health = infant.health;
         this.cost = infant.cost;
         this.xpGiver = infant.xpGiver;
         this.goldGiver = infant.goldGiver;
-        this.walkAnimations = infant.walkAnimations;
+        this.walkAnimations = walkAnimations;
 		spawnHealth = health;
 
 		x=1200;
@@ -106,15 +104,6 @@ public class AOWInfantry extends AOWUnit
 		return cost;
 	}
 
-	@Override
-	public int getAttackSpeed() {
-		return attackSpeed;
-	}
-
-	@Override
-	protected void setAttackSpeed(int speed) {
-		this.attackSpeed = speed;
-	}
 
 	public ArrayList<Image> getWalkAnimations(){
 
