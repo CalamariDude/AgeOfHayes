@@ -8,6 +8,7 @@ import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.concurrent.Future;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
@@ -28,6 +29,9 @@ public class AOWRunner extends JPanel implements ActionListener{
 //------------------------------------------------------Initializes All Images----------------------
     //backgrounds images
     Image prehistoric;
+    Image Medieval;
+    Image Modern;
+    Image Futuristic;
 
     //base1 and base2 images
     Image base1;
@@ -170,6 +174,9 @@ public class AOWRunner extends JPanel implements ActionListener{
         //---------------------------------------Assign variables to pictures----------------------
         //background pictures
         prehistoric = ImageIO.read(new File("Resources\\Main Menu\\Prehistoric.jpg"));
+        Medieval = ImageIO.read(new File("Resources\\Main Menu\\Medieval.jpg"));
+        Modern = ImageIO.read(new File("Resources\\Main Menu\\Modern.jpg"));
+        Futuristic = ImageIO.read(new File("Resources\\Main Menu\\Futuristic.jpg"));
 
         //base pictures
         base1 = ImageIO.read(new File("Resources\\Tier 1\\Base.jpg"));
@@ -742,7 +749,22 @@ public class AOWRunner extends JPanel implements ActionListener{
         //			RenderingHints.VALUE_ANTIALIAS_ON);
 
         //draws the background
-        g2d.drawImage(prehistoric,0,0,this);
+        if (baseF.getTier() == 4 || baseE.getTier() == 4)
+        {
+            g2d.drawImage(Futuristic, 0, 0, this);
+        }
+        else if (baseF.getTier() == 3 || baseE.getTier() == 3)
+        {
+            g2d.drawImage(Modern, 0, 0, this);
+        }
+        else if (baseF.getTier() == 2 || baseE.getTier() == 2)
+        {
+            g2d.drawImage(Medieval, 0, 0, this);
+        }
+        else if (baseF.getTier() == 1 || baseE.getTier() == 1)
+        {
+            g2d.drawImage(prehistoric, 0, 0, this);
+        }
 
         //draws the summon infantry buttons
         g2d.drawImage(AOWMelee,0,500, this);
