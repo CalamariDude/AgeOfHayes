@@ -7,7 +7,7 @@ public class AOWBase {
         this.health = health;
         tier = 1;
         this.money = money;
-        xp = 0;
+        xp = 1000;
         this.x = x;
     }
 

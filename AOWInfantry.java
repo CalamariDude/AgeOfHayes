@@ -16,7 +16,7 @@ public class AOWInfantry extends AOWUnit
 	//cost - amount of gold to buy infantry
 	//xpGiver - gives the other player a set amount of experience based upon type of unit killed
 	//goldGiver- gives the other player a set amount of gold based up type of unit killed
-	public AOWInfantry(int attackDamage, int attackSpeed, int range, int tier, int health, int cost, int xpGiver,int goldGiver, int spawn, ArrayList<Image> walkAnimations){
+	public AOWInfantry(int attackDamage, int attackSpeed, int range, int tier, int health, int cost, int xpGiver,int goldGiver, ArrayList<Image> walkAnimations){
 		this.attackDamage = attackDamage;
 		this.attackSpeed = attackSpeed;
 		this.range = range;
@@ -27,9 +27,8 @@ public class AOWInfantry extends AOWUnit
 		this.goldGiver = goldGiver;
         this.walkAnimations = walkAnimations;
 		spawnHealth = health;
+		x = 100;
 
-
-		x = spawn;
 		frame = -1;
 
 
@@ -45,8 +44,9 @@ public class AOWInfantry extends AOWUnit
         this.xpGiver = infant.xpGiver;
         this.goldGiver = infant.goldGiver;
         this.walkAnimations = infant.walkAnimations;
+		spawnHealth = health;
 
-		x=100;
+		x=1200;
 		frame = -1;
 
     }
