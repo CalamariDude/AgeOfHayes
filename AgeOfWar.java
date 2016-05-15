@@ -3,6 +3,7 @@ import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.IOException;
+import java.util.Random;
 import java.util.Scanner;
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
@@ -29,19 +30,72 @@ public class AgeOfWar
         frame.setVisible(true);
         frame.setResizable(false);
 
-
-
-
+        int difficulty = 30;
 
         AOWInfantry tempF ;
+        int counter= 1;
         AOWInfantry tempE ;
         JLabel xplabel = null;
+        Random rand = new Random();
+        int randotime=1;
+
+        int whenChangeDifficulty = 480;
+        int randotype;
+        int tier=AOWRunner.baseE.getTier();
+        int indexValueOfInfantries;
 
 
         while (AOWRunner.baseF.getHealth() >= 0 && AOWRunner.baseE.getHealth() >= 0)
         {
             String xp = "" + AOWRunner.baseF.getXP();
             String gold = "" + AOWRunner.baseF.getMoney();
+
+
+
+
+            //after this amount of time or
+            if(counter%whenChangeDifficulty ==0 || AOWRunner.baseF.getTier()>AOWRunner.baseE.getTier())
+            {
+                   AOWRunner.baseE.incTier();
+            }
+
+
+
+            if(counter%randotime==0){
+                if(AOWRunner.infantriesOFEnemy.size()<10) {
+                    randotype = rand.nextInt(4) + 1;
+                    indexValueOfInfantries = (AOWRunner.baseE.getTier() * 3 - 3) + randotype;
+
+                    if (randotype < 4) {
+                        AOWRunner.infantriesOFEnemy.add(AOWRunner.infantriesOFEnemy.size(), new AOWInfantry(AOWRunner.infantriese.get(indexValueOfInfantries - 1),
+                                AOWRunner.infantriese.get(indexValueOfInfantries - 1).getWalkAnimations()));
+                    } else {
+                        if (AOWRunner.turretsOFEnemy.size() == 0) {
+
+                            AOWRunner.turretsOFEnemy.add(AOWRunner.turretse.get(AOWRunner.baseE.getTier() - 1));
+                        } else {
+                            if (AOWRunner.turretsOFEnemy.get(0).getTier() != AOWRunner.baseE.getTier()) {
+                                AOWRunner.turretsOFEnemy.set(0, AOWRunner.turretse.get(AOWRunner.baseE.getTier() - 1));
+                            }
+                        }
+                    }
+
+
+                }
+
+
+
+                //spawn unit of random type at current tier
+
+
+
+                randotime=rand.nextInt(difficulty)+1;
+
+
+            }
+
+            counter++;
+
 
 
             //goes through the Infantries on field array list
@@ -381,7 +435,7 @@ public class AgeOfWar
             frame.add(xplabel);
             frame.setVisible(true);
 */
-            Thread.sleep(100);
+            Thread.sleep(200);
 
             //System.out.println(AOWRunner.infantriesOFFriendly.size());
             //System.out.println(AOWRunner.baseF.getTier());

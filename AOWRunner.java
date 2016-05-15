@@ -1,13 +1,11 @@
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+import java.awt.event.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.concurrent.Future;
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -19,15 +17,17 @@ public class AOWRunner extends JPanel implements ActionListener{
     static ArrayList<AOWTurrets> turretsOFFriendly = new ArrayList();
     static ArrayList<AOWInfantry> infantriesOFEnemy = new ArrayList();
     static ArrayList<AOWTurrets> turretsOFEnemy = new ArrayList();
+    static ArrayList<AOWInfantry> infantriese = new ArrayList();
+    static ArrayList<AOWTurrets> turretse = new ArrayList();
 
     int x;
     int y;
 
     static AOWBase baseF;
     static AOWBase baseE;
+    KeyListener k;
 
-    TextField xp;
-    TextField gold;
+    static char c;
 
 //------------------------------------------------------Initializes All Images----------------------
     //backgrounds images
@@ -420,14 +420,14 @@ public class AOWRunner extends JPanel implements ActionListener{
 
         //tier 4
         futureBase1 = ImageIO.read(new File("Resources\\Tier 4\\Future Base.jpg"));
-        futureBase1 = ImageIO.read(new File("Resources\\Tier 4\\Future Basee.jpg"));
+        futureBase2 = ImageIO.read(new File("Resources\\Tier 4\\Future Basee.jpg"));
 
         //levelUp picture
         levelUp = ImageIO.read(new File("Resources\\Main Menu\\levelUp.jpg"));
 
         //summon infantry pictures
         AOWMelee = ImageIO.read(new File("Resources\\Main Menu\\AOWMelee.jpg"));
-        AOWRanged = ImageIO.read(new File("Resources\\Main Menu\\AOWRanged.jpg"));
+        AOWRanged = ImageIO.read(new File("Resources\\Main Menu\\AOWRanged.jpg.png"));
         AOWTank = ImageIO.read(new File("Resources\\Main Menu\\AOWTank.jpg"));
         AOWTurret = ImageIO.read(new File("Resources\\Main Menu\\turret.jpg"));
 
@@ -960,12 +960,6 @@ public class AOWRunner extends JPanel implements ActionListener{
 
         //----------------------------------End Of Infantry Objects----------------------------
 
-        SlingerE = new AOWInfantry(5, 200, 0, 40, 60, 50, 80,  slingerArray);
-        Slinger2 = new AOWInfantry(5, 200, 0, 40, 60, 50, 80,  slingerArray);
-
-        clubManE = new AOWInfantry(25, 50, 0, 75, 60, 50, 80,  clubArray);
-
-        clubMan2 = new AOWInfantry(25, 50, 0, 75, 60, 50, 80, clubArray );
 
 
         infantries.add(clubMan);
@@ -987,19 +981,54 @@ public class AOWRunner extends JPanel implements ActionListener{
         turrets.add(plasmaCannon);
 
 
+
+        infantriese.add(new AOWInfantry(clubMan, clubArrayE));
+        infantriese.add(new AOWInfantry(slinger, slingerArrayE));
+        infantriese.add(new AOWInfantry(dinoRider, dinoRiderArrayE));
+        infantriese.add(new AOWInfantry(swordsMan, swordsManArrayE));
+        infantriese.add(new AOWInfantry(archer, archerArrayE));
+        infantriese.add(new AOWInfantry(knight, knightArrayE));
+        infantriese.add(new AOWInfantry(soldier, soldierArrayE));
+        infantriese.add(new AOWInfantry(sniper, sniperArrayE));
+        infantriese.add(new AOWInfantry(tank, tankArrayE));
+        infantriese.add(new AOWInfantry(blader, bladerArrayE));
+        infantriese.add(new AOWInfantry(blaster, blasterArrayE));
+        infantriese.add(new AOWInfantry(HayesWrath, HayesWrathArrayE));
+
+        turretse.add(new AOWTurrets(eggPault,eggPaultArrayE));
+        turretse.add(new AOWTurrets(catapault,catapaultArrayE));
+        turretse.add(new AOWTurrets(rocketLauncher,rocketLauncherArrayE));
+        turretse.add(new AOWTurrets(plasmaCannon,plasmaCannonArrayE));
+
+
         //------------------testing
+        /*
         infantriesOFEnemy.add(new AOWInfantry(clubMan, clubArrayE));
 
         infantriesOFEnemy.add(new AOWInfantry(HayesWrath, HayesWrathArrayE));
+        */
         //---------------------------------
 
-        //-----------------Testing Turrets
-        //replace with the mouselistener to add
+        k = new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                c=e.getKeyChar();
 
-        //turretsOFFriendly.add(eggPault);
-        //turretsOFEnemy.add(new AOWTurrets(eggPault));
+            }
 
-        //----------------------------
+            @Override
+            public void keyPressed(KeyEvent e) {
+
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+
+            }
+        };
+
+
+
 
 
 
@@ -1420,13 +1449,28 @@ public class AOWRunner extends JPanel implements ActionListener{
       // g2d.drawImage(turret, )
 
         //draws the base
-        g2d.drawImage(base1, 0, 300, this);
-        g2d.drawImage(base2, 1100, 300, this);
+        if(baseF.getTier() == 1)
+            g2d.drawImage(base1, 0, 300, this);
+        else if(baseF.getTier() ==2)
+            g2d.drawImage(medievalBase1, 0, 300, this);
+        else if(baseF.getTier() ==3)
+            g2d.drawImage(militaryBase1, 0, 300, this);
+        else if(baseF.getTier() ==4)
+            g2d.drawImage(futureBase1, 0, 300, this);
+
+        if(baseE.getTier() == 1)
+            g2d.drawImage(base2, 1120, 300, this);
+        else if(baseE.getTier() ==2)
+            g2d.drawImage(medievalBase2, 1120, 300, this);
+        else if(baseE.getTier() ==3)
+            g2d.drawImage(militaryBase2, 1120, 300, this);
+        else if(baseE.getTier() ==4)
+            g2d.drawImage(futureBase2, 1120, 300, this);
 
         g2d.setColor(Color.white);
-        g2d.fillRect(1150,625,150,75);
+        g2d.fillRect(1150, 625, 150, 75);
         g2d.setColor(Color.black);
-        g2d.drawString("XP: " + baseF.getXP(), 1160, 650 );
+        g2d.drawString("XP: " + baseF.getXP(), 1160, 650);
         g2d.drawString("GP: " + baseF.getMoney(), 1220, 650);
 
 
@@ -1512,6 +1556,17 @@ public class AOWRunner extends JPanel implements ActionListener{
 
 
 
+    public static void main(String []args) throws IOException{
+        AOWRunner r = new AOWRunner();
+
+        System.out.println(AOWRunner.infantriese.size());
+
+        for (int i = 0; i <AOWRunner.infantriese.size(); i++) {
+            String s = AOWRunner.infantriese.get(i).toString();
+
+            System.out.println("s = " + s);
+        }
+    }
 
 
 }
