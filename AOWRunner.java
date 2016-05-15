@@ -198,8 +198,6 @@ public class AOWRunner extends JPanel implements ActionListener{
     Image soldierEAttack2;
     Image soldierEAttack3;
 
-
-    //////////////////////////
     //frames for sniper
     Image sniperMove1;
     Image sniperMove2;
@@ -429,7 +427,7 @@ public class AOWRunner extends JPanel implements ActionListener{
 
         //summon infantry pictures
         AOWMelee = ImageIO.read(new File("Resources\\Main Menu\\AOWMelee.jpg"));
-        AOWRanged = ImageIO.read(new File("Resources\\Main Menu\\AOWRanged.jpg.png"));
+        AOWRanged = ImageIO.read(new File("Resources\\Main Menu\\AOWRanged.jpg"));
         AOWTank = ImageIO.read(new File("Resources\\Main Menu\\AOWTank.jpg"));
         AOWTurret = ImageIO.read(new File("Resources\\Main Menu\\turret.jpg"));
 
@@ -907,7 +905,7 @@ public class AOWRunner extends JPanel implements ActionListener{
 
         //enemy HayesWrath arrayList
         HayesWrathArrayE.add(HayesWrathEMove1);
-        HayesWrathArrayE.add(HayesWrathMove2);
+        HayesWrathArrayE.add(HayesWrathEMove2);
         HayesWrathArrayE.add(HayesWrathEMove3);
         HayesWrathArrayE.add(HayesWrathEAttack1);
         HayesWrathArrayE.add(HayesWrathEAttack2);
@@ -1221,7 +1219,7 @@ public class AOWRunner extends JPanel implements ActionListener{
 
                     }
 
-                }
+                }// end of create tank minion
 
                 //creates turrets
                 else if (e.getX() > 150 && e.getX() < 195 && e.getY() > 500 && e.getY() < 545)
@@ -1231,60 +1229,69 @@ public class AOWRunner extends JPanel implements ActionListener{
                         {
                             if (turretsOFFriendly.size() == 0)
                             {
-                                eggPault = new AOWTurrets(10,300,1,150,10,eggPaultArray);
+                                eggPault = new AOWTurrets(10, 300, 1, 150, 10, eggPaultArray);
                                 baseF.setMoney(baseF.getMoney() - eggPault.getCost());
                                 turretsOFFriendly.add(eggPault);
                             }
                             else
                             {
-                                eggPault = new AOWTurrets(10,300,1,150,10,eggPaultArray);
-                                baseF.setMoney(baseF.getMoney() - eggPault.getCost());
-                                turretsOFFriendly.set(0,eggPault);
+                                if(turretsOFFriendly.get(0).getTier() != 1)
+                                {
+                                    eggPault = new AOWTurrets(10, 300, 1, 150, 10, eggPaultArray);
+                                    baseF.setMoney(baseF.getMoney() - eggPault.getCost());
+                                    turretsOFFriendly.set(0, eggPault);
+                                }
                             }
+
                         }
                         else
                         {
                             System.out.println("Insufficient Funds");
                         }
                     }
+
                     else if (baseF.getTier() == 2)
                     {
                         if (baseF.getMoney() >= catapault.getCost())
                         {
+
                             if (turretsOFFriendly.size() == 0)
                             {
-                                //   catapault = new AOWTurrets(20, 4, 300, 2, 200);
                                 baseF.setMoney(baseF.getMoney() - catapault.getCost());
                                 turretsOFFriendly.add(catapault);
                             }
                             else
                             {
-
-                                //   catapault = new AOWTurrets(20, 4, 300, 2, 200);
-                                baseF.setMoney(baseF.getMoney() - catapault.getCost());
-                                turretsOFFriendly.set(0,catapault);
+                                if(turretsOFFriendly.get(0).getTier() != 2)
+                                {
+                                    baseF.setMoney(baseF.getMoney() - catapault.getCost());
+                                    turretsOFFriendly.set(0, catapault);
+                                }
                             }
+
                         }
                         else
                         {
                             System.out.println("Insufficient Funds");
                         }
                     }
+
                     else if (baseF.getTier() == 3)
                     {
                         if (baseF.getMoney() >= rocketLauncher.getCost())
                         {
                             if (turretsOFFriendly.size() == 0)
                             {
-                                //   rocketLauncher = new AOWTurrets(70, 3, 400, 3, 250);
                                 baseF.setMoney(baseF.getMoney() - rocketLauncher.getCost());
                                 turretsOFFriendly.add(rocketLauncher);
                             }
                             else
                             {
-                                //   rocketLauncher = new AOWTurrets(70, 3, 400, 3, 250);
-                                baseF.setMoney(baseF.getMoney() - rocketLauncher.getCost());
-                                turretsOFFriendly.set(0,rocketLauncher);
+                                if(turretsOFFriendly.get(0).getTier() != 3)
+                                {
+                                    baseF.setMoney(baseF.getMoney() - rocketLauncher.getCost());
+                                    turretsOFFriendly.set(0, rocketLauncher);
+                                }
                             }
                         }
                         else
@@ -1292,22 +1299,24 @@ public class AOWRunner extends JPanel implements ActionListener{
                             System.out.println("Insufficient Funds");
                         }
                     }
+
                     else if (baseF.getTier() == 4)
                     {
                         if (baseF.getMoney() >= plasmaCannon.getCost())
                         {
-                            if (turretsOFFriendly.size() == 0)
-                            {
-                                //  plasmaCannon = new AOWTurrets(75, 4, 300, 4, 1000);
-                                baseF.setMoney(baseF.getMoney() - plasmaCannon.getCost());
-                                turretsOFFriendly.add(plasmaCannon);
-                            }
-                            else
-                            {
-                                //  plasmaCannon = new AOWTurrets(75, 4, 300, 4, 1000);
-                                baseF.setMoney(baseF.getMoney() - plasmaCannon.getCost());
-                                turretsOFFriendly.set(0,plasmaCannon);
-                            }
+                                if (turretsOFFriendly.size() == 0)
+                                {
+                                    baseF.setMoney(baseF.getMoney() - plasmaCannon.getCost());
+                                    turretsOFFriendly.add(plasmaCannon);
+                                }
+                                else
+                                {
+                                    if (turretsOFFriendly.get(0).getTier() != 4)
+                                    {
+                                        baseF.setMoney(baseF.getMoney() - plasmaCannon.getCost());
+                                        turretsOFFriendly.set(0, plasmaCannon);
+                                    }
+                                }
                         }
                         else
                         {

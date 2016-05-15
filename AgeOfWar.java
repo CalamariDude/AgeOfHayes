@@ -15,7 +15,6 @@ public class AgeOfWar
 {
     public static void main(String[] args) throws InterruptedException, IOException  {
         JFrame frame = new JFrame("Age of Hayes");
-        /*	frame.update(Graphics g);*/
 
 
         AOWRunner game = null;
@@ -23,8 +22,6 @@ public class AgeOfWar
         try { game = new AOWRunner(); }
         catch (IOException e) { e.printStackTrace(); }
 
-        /*	frame.setIconImage(Image b);
-        AOWRunner game = new AOWRunner();*/
 
         frame.add(game);
         frame.setSize(1300, 700);
@@ -35,101 +32,6 @@ public class AgeOfWar
 
 
 
-
-
-
-
-        // Create a "clickable" image icon.
-        /*
-        ImageIcon AOWMelee = new ImageIcon("Resources\\Main Menu\\AOWMelee.jpg");
-        ImageIcon AOWRanged = new ImageIcon("Resources\\Main Menu\\AOWRanged.jpg");
-        ImageIcon AOWTank = new ImageIcon("Resources\\Main Menu\\AOWTank.jpg");
-        */
-        /*
-        JLabel labelforMelee = new JLabel(AOWMelee);
-        JLabel labelforRanged = new JLabel(AOWRanged);
-        JLabel labelforTank = new JLabel(AOWTank);
-        */
-/*
-        JButton meleeButton = new JButton(AOWMelee);
-        JButton rangedButton = new JButton(AOWRanged);
-        JButton tankButton = new JButton(AOWTank);
-*/
-/*
-        meleeButton.addMouseListener(new MouseAdapter()
-        {
-            public void mousePressed(MouseEvent me)
-            {
-                //game.create(1);
-            }
-        });
-
-        rangedButton.addMouseListener(new MouseAdapter()
-        {
-            public void mousePressed(MouseEvent me)
-            {
-                //game.create(2);
-            }
-        });
-
-        tankButton.addMouseListener(new MouseAdapter()
-        {
-            public void mousePressed(MouseEvent me)
-            {
-                //game.create(3);
-            }
-        });
-*/
-/*
-        meleeButton.setLocation(0,1000);
-        rangedButton.setLocation(50,1000);
-        tankButton.setLocation(100,1000);
-        */
-
-
-        // JPanel attackPanel = new JPanel();
-
-/*
-        attackPanel.add(meleeButton);
-        attackPanel.add(rangedButton);
-        attackPanel.add(tankButton);
-        attackPanel.setLocation(0,1000);
-*/
-
-        /*
-        // Add it to a frame
-        frame.getContentPane().add(labelforMelee);
-        frame.getContentPane().add(labelforRanged);
-        frame.getContentPane().add(labelforTank);
-        */
-
-
-
-
-
-
-
-
-
-/*
-        JButton Play = new JButton("Play");
-        JLabel Title = new JLabel("Age of War");
-        JPanel titlePanel = new JPanel();
-        titlePanel.add(Title);
-        titlePanel.add(Play);
-        Play.setOpaque(false);
-        Play.setContentAreaFilled(false);
-        frame.add(titlePanel);
-
-        /* try { AOWRunner runner = new AOWRunner(); }
-        catch (IOException e) { e.printStackTrace();
-
-
-        }
-
-*/
-
-        Scanner keyboard = new Scanner(System.in);
 
         AOWInfantry tempF ;
         AOWInfantry tempE ;
