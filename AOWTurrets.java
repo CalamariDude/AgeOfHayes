@@ -10,13 +10,13 @@ public class AOWTurrets extends AOWUnit {
     //index 0 is the rest animations
     //1-3 are attack animations
 
-    public AOWTurrets(int attackDamage,  int range, int tier, int cost,int x , ArrayList<Image> animations) {
+    public AOWTurrets(int attackDamage,  int range, int tier, int cost, ArrayList<Image> animations) {
         this.attackDamage=attackDamage;
         this.range=range;
         this.tier=tier;
         this.cost=cost;
         this.animations=animations;
-        this.x=x;
+        x = 10;
         frame=0;
 
 
@@ -28,7 +28,7 @@ public class AOWTurrets extends AOWUnit {
         this.tier=a.tier;
         this.cost=a.cost;
         this.animations= animations;
-        this.x=1100;
+        this.x=1245;
         frame=0;
 
 

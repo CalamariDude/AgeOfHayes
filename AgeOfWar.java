@@ -54,33 +54,67 @@ public class AgeOfWar
 
 
             //after this amount of time or
-            if(counter%whenChangeDifficulty ==0 || AOWRunner.baseF.getTier()>AOWRunner.baseE.getTier())
+            if(AOWRunner.baseE.getTier() < 4)
             {
-                   AOWRunner.baseE.incTier();
+                if (counter % whenChangeDifficulty == 0 || AOWRunner.baseF.getTier() > AOWRunner.baseE.getTier()) {
+                    AOWRunner.baseE.incTier();
+                    counter = 0;
+                }
             }
 
 
 
-            if(counter%randotime==0){
-                if(AOWRunner.infantriesOFEnemy.size()<10) {
-                    randotype = rand.nextInt(4) + 1;
-                    indexValueOfInfantries = (AOWRunner.baseE.getTier() * 3 - 3) + randotype;
+            if(counter%randotime==0)
+            {
+                //if no enemy infantries on field
+                if(AOWRunner.infantriesOFEnemy.size() == 0)
+                {
+                    if (AOWRunner.infantriesOFEnemy.size() < 10)
+                    {
+                        randotype = rand.nextInt(4) + 1;
+                        indexValueOfInfantries = (AOWRunner.baseE.getTier() * 3 - 3) + randotype;
 
-                    if (randotype < 4) {
-                        AOWRunner.infantriesOFEnemy.add(AOWRunner.infantriesOFEnemy.size(), new AOWInfantry(AOWRunner.infantriese.get(indexValueOfInfantries - 1),
-                                AOWRunner.infantriese.get(indexValueOfInfantries - 1).getWalkAnimations()));
-                    } else {
-                        if (AOWRunner.turretsOFEnemy.size() == 0) {
-
-                            AOWRunner.turretsOFEnemy.add(AOWRunner.turretse.get(AOWRunner.baseE.getTier() - 1));
+                        if (randotype < 4) {
+                            AOWRunner.infantriesOFEnemy.add(AOWRunner.infantriesOFEnemy.size(), new AOWInfantry(AOWRunner.infantriese.get(indexValueOfInfantries - 1),
+                                    AOWRunner.infantriese.get(indexValueOfInfantries - 1).getWalkAnimations()));
                         } else {
-                            if (AOWRunner.turretsOFEnemy.get(0).getTier() != AOWRunner.baseE.getTier()) {
-                                AOWRunner.turretsOFEnemy.set(0, AOWRunner.turretse.get(AOWRunner.baseE.getTier() - 1));
+                            if (AOWRunner.turretsOFEnemy.size() == 0) {
+
+                                AOWRunner.turretsOFEnemy.add(AOWRunner.turretse.get(AOWRunner.baseE.getTier() - 1));
+                            } else {
+                                if (AOWRunner.turretsOFEnemy.get(0).getTier() != AOWRunner.baseE.getTier()) {
+                                    AOWRunner.turretsOFEnemy.set(0, AOWRunner.turretse.get(AOWRunner.baseE.getTier() - 1));
+                                }
                             }
                         }
+
                     }
 
+                }
 
+                //if there are enemy infantries on field
+                else if(AOWRunner.infantriesOFEnemy.get(AOWRunner.infantriesOFEnemy.size() -1 ).getX() < 1175 )
+                {
+                    if (AOWRunner.infantriesOFEnemy.size() < 10)
+                    {
+                        randotype = rand.nextInt(4) + 1;
+                        indexValueOfInfantries = (AOWRunner.baseE.getTier() * 3 - 3) + randotype;
+
+                        if (randotype < 4) {
+                            AOWRunner.infantriesOFEnemy.add(AOWRunner.infantriesOFEnemy.size(), new AOWInfantry(AOWRunner.infantriese.get(indexValueOfInfantries - 1),
+                                    AOWRunner.infantriese.get(indexValueOfInfantries - 1).getWalkAnimations()));
+                        } else {
+                            if (AOWRunner.turretsOFEnemy.size() == 0) {
+
+                                AOWRunner.turretsOFEnemy.add(AOWRunner.turretse.get(AOWRunner.baseE.getTier() - 1));
+                            } else {
+                                if (AOWRunner.turretsOFEnemy.get(0).getTier() != AOWRunner.baseE.getTier()) {
+                                    AOWRunner.turretsOFEnemy.set(0, AOWRunner.turretse.get(AOWRunner.baseE.getTier() - 1));
+                                }
+                            }
+                        }
+
+                    }
                 }
 
 
@@ -435,7 +469,7 @@ public class AgeOfWar
             frame.add(xplabel);
             frame.setVisible(true);
 */
-            Thread.sleep(200);
+            Thread.sleep(20);
 
             //System.out.println(AOWRunner.infantriesOFFriendly.size());
             //System.out.println(AOWRunner.baseF.getTier());
