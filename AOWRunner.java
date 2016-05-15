@@ -1,13 +1,22 @@
+import sun.audio.AudioPlayer;
+import sun.audio.AudioStream;
+import sun.tools.jar.Main;
+
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.concurrent.Future;
 import javax.imageio.ImageIO;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 import javax.swing.*;
 
 public class AOWRunner extends JPanel implements ActionListener{
@@ -23,6 +32,9 @@ public class AOWRunner extends JPanel implements ActionListener{
     int x;
     int y;
 
+    static AudioStream as;
+    static AudioStream youWinas;
+    static AudioStream youLoseas;
     static AOWBase baseF;
     static AOWBase baseE;
     KeyListener k;
@@ -61,6 +73,9 @@ public class AOWRunner extends JPanel implements ActionListener{
     //level up tier image
     Image levelUp;
 
+    //Gameover images
+    Image youWin;
+    Image youLose;
 
     //frames for clubMan
     Image clubManMove1;
@@ -387,10 +402,42 @@ public class AOWRunner extends JPanel implements ActionListener{
 
     AOWInfantry Slinger2;
 
+    public static void startAudio(AudioStream x) throws IOException{
+        AudioPlayer.player.start(x);
+
+    }
+
+    public static void stopAudio(AudioStream x)throws IOException{
+
+        AudioPlayer.player.stop(x);
+    }
+
+
 
 
 
     public AOWRunner() throws IOException{
+
+        //music filepaths
+        String gongFile = "Resources\\Main Menu\\AOWMusic.wav";
+        String youWinurl= "Resources\\Main Menu\\youWin.wav";
+        String youLoseurl= "Resources\\Main Menu\\youLose.wav";
+
+        //create input stream
+        InputStream in = new FileInputStream(gongFile);
+        InputStream youWinin = new FileInputStream(youWinurl);
+        InputStream youLosein= new FileInputStream(youLoseurl);
+
+        // Create an AudioStream object from the input stream.
+        as = new AudioStream(in);
+        youWinas = new AudioStream(youWinin);
+        youLoseas= new AudioStream(youLosein);
+
+
+
+
+
+
 
 
 
@@ -398,13 +445,19 @@ public class AOWRunner extends JPanel implements ActionListener{
         baseF = new AOWBase(3000, 500, 25);
         baseE = new AOWBase(3000, 500, 1200);
 
+
+
         //---------------------------------------Assign variables to pictures----------------------
+
         //background pictures
         prehistoric = ImageIO.read(new File("Resources\\Main Menu\\Prehistoric.jpg"));
         Medieval = ImageIO.read(new File("Resources\\Main Menu\\Medieval.jpg"));
         Modern = ImageIO.read(new File("Resources\\Main Menu\\Modern.jpg"));
         Futuristic = ImageIO.read(new File("Resources\\Main Menu\\Futuristic.jpg"));
 
+        //gameover pictures
+        youWin = ImageIO.read(new File("Resources\\Main Menu\\youWin.jpg"));
+        youLose = ImageIO.read(new File("Resources\\Main Menu\\youLose.jpg"));
         //base pictures
         //tier 1
         base1 = ImageIO.read(new File("Resources\\Tier 1\\Base.jpg"));
@@ -427,7 +480,7 @@ public class AOWRunner extends JPanel implements ActionListener{
 
         //summon infantry pictures
         AOWMelee = ImageIO.read(new File("Resources\\Main Menu\\AOWMelee.jpg"));
-        AOWRanged = ImageIO.read(new File("Resources\\Main Menu\\AOWRanged.jpg"));
+        AOWRanged = ImageIO.read(new File("Resources\\Main Menu\\AOWRanged.jpg.png"));
         AOWTank = ImageIO.read(new File("Resources\\Main Menu\\AOWTank.jpg"));
         AOWTurret = ImageIO.read(new File("Resources\\Main Menu\\turret.jpg"));
 
@@ -1537,7 +1590,15 @@ public class AOWRunner extends JPanel implements ActionListener{
 
         }
 
+        if(AgeOfWar.ifGameIsOver){
+            if(AgeOfWar.whoWon==0)
+                g2d.drawImage(youWin,0,0,this);
+            else if (AgeOfWar.whoWon==1){
+                g2d.drawImage(youLose,0,0,this);
+            }
 
+
+        }
     }
 
     public void setter(Image im){

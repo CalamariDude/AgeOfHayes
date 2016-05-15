@@ -1,19 +1,18 @@
-import java.applet.Applet;
-import java.awt.*;
-import java.awt.event.MouseEvent;
-import java.io.File;
+
 import java.io.IOException;
+
 import java.util.Random;
-import java.util.Scanner;
-import javax.imageio.ImageIO;
+
 import javax.swing.JFrame;
-import javax.swing.JPanel;
+
 import javax.swing.*;
-import java.awt.event.*;
 
 public class AgeOfWar
 
 {
+
+    static boolean ifGameIsOver=false;
+    static int whoWon=0;
     public static void main(String[] args) throws InterruptedException, IOException  {
         JFrame frame = new JFrame("Age of Hayes");
 
@@ -24,13 +23,17 @@ public class AgeOfWar
         catch (IOException e) { e.printStackTrace(); }
 
 
+
+        // play the audio clip with the audioplayer class
+        //AudioPlayer.player.start(audioStream);
+
         frame.add(game);
         frame.setSize(1300, 700);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
         frame.setResizable(false);
 
-        int difficulty = 30;
+        int difficulty = 50;
 
         AOWInfantry tempF ;
         int counter= 1;
@@ -39,10 +42,11 @@ public class AgeOfWar
         Random rand = new Random();
         int randotime=1;
 
-        int whenChangeDifficulty = 480;
+        int whenChangeDifficulty = 560;
         int randotype;
         int tier=AOWRunner.baseE.getTier();
         int indexValueOfInfantries;
+        AOWRunner.startAudio(AOWRunner.as);
 
 
         while (AOWRunner.baseF.getHealth() >= 0 && AOWRunner.baseE.getHealth() >= 0)
@@ -59,6 +63,7 @@ public class AgeOfWar
                 if (counter % whenChangeDifficulty == 0 || AOWRunner.baseF.getTier() > AOWRunner.baseE.getTier()) {
                     AOWRunner.baseE.incTier();
                     counter = 0;
+                    AOWRunner.startAudio(AOWRunner.as);
                 }
             }
 
@@ -475,6 +480,24 @@ public class AgeOfWar
             //System.out.println(AOWRunner.baseF.getTier());
 
         }// end of game while loop
+        ifGameIsOver=true;
+
+        if(AOWRunner.baseE.getHealth() <= 0 ){
+            whoWon=0;
+            AOWRunner.stopAudio(AOWRunner.as);
+            AOWRunner.startAudio(AOWRunner.youWinas);
+
+        }
+
+        else if(AOWRunner.baseF.getHealth() <= 0 ){
+            whoWon=1;
+            AOWRunner.stopAudio(AOWRunner.as);
+            AOWRunner.startAudio(AOWRunner.youLoseas);
+        }
+
+        game.repaint();
+
+
 
         System.out.println("gameover");
 
