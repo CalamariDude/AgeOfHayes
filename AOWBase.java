@@ -1,14 +1,15 @@
 public class AOWBase {
 
     public int health, tier, money, xp, x;
-
+    public int spawnHealth;
 
     public AOWBase(int health, int money, int x){
         this.health = health;
         tier = 1;
         this.money = money;
-        xp = 2000;
+        xp = 0;
         this.x = x;
+        spawnHealth = health;
     }
 
     public int getMoney()
@@ -56,4 +57,7 @@ public class AOWBase {
         return x;
     }
 
+    public int getSpawnHealth() {
+        return this.spawnHealth;
+    }
 }

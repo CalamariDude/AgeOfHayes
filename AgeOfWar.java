@@ -11,8 +11,12 @@ public class AgeOfWar
 
 {
 
+    static boolean onStartMenu = true;
     static boolean ifGameIsOver=false;
     static int whoWon=0;
+
+    static int difficulty;
+
     public static void main(String[] args) throws InterruptedException, IOException  {
         JFrame frame = new JFrame("Age of Hayes");
 
@@ -33,7 +37,13 @@ public class AgeOfWar
         frame.setVisible(true);
         frame.setResizable(false);
 
-        int difficulty = 50;
+        while(onStartMenu == true)
+        {
+            game.repaint();
+        }
+
+
+        //-----------------------------sets up computer ---------------------------
 
         AOWInfantry tempF ;
         int counter= 1;
@@ -47,7 +57,7 @@ public class AgeOfWar
         int tier=AOWRunner.baseE.getTier();
         int indexValueOfInfantries;
         AOWRunner.startAudio(AOWRunner.as);
-
+        //------------------------------------------------------------------------
 
         while (AOWRunner.baseF.getHealth() >= 0 && AOWRunner.baseE.getHealth() >= 0)
         {
@@ -57,7 +67,6 @@ public class AgeOfWar
 
 
 
-            //after this amount of time or
             if(AOWRunner.baseE.getTier() < 4)
             {
                 if (counter % whenChangeDifficulty == 0 || AOWRunner.baseF.getTier() > AOWRunner.baseE.getTier()) {
@@ -375,7 +384,8 @@ public class AgeOfWar
 
             AOWTurrets TurrF, TurrE;
             //loop through all posible turrets
-            for(int i = 0; i <1; i++){
+            for(int i = 0; i <1; i++)
+            {
 
 
                 //if the size of the TurretsOFFriendly array is this size
@@ -455,17 +465,6 @@ public class AgeOfWar
             }
 
 
-
-
-
-
-
-
-
-
-
-
-
             game.repaint();
             /*
             xplabel = new JLabel(xp);
@@ -474,12 +473,15 @@ public class AgeOfWar
             frame.add(xplabel);
             frame.setVisible(true);
 */
-            Thread.sleep(20);
+            Thread.sleep(100);
 
             //System.out.println(AOWRunner.infantriesOFFriendly.size());
             //System.out.println(AOWRunner.baseF.getTier());
 
+
         }// end of game while loop
+
+
         ifGameIsOver=true;
 
         if(AOWRunner.baseE.getHealth() <= 0 ){
@@ -498,8 +500,6 @@ public class AgeOfWar
         game.repaint();
 
 
-
-        System.out.println("gameover");
 
 
     }
