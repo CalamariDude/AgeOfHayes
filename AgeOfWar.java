@@ -31,12 +31,7 @@ public class AgeOfWar
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
         frame.setResizable(false);
-        String xp = "" + AOWRunner.baseF.getXP();
-        String gold = "" + AOWRunner.baseF.getMoney();
 
-        JLabel title = new JLabel(xp);
-        title.setFont(new Font("Serif", Font.BOLD, 50));
-        frame.add(title);
 
 
 
@@ -138,9 +133,15 @@ public class AgeOfWar
 
         AOWInfantry tempF ;
         AOWInfantry tempE ;
+        JLabel xplabel = null;
+
 
         while (AOWRunner.baseF.getHealth() >= 0 && AOWRunner.baseE.getHealth() >= 0)
         {
+            String xp = "" + AOWRunner.baseF.getXP();
+            String gold = "" + AOWRunner.baseF.getMoney();
+
+
             //goes through the Infantries on field array list
             //maximum of ten infantries per team
             for(int i = 0; i < 10 ; i++)
@@ -471,7 +472,13 @@ public class AgeOfWar
 
 
             game.repaint();
-
+            /*
+            xplabel = new JLabel(xp);
+            xplabel.setFont(new Font("Serif", Font.PLAIN, 36));
+            xplabel.setLocation(100,100);
+            frame.add(xplabel);
+            frame.setVisible(true);
+*/
             Thread.sleep(100);
 
             //System.out.println(AOWRunner.infantriesOFFriendly.size());

@@ -1373,6 +1373,7 @@ public class AOWRunner extends JPanel implements ActionListener{
 
 
         Graphics2D g2d = (Graphics2D) g;
+
 //		g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
         //			RenderingHints.VALUE_ANTIALIAS_ON);
 
@@ -1413,8 +1414,11 @@ public class AOWRunner extends JPanel implements ActionListener{
         g2d.drawImage(base1, 0, 300, this);
         g2d.drawImage(base2, 1100, 300, this);
 
-        g2d.drawString("" + baseF.getXP(), 1200, 650 );
-        g2d.drawString("" + baseF.getMoney(), 1245, 650);
+        g2d.setColor(Color.white);
+        g2d.fillRect(1150,625,150,75);
+        g2d.setColor(Color.black);
+        g2d.drawString("XP: " + baseF.getXP(), 1160, 650 );
+        g2d.drawString("GP: " + baseF.getMoney(), 1220, 650);
 
 
         AOWInfantry tempF;
