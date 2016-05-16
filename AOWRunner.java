@@ -31,7 +31,6 @@ public class AOWRunner extends JPanel implements ActionListener{
 
     int x;
     int y;
-    static int musicLoopVar;
 
     static AudioStream as;
     static AudioStream youWinas;
@@ -409,21 +408,12 @@ public class AOWRunner extends JPanel implements ActionListener{
     AOWInfantry Slinger2;
 
     public static void startAudio(AudioStream x) throws IOException{
-
-
         AudioPlayer.player.start(x);
 
     }
 
-    public static void restartAudio(AudioStream x)throws IOException{
-        String gongFile = "Resources\\Main Menu\\AOWMusic.wav";
-        InputStream in = new FileInputStream(gongFile);
-        as=new AudioStream(in);
+    public static void stopAudio(AudioStream x)throws IOException{
 
-        AudioPlayer.player.start(as);
-    }
-
-    public static void stopAudio(AudioStream x) throws IOException{
         AudioPlayer.player.stop(x);
     }
 
@@ -447,10 +437,6 @@ public class AOWRunner extends JPanel implements ActionListener{
         as = new AudioStream(in);
         youWinas = new AudioStream(youWinin);
         youLoseas= new AudioStream(youLosein);
-
-
-        //when to loop through music
-        musicLoopVar=(109000/AgeOfWar.gameSpeed);
 
 
 
@@ -503,7 +489,7 @@ public class AOWRunner extends JPanel implements ActionListener{
 
         //summon infantry pictures
         AOWMelee = ImageIO.read(new File("Resources\\Main Menu\\AOWMelee.jpg"));
-        AOWRanged = ImageIO.read(new File("Resources\\Main Menu\\AOWRanged.jpg.png"));
+        AOWRanged = ImageIO.read(new File("Resources\\Main Menu\\AOWRanged.jpg"));
         AOWTank = ImageIO.read(new File("Resources\\Main Menu\\AOWTank.jpg"));
         AOWTurret = ImageIO.read(new File("Resources\\Main Menu\\turret.jpg"));
 
@@ -1360,7 +1346,7 @@ public class AOWRunner extends JPanel implements ActionListener{
                         }
                     }
 
-                //    System.out.println("mouseClicked at (" + e.getX() + ", " + e.getY() + ")");
+                    System.out.println("mouseClicked at (" + e.getX() + ", " + e.getY() + ")");
                 }
 
             }
