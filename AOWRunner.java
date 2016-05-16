@@ -1266,7 +1266,7 @@ public class AOWRunner extends JPanel implements ActionListener{
                     }// end of create tank minion
 
                     //creates turrets
-                    else if (e.getX() > 150 && e.getX() < 195 && e.getY() > 500 && e.getY() < 545) {
+                    else if (e.getX() > 200 && e.getX() < 245 && e.getY() > 500 && e.getY() < 545) {
                         if (baseF.getTier() == 1) {
                             if (baseF.getMoney() >= eggPault.getCost()) {
                                 if (turretsOFFriendly.size() == 0) {
@@ -1415,7 +1415,7 @@ public class AOWRunner extends JPanel implements ActionListener{
             g2d.drawImage(AOWTank, 100, 500, this);
 
             //draws the summon turret buttons
-            g2d.drawImage(AOWTurret, 150, 500, this);
+            g2d.drawImage(AOWTurret, 200, 500, this);
 
             //draws the levelUp button
             g2d.drawImage(levelUp, 1100, 500, this);
