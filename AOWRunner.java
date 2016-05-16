@@ -36,6 +36,7 @@ public class AOWRunner extends JPanel implements ActionListener{
     static AudioStream as;
     static AudioStream youWinas;
     static AudioStream youLoseas;
+
     static AOWBase baseF;
     static AOWBase baseE;
     KeyListener k;
@@ -457,14 +458,15 @@ public class AOWRunner extends JPanel implements ActionListener{
 
 
 
+
+
         //Creates base objects
-        baseF = new AOWBase(3000, 400, 25);
-        baseE = new AOWBase(3000, 500, 1200);
+        baseF = new AOWBase(3000, 300, 25);
+        baseE = new AOWBase(3000, 300, 1200);
 
 
 
         //---------------------------------------Assign variables to pictures----------------------
-
 
         //start menu pictures
         startMenu = ImageIO.read(new File("Resources\\Main Menu\\startMenu.jpg"));
@@ -479,20 +481,20 @@ public class AOWRunner extends JPanel implements ActionListener{
         //gameover pictures
         youWin = ImageIO.read(new File("Resources\\Main Menu\\youWin.jpg"));
         youLose = ImageIO.read(new File("Resources\\Main Menu\\youLose.jpg"));
-        //base pictures
-        //tier 1
+
+        //base tier 1
         base1 = ImageIO.read(new File("Resources\\Tier 1\\Base.jpg"));
         base2 = ImageIO.read(new File("Resources\\Tier 1\\Basee.jpg"));
 
-        //tier 2
+        //base tier 2
         medievalBase1 = ImageIO.read(new File("Resources\\Tier 2\\Medieval Base.jpg"));
         medievalBase2 = ImageIO.read(new File("Resources\\Tier 2\\Medieval Basee.jpg"));
 
-        //tier 3
+        //base tier 3
         militaryBase1 = ImageIO.read(new File("Resources\\Tier 3\\Military Base.jpg"));
         militaryBase2 = ImageIO.read(new File("Resources\\Tier 3\\Military Basee.jpg"));
 
-        //tier 4
+        //base tier 4
         futureBase1 = ImageIO.read(new File("Resources\\Tier 4\\Future Base.jpg"));
         futureBase2 = ImageIO.read(new File("Resources\\Tier 4\\Future Basee.jpg"));
 
@@ -1011,26 +1013,25 @@ public class AOWRunner extends JPanel implements ActionListener{
         //xpGiver - gives the other player a set amount of experience based upon type of unit killed
         //goldGiver- gives the other player a set amount of gold based up type of unit killed
 
-        clubMan = new AOWInfantry(25, 55, 1, 100, 60, 10, 75, clubArray );
-        slinger = new AOWInfantry(3, 200, 1, 40, 60, 10, 40, slingerArray);
-        dinoRider = new AOWInfantry(39, 55, 1, 125, 140, 25, 130, dinoRiderArray);
+        clubMan = new AOWInfantry(25, 55, 1, 75, 60, 50, 70, clubArray );
+        slinger = new AOWInfantry(3, 200, 1, 40, 60, 50, 70, slingerArray);
+        dinoRider = new AOWInfantry(39, 55, 1, 125, 90, 70, 100, dinoRiderArray);
         eggPault = new AOWTurrets(5,300,1,150,eggPaultArray);
 
-        swordsMan = new AOWInfantry(50, 55, 2, 150, 100, 25, 105, swordsManArray);
-        archer = new AOWInfantry(8, 200, 2, 90, 175, 25, 185, archerArray);
-        knight = new AOWInfantry(70, 55, 2, 250, 225, 40, 230, knightArray);
+        swordsMan = new AOWInfantry(50, 55, 2, 150, 90, 50, 100, swordsManArray);
+        archer = new AOWInfantry(8, 200, 2, 90, 90, 50, 100, archerArray);
+        knight = new AOWInfantry(70, 55, 2, 250, 120, 70, 130, knightArray);
         catapault = new AOWTurrets(10, 300, 2, 300, catapaultArray);
 
-        soldier = new AOWInfantry(100, 55, 3, 500, 200, 25, 205, soldierArray);
-        sniper = new AOWInfantry(13, 200, 3, 200, 300, 25, 300, sniperArray);
-        tank = new AOWInfantry(110, 80, 3, 1000, 350, 45, 360, tankArray);
-        rocketLauncher = new AOWTurrets(20, 350, 3, 500, rocketLauncherArray);
+        soldier = new AOWInfantry(100, 55, 3, 300, 120, 50, 130, soldierArray);
+        sniper = new AOWInfantry(13, 200, 3, 200, 120, 50, 130, sniperArray);
+        tank = new AOWInfantry(70, 80, 3, 500, 190, 70, 200, tankArray);
+        rocketLauncher = new AOWTurrets(20, 300, 3, 500, rocketLauncherArray);
 
-        blader = new AOWInfantry(300, 75, 4, 1200, 200, 120, 210, bladerArray);
-        blaster = new AOWInfantry(50, 200, 4, 300, 200, 120, 210, blasterArray);
+        blader = new AOWInfantry(300, 75, 4, 400, 200, 120, 210, bladerArray);
+        blaster = new AOWInfantry(55, 200, 4, 300, 200, 120, 210, blasterArray);
         HayesWrath = new AOWInfantry(700, 75, 4, 3000, 300, 275, 310, HayesWrathArray);
-        plasmaCannon = new AOWTurrets(40, 350, 4, 1000, plasmaCannonArray);
-
+        plasmaCannon = new AOWTurrets(40, 300, 4, 1000, plasmaCannonArray);
 
         //----------------------------------End Of Infantry Objects----------------------------
 
@@ -1115,38 +1116,48 @@ public class AOWRunner extends JPanel implements ActionListener{
             }
 
 
-            public void mousePressed(MouseEvent e) {
+            public void mousePressed(MouseEvent e)
+            {
 
-
-                if (AgeOfWar.onStartMenu == true) {
-                    if (e.getX() < 769 && e.getX() > 534 && e.getY() > 328 && e.getY() < 395) {
-                        AgeOfWar.difficulty = 30;
-                        AgeOfWar.onStartMenu = false;
-                    } else if (e.getX() < 769 && e.getX() > 534 && e.getY() > 417 && e.getY() < 484) {
-                        AgeOfWar.difficulty = 20;
-                        AgeOfWar.onStartMenu = false;
-                    } else if (e.getX() < 769 && e.getX() > 534 && e.getY() > 506 && e.getY() < 573) {
-                        AgeOfWar.difficulty = 10;
+                if(AgeOfWar.onStartMenu == true)
+                {
+                    if(e.getX() < 769 &&e.getX() > 534 && e.getY() >328 && e.getY() < 395)
+                    {
+                        AgeOfWar.difficulty = 60;
                         AgeOfWar.onStartMenu = false;
                     }
 
-                } else {
+                    else if(e.getX() < 769 &&e.getX() > 534 && e.getY() > 417 && e.getY() < 484)
+                    {
+                        AgeOfWar.difficulty = 50;
+                        AgeOfWar.onStartMenu = false;
+                    }
+
+                    else if(e.getX() < 769 &&e.getX() > 534 && e.getY() > 506 && e.getY() < 573)
+                    {
+                        AgeOfWar.difficulty = 40;
+                        AgeOfWar.onStartMenu = false;
+                    }
+
+                }
+
+                else {
 
                     //Create melee minion
                     if (e.getX() < 45 && e.getX() > 0 && e.getY() > 500 && e.getY() < 545) {
                         if (infantriesOFFriendly.size() < 10) {
                             if (baseF.getTier() == 1) {
                                 if (baseF.getMoney() >= clubMan.getCost()) {
-                                    clubMan = new AOWInfantry(25, 50, 1, 75, 60, 50, 80, clubArray);
-                                    infantriesOFFriendly.add(infantriesOFFriendly.size(), clubMan);
+                                    //clubMan = new AOWInfantry(25, 50, 1, 75, 60, 50, 80, clubArray);
+                                    infantriesOFFriendly.add(infantriesOFFriendly.size(), new AOWInfantry(infantries.get(0)));
 
                                     baseF.setMoney(baseF.getMoney() - clubMan.getCost());
                                 } else
                                     System.out.println("Insufficient Funds");
                             } else if (baseF.getTier() == 2) {
                                 if (baseF.getMoney() >= swordsMan.getCost()) {
-                                    swordsMan = new AOWInfantry(50, 60, 2, 150, 90, 50, 110, swordsManArray);
-                                    infantriesOFFriendly.add(infantriesOFFriendly.size(), swordsMan);
+                                    //swordsMan = new AOWInfantry(50, 50, 2, 150, 90, 50, 110, swordsManArray);
+                                    infantriesOFFriendly.add(infantriesOFFriendly.size(), new AOWInfantry(infantries.get(3)));
 
                                     baseF.setMoney(baseF.getMoney() - swordsMan.getCost());
                                 } else
@@ -1154,8 +1165,8 @@ public class AOWRunner extends JPanel implements ActionListener{
 
                             } else if (baseF.getTier() == 3) {
                                 if (baseF.getMoney() >= soldier.getCost()) {
-                                    soldier = new AOWInfantry(100, 60, 3, 300, 120, 70, 140, soldierArray);
-                                    infantriesOFFriendly.add(infantriesOFFriendly.size(), soldier);
+                                    //soldier = new AOWInfantry(80, 50, 3, 300, 120, 70, 140, soldierArray);
+                                    infantriesOFFriendly.add(infantriesOFFriendly.size(), new AOWInfantry(infantries.get(6)));
 
                                     baseF.setMoney(baseF.getMoney() - soldier.getCost());
                                 } else
@@ -1163,8 +1174,8 @@ public class AOWRunner extends JPanel implements ActionListener{
 
                             } else if (baseF.getTier() == 4) {
                                 if (baseF.getMoney() >= blader.getCost()) {
-                                    blader = new AOWInfantry(300, 75, 4, 400, 200, 120, 220, bladerArray);
-                                    infantriesOFFriendly.add(infantriesOFFriendly.size(), blader);
+                                    //blader = new AOWInfantry(150, 50, 4, 400, 200, 120, 220, bladerArray);
+                                    infantriesOFFriendly.add(infantriesOFFriendly.size(), new AOWInfantry(infantries.get(9)));
 
                                     baseF.setMoney(baseF.getMoney() - blader.getCost());
                                 } else
@@ -1181,16 +1192,16 @@ public class AOWRunner extends JPanel implements ActionListener{
                         if (infantriesOFFriendly.size() < 10) {
                             if (baseF.getTier() == 1) {
                                 if (baseF.getMoney() >= slinger.getCost()) {
-                                    slinger = new AOWInfantry(3, 200, 1, 40, 60, 50, 80, slingerArray);
-                                    infantriesOFFriendly.add(infantriesOFFriendly.size(), slinger);
+                                    //slinger = new AOWInfantry(5, 200, 1, 40, 60, 50, 80, slingerArray);
+                                    infantriesOFFriendly.add(infantriesOFFriendly.size(), new AOWInfantry(infantries.get(1)));
 
                                     baseF.setMoney(baseF.getMoney() - slinger.getCost());
                                 } else
                                     System.out.println("Insufficient Funds");
                             } else if (baseF.getTier() == 2) {
                                 if (baseF.getMoney() >= archer.getCost()) {
-                                    archer = new AOWInfantry(8, 200, 2, 90, 90, 50, 110, archerArray);
-                                    infantriesOFFriendly.add(infantriesOFFriendly.size(), archer);
+                                    //archer = new AOWInfantry(40, 200, 2, 90, 90, 50, 110, archerArray);
+                                    infantriesOFFriendly.add(infantriesOFFriendly.size(), new AOWInfantry(infantries.get(4)));
 
                                     baseF.setMoney(baseF.getMoney() - archer.getCost());
                                 } else
@@ -1198,8 +1209,8 @@ public class AOWRunner extends JPanel implements ActionListener{
 
                             } else if (baseF.getTier() == 3) {
                                 if (baseF.getMoney() >= sniper.getCost()) {
-                                    sniper = new AOWInfantry(13, 300, 3, 200, 120, 70, 140, sniperArray);
-                                    infantriesOFFriendly.add(infantriesOFFriendly.size(), sniper);
+                                    //sniper = new AOWInfantry(65, 300, 3, 200, 120, 70, 140, sniperArray);
+                                    infantriesOFFriendly.add(infantriesOFFriendly.size(), new AOWInfantry(infantries.get(7)));
 
                                     baseF.setMoney(baseF.getMoney() - sniper.getCost());
                                 } else
@@ -1207,8 +1218,8 @@ public class AOWRunner extends JPanel implements ActionListener{
 
                             } else if (baseF.getTier() == 4) {
                                 if (baseF.getMoney() >= blaster.getCost()) {
-                                    blaster = new AOWInfantry(55, 200, 4, 300, 200, 120, 220, blasterArray);
-                                    infantriesOFFriendly.add(infantriesOFFriendly.size(), blaster);
+                                    //blaster = new AOWInfantry(130, 200, 4, 300, 200, 120, 220, blasterArray);
+                                    infantriesOFFriendly.add(infantriesOFFriendly.size(), new AOWInfantry(infantries.get(10)));
 
                                     baseF.setMoney(baseF.getMoney() - blaster.getCost());
                                 } else
@@ -1226,25 +1237,27 @@ public class AOWRunner extends JPanel implements ActionListener{
                         if (infantriesOFFriendly.size() < 10) {
                             if (baseF.getTier() == 1) {
                                 if (baseF.getMoney() >= knight.getCost()) {
-                                    dinoRider = new AOWInfantry(39, 100, 1, 125, 90, 70, 110, dinoRiderArray);
-                                    infantriesOFFriendly.add(infantriesOFFriendly.size(), dinoRider);
+                                    //dinoRider = new AOWInfantry(40, 100, 1, 125, 90, 70, 110, dinoRiderArray);
+                                    infantriesOFFriendly.add(infantriesOFFriendly.size(), new AOWInfantry(infantries.get(2)));
 
                                     baseF.setMoney(baseF.getMoney() - dinoRider.getCost());
                                 } else
                                     System.out.println("Insufficient Funds");
                             } else if (baseF.getTier() == 2) {
-                                if (baseF.getMoney() >= knight.getCost()) {
+                                if (baseF.getMoney() >= knight.getCost())
+                                {
 
-                                    knight = new AOWInfantry(70, 55, 2, 250, 120, 70, 140, knightArray);
-                                    infantriesOFFriendly.add(infantriesOFFriendly.size(), knight);
+                                    //knight = new AOWInfantry(80, 100, 2, 250, 120, 70, 140, knightArray);
+                                    infantriesOFFriendly.add(infantriesOFFriendly.size(), new AOWInfantry(infantries.get(5)));
 
                                     baseF.setMoney(baseF.getMoney() - knight.getCost());
                                 } else
                                     System.out.println("Insufficient Funds");
                             } else if (baseF.getTier() == 3) {
-                                if (baseF.getMoney() >= tank.getCost()) {
-                                    tank = new AOWInfantry(70, 80, 3, 1000, 190, 100, 220, tankArray);
-                                    infantriesOFFriendly.add(infantriesOFFriendly.size(), tank);
+                                if (baseF.getMoney() >= tank.getCost())
+                                {
+                                    //tank = new AOWInfantry(150, 100, 3, 500, 190, 100, 220, tankArray);
+                                    infantriesOFFriendly.add(infantriesOFFriendly.size(), new AOWInfantry(infantries.get(8)));
 
                                     baseF.setMoney(baseF.getMoney() - tank.getCost());
                                 } else
@@ -1252,8 +1265,8 @@ public class AOWRunner extends JPanel implements ActionListener{
 
                             } else if (baseF.getTier() == 4) {
                                 if (baseF.getMoney() >= HayesWrath.getCost()) {
-                                    HayesWrath = new AOWInfantry(700, 75, 4, 3000, 300, 275, 330, HayesWrathArray);
-                                    infantriesOFFriendly.add(infantriesOFFriendly.size(), HayesWrath);
+                                    //HayesWrath = new AOWInfantry(300, 100, 4, 1500, 300, 275, 330, HayesWrathArray);
+                                    infantriesOFFriendly.add(infantriesOFFriendly.size(), new AOWInfantry(infantries.get(11)));
 
                                     baseF.setMoney(baseF.getMoney() - HayesWrath.getCost());
                                 } else
@@ -1270,12 +1283,12 @@ public class AOWRunner extends JPanel implements ActionListener{
                         if (baseF.getTier() == 1) {
                             if (baseF.getMoney() >= eggPault.getCost()) {
                                 if (turretsOFFriendly.size() == 0) {
-                                    eggPault = new AOWTurrets(10, 300, 1, 150, eggPaultArray);
+                                    //eggPault = new AOWTurrets(5,200,1,150,eggPaultArray);
                                     baseF.setMoney(baseF.getMoney() - eggPault.getCost());
                                     turretsOFFriendly.add(eggPault);
                                 } else {
                                     if (turretsOFFriendly.get(0).getTier() != 1) {
-                                        eggPault = new AOWTurrets(10, 300, 1, 150, eggPaultArray);
+                                    //    eggPault = new AOWTurrets(5,200,1,150,eggPaultArray);
                                         baseF.setMoney(baseF.getMoney() - eggPault.getCost());
                                         turretsOFFriendly.set(0, eggPault);
                                     }
@@ -1284,6 +1297,7 @@ public class AOWRunner extends JPanel implements ActionListener{
                             } else {
                                 System.out.println("Insufficient Funds");
                             }
+
                         } else if (baseF.getTier() == 2) {
                             if (baseF.getMoney() >= catapault.getCost()) {
 
@@ -1300,6 +1314,7 @@ public class AOWRunner extends JPanel implements ActionListener{
                             } else {
                                 System.out.println("Insufficient Funds");
                             }
+
                         } else if (baseF.getTier() == 3) {
                             if (baseF.getMoney() >= rocketLauncher.getCost()) {
                                 if (turretsOFFriendly.size() == 0) {
@@ -1314,6 +1329,7 @@ public class AOWRunner extends JPanel implements ActionListener{
                             } else {
                                 System.out.println("Insufficient Funds");
                             }
+
                         } else if (baseF.getTier() == 4) {
                             if (baseF.getMoney() >= plasmaCannon.getCost()) {
                                 if (turretsOFFriendly.size() == 0) {
@@ -1333,7 +1349,7 @@ public class AOWRunner extends JPanel implements ActionListener{
                     }
 
                     //Increases tier
-                    else if (e.getX() > 1100 && e.getX() < 1160 && e.getY() > 500 && e.getY() < 560) {
+                    else if (e.getX() > 75 && e.getX() < 135 && e.getY() > 575 && e.getY() < 635) {
                         if (baseF.getTier() < 4) {
                             if (baseF.getXP() >= 500) {
                                 baseF.incTier();
@@ -1344,9 +1360,9 @@ public class AOWRunner extends JPanel implements ActionListener{
                         }
                     }
 
-                    System.out.println("mouseClicked at (" + e.getX() + ", " + e.getY() + ")");
-
+                //    System.out.println("mouseClicked at (" + e.getX() + ", " + e.getY() + ")");
                 }
+
             }
 
 
@@ -1379,23 +1395,24 @@ public class AOWRunner extends JPanel implements ActionListener{
         // getters and setters
     }
 
-    public void paint(Graphics g) {
+    public void paint(Graphics g)
+    {
         super.paint(g);
-
 
         Graphics2D g2d = (Graphics2D) g;
 
 //		g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
         //			RenderingHints.VALUE_ANTIALIAS_ON);
 
-        if (AgeOfWar.onStartMenu == true) {
+        //draws the start menu
+        if(AgeOfWar.onStartMenu == true)
+        {
             g2d.drawImage(startMenu, 0, 0, this);
             g2d.drawImage(easyMediumHard, 500, 300, this);
 
         }
         else
         {
-
             //draws the background
             if (baseF.getTier() == 4 || baseE.getTier() == 4) {
                 g2d.drawImage(Futuristic, 0, 0, this);
@@ -1407,7 +1424,6 @@ public class AOWRunner extends JPanel implements ActionListener{
                 g2d.drawImage(prehistoric, 0, 0, this);
             }
 
-
             //draws the summon infantry buttons
 
             g2d.drawImage(AOWMelee, 0, 500, this);
@@ -1418,7 +1434,7 @@ public class AOWRunner extends JPanel implements ActionListener{
             g2d.drawImage(AOWTurret, 200, 500, this);
 
             //draws the levelUp button
-            g2d.drawImage(levelUp, 1100, 500, this);
+            g2d.drawImage(levelUp, 75, 575, this);
 
             //draws the create turret button
             // g2d.drawImage(turret, )
@@ -1433,6 +1449,7 @@ public class AOWRunner extends JPanel implements ActionListener{
             else if (baseF.getTier() == 4)
                 g2d.drawImage(futureBase1, 0, 300, this);
 
+            //draws the enemy base
             if (baseE.getTier() == 1)
                 g2d.drawImage(base2, 1120, 300, this);
             else if (baseE.getTier() == 2)
@@ -1453,6 +1470,7 @@ public class AOWRunner extends JPanel implements ActionListener{
             AOWInfantry tempE;
             AOWTurrets turrF;
             AOWTurrets turrE;
+
             g2d.setColor(Color.RED);
             g2d.fillRect(0, 250, 160, 40);
 
@@ -1468,8 +1486,9 @@ public class AOWRunner extends JPanel implements ActionListener{
             double baseEPercentageOfHealth = ((double) baseE.getHealth()) / ((double)baseE.getSpawnHealth());
             int baseEGreenPixels = (int) (baseEPercentageOfHealth * 160);
             g2d.fillRect(1300-baseEGreenPixels,250,160,40);
-
-            for (int i = 0; i < 10; i++) {
+            //goes through all infantries
+            for (int i = 0; i < 10; i++)
+            {
 
                 //goes through friendly infantries
                 if (i < infantriesOFFriendly.size()) {
@@ -1506,6 +1525,7 @@ public class AOWRunner extends JPanel implements ActionListener{
                 }
 
             }
+
             //goes through friendly turrets
             for (int i = 0; i < turretsOFFriendly.size(); i++) {
                 turrF = turretsOFFriendly.get(i);
@@ -1534,7 +1554,6 @@ public class AOWRunner extends JPanel implements ActionListener{
 
             }
         }
-
     }
 
     public void setter(Image im){
@@ -1552,7 +1571,7 @@ public class AOWRunner extends JPanel implements ActionListener{
     }
 
 
-
+/*
     public static void main(String []args) throws IOException{
         AOWRunner r = new AOWRunner();
 
@@ -1565,5 +1584,5 @@ public class AOWRunner extends JPanel implements ActionListener{
         }
     }
 
-
+*/
 }
