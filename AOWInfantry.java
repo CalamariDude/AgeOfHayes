@@ -49,6 +49,7 @@ public class AOWInfantry extends AOWUnit
 
         }
 
+
 	public AOWInfantry(AOWInfantry a)
 	{
 		this.attackDamage = a.attackDamage;
