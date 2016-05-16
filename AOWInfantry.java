@@ -49,6 +49,23 @@ public class AOWInfantry extends AOWUnit
 
         }
 
+	public AOWInfantry(AOWInfantry a)
+	{
+		this.attackDamage = a.attackDamage;
+		this.range = a.range;
+		this.tier = a.tier;
+		this.health = a.health;
+		this.cost = a.cost;
+		this.xpGiver = a.xpGiver;
+		this.goldGiver = a.goldGiver;
+		this.walkAnimations = a.walkAnimations;
+
+		spawnHealth = health;
+		x= 100;
+		frame =-1;
+
+	}
+
 	public int getX() {
 		return x;
 	}
