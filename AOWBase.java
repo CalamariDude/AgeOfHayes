@@ -1,5 +1,4 @@
 public class AOWBase {
-
     public int health, tier, money, xp, x;
     public int spawnHealth;
 

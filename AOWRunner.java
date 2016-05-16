@@ -455,7 +455,7 @@ public class AOWRunner extends JPanel implements ActionListener{
 
 
         //Creates base objects
-        baseF = new AOWBase(3000, 300, 25);
+        baseF = new AOWBase(3000, 500, 25);
         baseE = new AOWBase(3000, 300, 1200);
 
 

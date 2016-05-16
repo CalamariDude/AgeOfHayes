@@ -15,6 +15,7 @@ public class AgeOfWar
     static boolean ifGameIsOver=false;
     static int whoWon=0;
 
+    static int gameSpeed = 100;
     static int difficulty;
 
     public static void main(String[] args) throws InterruptedException, IOException  {
@@ -30,6 +31,7 @@ public class AgeOfWar
 
         // play the audio clip with the audioplayer class
         //AudioPlayer.player.start(audioStream);
+
 
         frame.add(game);
         frame.setSize(1300, 700);
