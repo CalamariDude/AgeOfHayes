@@ -53,6 +53,7 @@ public class AgeOfWar
         JLabel xplabel = null;
         Random rand = new Random();
         int randotime=1;
+        int tickTime = 0;
 
         int whenChangeDifficulty = 560;
         int randotype;
@@ -65,6 +66,10 @@ public class AgeOfWar
         {
             String xp = "" + AOWRunner.baseF.getXP();
             String gold = "" + AOWRunner.baseF.getMoney();
+            tickTime++;
+            if(tickTime%AOWRunner.musicLoopVar==0){
+                AOWRunner.restartAudio(AOWRunner.as);
+            }
 
 
 
@@ -475,7 +480,7 @@ public class AgeOfWar
             frame.add(xplabel);
             frame.setVisible(true);
 */
-            Thread.sleep(100);
+            Thread.sleep(gameSpeed);
 
             //System.out.println(AOWRunner.infantriesOFFriendly.size());
             //System.out.println(AOWRunner.baseF.getTier());

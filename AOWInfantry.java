@@ -22,7 +22,7 @@ public class AOWInfantry extends AOWUnit
 		this.health = health;
 		this.cost =cost;
 		this.xpGiver = xpGiver-xpGiver/5;
-		this.goldGiver = cost-(cost/3);
+		this.goldGiver = cost;
         this.walkAnimations = walkAnimations;
 		spawnHealth = health;
 		x = 100;
