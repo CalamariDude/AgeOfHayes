@@ -1,7 +1,5 @@
 import java.awt.*;
-import java.io.File;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class AOWTurrets extends AOWUnit {
     int attackDamage, range,  tier, cost, x, frame;

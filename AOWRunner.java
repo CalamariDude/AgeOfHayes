@@ -1,7 +1,5 @@
 import sun.audio.AudioPlayer;
 import sun.audio.AudioStream;
-import sun.tools.jar.Main;
-
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.BufferedImage;
@@ -9,14 +7,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Random;
-import java.util.concurrent.Future;
 import javax.imageio.ImageIO;
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
 import javax.swing.*;
 
 public class AOWRunner extends JPanel implements ActionListener{
@@ -31,8 +23,10 @@ public class AOWRunner extends JPanel implements ActionListener{
 
     int x;
     int y;
+    //for when the music should loop
     static int musicLoopVar;
 
+    //for audiostreams
     static AudioStream as;
     static AudioStream youWinas;
     static AudioStream youLoseas;
