@@ -22,8 +22,8 @@ public class AOWInfantry extends AOWUnit
 		this.tier = tier;
 		this.health = health;
 		this.cost =cost;
-		this.xpGiver = xpGiver;
-		this.goldGiver = goldGiver;
+		this.xpGiver = xpGiver-xpGiver/5;
+		this.goldGiver = cost-(cost/3);
         this.walkAnimations = walkAnimations;
 		spawnHealth = health;
 		x = 100;
@@ -33,21 +33,21 @@ public class AOWInfantry extends AOWUnit
 
 	}
         //copy constructor for enemy
-    public AOWInfantry(AOWInfantry infant, ArrayList<Image> walkAnimations){
-        this.attackDamage = infant.attackDamage;
-        this.range = infant.range;
-        this.tier = infant.tier;
-        this.health = infant.health;
-        this.cost = infant.cost;
-        this.xpGiver = infant.xpGiver;
-        this.goldGiver = infant.goldGiver;
-        this.walkAnimations = walkAnimations;
-		spawnHealth = health;
+        public AOWInfantry(AOWInfantry infant, ArrayList<Image> walkAnimations){
+            this.attackDamage = infant.attackDamage;
+            this.range = infant.range;
+            this.tier = infant.tier;
+            this.health = infant.health;
+            this.cost = infant.cost;
+            this.xpGiver = infant.xpGiver;
+            this.goldGiver = infant.goldGiver;
+            this.walkAnimations = walkAnimations;
+            spawnHealth = health;
 
-		x=1200;
-		frame = -1;
+            x=1200;
+            frame = -1;
 
-    }
+        }
 
 	public int getX() {
 		return x;

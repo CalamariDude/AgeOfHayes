@@ -10,12 +10,11 @@ import javax.swing.*;
 public class AgeOfWar
 
 {
-
     static boolean onStartMenu = true;
     static boolean ifGameIsOver=false;
     static int whoWon=0;
-
     static int difficulty;
+    static int gameSpeed=50;
 
     public static void main(String[] args) throws InterruptedException, IOException  {
         JFrame frame = new JFrame("Age of Hayes");
@@ -37,13 +36,12 @@ public class AgeOfWar
         frame.setVisible(true);
         frame.setResizable(false);
 
+
         while(onStartMenu == true)
         {
             game.repaint();
         }
 
-
-        //-----------------------------sets up computer ---------------------------
 
         AOWInfantry tempF ;
         int counter= 1;
@@ -52,21 +50,29 @@ public class AgeOfWar
         Random rand = new Random();
         int randotime=1;
 
-        int whenChangeDifficulty = 560;
+        int whenChangeDifficulty = 900;
         int randotype;
         int tier=AOWRunner.baseE.getTier();
         int indexValueOfInfantries;
         AOWRunner.startAudio(AOWRunner.as);
-        //------------------------------------------------------------------------
+        int timetick=0;
+
 
         while (AOWRunner.baseF.getHealth() >= 0 && AOWRunner.baseE.getHealth() >= 0)
         {
+            timetick++;
+
+            if(timetick%AOWRunner.musicLoopVar==0){
+               AOWRunner.restartAudio(AOWRunner.as);
+            }
+
             String xp = "" + AOWRunner.baseF.getXP();
             String gold = "" + AOWRunner.baseF.getMoney();
 
 
 
 
+            //after this amount of time or
             if(AOWRunner.baseE.getTier() < 4)
             {
                 if (counter % whenChangeDifficulty == 0 || AOWRunner.baseF.getTier() > AOWRunner.baseE.getTier()) {
@@ -384,8 +390,7 @@ public class AgeOfWar
 
             AOWTurrets TurrF, TurrE;
             //loop through all posible turrets
-            for(int i = 0; i <1; i++)
-            {
+            for(int i = 0; i <1; i++){
 
 
                 //if the size of the TurretsOFFriendly array is this size
@@ -465,6 +470,17 @@ public class AgeOfWar
             }
 
 
+
+
+
+
+
+
+
+
+
+
+
             game.repaint();
             /*
             xplabel = new JLabel(xp);
@@ -473,15 +489,12 @@ public class AgeOfWar
             frame.add(xplabel);
             frame.setVisible(true);
 */
-            Thread.sleep(100);
+            Thread.sleep(gameSpeed);
 
             //System.out.println(AOWRunner.infantriesOFFriendly.size());
             //System.out.println(AOWRunner.baseF.getTier());
 
-
         }// end of game while loop
-
-
         ifGameIsOver=true;
 
         if(AOWRunner.baseE.getHealth() <= 0 ){
@@ -500,6 +513,8 @@ public class AgeOfWar
         game.repaint();
 
 
+
+        System.out.println("gameover");
 
 
     }
