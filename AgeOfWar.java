@@ -71,6 +71,7 @@ public class AgeOfWar
                 AOWRunner.restartAudio(AOWRunner.as);
             }
 
+            AOWRunner.startAudio(AOWRunner.as);
 
 
 
